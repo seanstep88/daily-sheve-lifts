@@ -1,0 +1,36 @@
+{
+  "date": "Today's Workout",
+  "title": "Full Body Power & Core",
+  "totalSets": "3-4 Sets",
+  "notes": "Rest 60-90s between sets. Focus on slow, controlled eccentric reps.",
+  "exercises": [
+    {
+      "name": "Bodyweight Squats",
+      "target": "3 Sets × 15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://media.giphy.com/media/1qgIPm9bmOhRjANGGF/giphy.gif",
+      "instructions": "Keep chest proud, feet shoulder-width apart, and squat down until thighs are parallel to the floor."
+    },
+    {
+      "name": "Push-Ups",
+      "target": "3 Sets × 12-15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://media.giphy.com/media/WDn21GO1KmpNK/giphy.gif",
+      "instructions": "Hands slightly wider than shoulder-width. Lower until chest nearly touches floor, keep core tight without arching lower back."
+    },
+    {
+      "name": "Dumbbell Bent-Over Row",
+      "target": "3 Sets × 10-12 Reps",
+      "restSeconds": 45,
+      "mediaUrl": "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+      "instructions": "Hinge at hips with flat back. Pull towards hip pocket, squeezing shoulder blades together."
+    },
+    {
+      "name": "Plank Hold",
+      "target": "3 Sets × 45 Seconds",
+      "restSeconds": 45,
+      "mediaUrl": "https://media.giphy.com/media/xT8qBff8cRRFf7k2u4/giphy.gif",
+      "instructions": "Hold rigid plank on forearms. Squeeze glutes and core tight without sagging lower back."
+    }
+  ]
+}

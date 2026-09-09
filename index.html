@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FitStep">
+  <title>Daily Workout | FitStep</title>
+  
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text"><strong>Neve<s>r<s></s></strong>Lifts</strong></span>
+      </div>
+      <div class="header-actions">
+        <button id="resetDataBtn" class="reset-data-btn" title="Reset to default workout" aria-label="Reset workout">
+          <span class="btn-icon">🔄</span>
+          <span class="btn-label">Reset Data</span>
+        </button>
+        <button id="toggleEditBtn" class="edit-mode-btn" title="Edit today's workout" aria-label="Edit workout">
+          <span class="btn-icon">✏️</span>
+          <span class="btn-label">Edit Workout</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- VIEW MODE: Workout details shown to friends/users -->
+    <section id="viewMode" class="workout-view">
+      <!-- Top Banner with Workout Label & Number of Sets -->
+      <div class="workout-banner">
+        <div class="banner-top">
+          <span class="date-badge" id="viewDate">Today's Workout</span>
+          <span class="sets-badge" id="viewSets">3-4 Sets</span>
+        </div>
+        <h1 class="workout-title" id="viewTitle">Daily Workout</h1>
+        <p class="workout-notes" id="viewNotes"></p>
+        
+        <!-- Progress Tracker Bar -->
+        <div class="tracker-card">
+          <div class="tracker-header">
+            <span>Sets Completed: <strong id="completedCount">0</strong> / <span id="totalExerciseCount">0 sets</span></span>
+            <button id="resetProgressBtn" class="text-btn">Reset Checkmarks</button>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise Cards Layout -->
+      <div class="exercises-container" id="exercisesList">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- EDIT MODE: Simple built-in editor to update the workout -->
+    <section id="editMode" class="workout-editor hidden">
+      <div class="editor-header">
+        <h2>Update Daily Workout</h2>
+        <p class="editor-sub">Changes save automatically to your phone/browser and can be exported as your new <code>workout.json</code>.</p>
+      </div>
+
+      <form id="workoutForm" class="editor-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editDate">Date / Label</label>
+            <input type="text" id="editDate" placeholder="e.g., Monday, Oct 24 or Leg Day">
+          </div>
+          <div class="form-group">
+            <label for="editSets">Total Sets (Top Banner)</label>
+            <input type="text" id="editSets" placeholder="e.g., 3-4 Sets, 4 Rounds">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="editTitle">Workout Title</label>
+          <input type="text" id="editTitle" placeholder="e.g., Upper Body Hypertrophy">
+        </div>
+
+        <div class="form-group">
+          <label for="editNotes">General Notes / Warmup Instructions</label>
+          <textarea id="editNotes" rows="2" placeholder="e.g., Warm up 5 min. Focus on slow tempo."></textarea>
+        </div>
+
+        <div class="editor-exercises-section">
+          <div class="section-title-row">
+            <h3>Exercises in Order</h3>
+            <div style="display:flex;gap:8px;">
+              <label class="btn-secondary" style="cursor:pointer;display:inline-flex;align-items:center;" title="Import workout.json from computer">
+                📂 Import JSON
+                <input type="file" id="importJsonFileInput" accept=".json" style="display:none;">
+              </label>
+              <button type="button" id="addExerciseBtn" class="btn-secondary">+ Add Exercise</button>
+            </div>
+          </div>
+
+          <div id="editorExercisesList" class="editor-exercise-cards">
+            <!-- Dynamic exercise edit cards -->
+          </div>
+        </div>
+
+        <div class="editor-actions">
+          <button type="button" id="saveAndApplyBtn" class="btn-primary">💾 Save & Preview Live</button>
+          <button type="button" id="downloadJsonBtn" class="btn-secondary" title="Download workout.json to commit to GitHub">📥 Download workout.json</button>
+          <button type="button" id="cancelEditBtn" class="btn-ghost">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Sticky Rest Timer Floating Overlay -->
+  <div id="restTimerOverlay" class="timer-overlay hidden">
+    <div class="timer-card">
+      <div class="timer-info">
+        <span class="timer-label">⏱️ Rest Timer</span>
+        <span class="timer-digits" id="timerDigits">00:45</span>
+      </div>
+      <div class="timer-controls">
+        <button id="add15SecBtn" class="timer-pill-btn">+15s</button>
+        <button id="stopTimerBtn" class="timer-pill-btn stop-btn">✕ Stop</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>FitStep • Tap any exercise checkbox when completed</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
