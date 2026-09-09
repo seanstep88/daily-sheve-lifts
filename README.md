@@ -1,4 +1,4 @@
-# Fit Step by Step — Free Daily Workout Web App
+# FitStep ⚡ — Free Daily Workout Web App
 
 A clean, mobile-first workout app designed to be hosted for free on **GitHub Pages** (or Netlify/Vercel) and saved directly as an app icon to any iPhone or Android home screen.
 

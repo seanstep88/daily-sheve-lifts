@@ -7,11 +7,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="FitStep">
-  <title>Daily Workout | Steps by Step</title>
+  <title>Daily Workout | FitStep</title>
   
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="icon" type="image/svg+xml" href="apple-touch-icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,7 @@
     <div class="header-container">
       <div class="logo">
         <span class="logo-icon">🐷</span>
-        <span class="logo-text"><strong>Neve<s>r</s></strong>Lifts</strong></span>
+        <span class="logo-text">Daily<strong>SheveLifts</strong></span>
       </div>
       <div class="header-actions">
         <button id="resetDataBtn" class="reset-data-btn" title="Reset to default workout" aria-label="Reset workout">
@@ -116,8 +117,26 @@
           </div>
         </div>
 
+        <!-- Cloud Sync / Admin Settings (for 100% free automatic updates to friends) -->
+        <div class="cloud-sync-card">
+          <div class="cloud-sync-header">
+            <h4>🌐 Live Cloud Sync Settings</h4>
+            <span class="sync-status-badge" id="syncStatusBadge">Offline Mode</span>
+          </div>
+          <p class="cloud-sync-help">Connect a free JSONBin or GitHub Token so when you click Save on your phone, it automatically updates the workout for all your friends instantly.</p>
+          
+          <div class="form-group" style="margin-top:10px;">
+            <label for="cloudBinId">JSONBin Bin ID (or Public Bin URL)</label>
+            <input type="text" id="cloudBinId" placeholder="e.g., 6789abcde... (paste your free JSONBin ID)">
+          </div>
+          <div class="form-group">
+            <label for="cloudApiKey">Master Key / Access Key</label>
+            <input type="password" id="cloudApiKey" placeholder="e.g., $2a$10$... (stored securely only in your own browser)">
+          </div>
+        </div>
+
         <div class="editor-actions">
-          <button type="button" id="saveAndApplyBtn" class="btn-primary">💾 Save & Preview Live</button>
+          <button type="button" id="saveAndApplyBtn" class="btn-primary">💾 Save & Publish to Friends</button>
           <button type="button" id="downloadJsonBtn" class="btn-secondary" title="Download workout.json to commit to GitHub">📥 Download workout.json</button>
           <button type="button" id="cancelEditBtn" class="btn-ghost">Cancel</button>
         </div>
