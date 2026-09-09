@@ -35,9 +35,10 @@ body {
   color: var(--text-primary);
   line-height: 1.5;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  padding-bottom: 80px;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
 }
 
 /* App Header */
@@ -45,11 +46,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 15, 25, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(11, 15, 25, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
-  padding: 12px 16px;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px 16px;
+  width: 100%;
 }
 
 .header-container {
@@ -545,7 +547,7 @@ body {
 /* Floating Sticky Rest Timer */
 .timer-overlay {
   position: fixed;
-  bottom: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;

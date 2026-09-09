@@ -1,0 +1,22 @@
+{
+  "date": "Sample Push Day",
+  "title": "Chest, Shoulders & Triceps",
+  "totalSets": "3-4 Sets",
+  "notes": "Rest 60-90s between sets. Focus on chest squeeze at top.",
+  "exercises": [
+    {
+      "name": "Dumbbell Bench Press",
+      "target": "4 Sets × 10-12 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://media.giphy.com/media/WDn21GO1KmpNK/giphy.gif",
+      "instructions": "Keep shoulder blades retracted and elbows at 45 degrees."
+    },
+    {
+      "name": "Lateral Raises",
+      "target": "3 Sets × 12-15 Reps",
+      "restSeconds": 45,
+      "mediaUrl": "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+      "instructions": "Lead with elbows and avoid swinging the weights."
+    }
+  ]
+}
