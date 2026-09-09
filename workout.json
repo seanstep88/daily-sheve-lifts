@@ -1,35 +1,35 @@
 {
   "date": "Steptember 8, 2026",
-  "title": "Biceps, Triceps, and Back",
-  "totalSets": "4 Sets",
+  "title": "Triceps and Shoulders",
+  "totalSets": "3 Sets",
   "notes": "Slow and controlled reps",
   "exercises": [
     {
-      "name": "Dumbbell bicep curls",
-      "target": "15 reps",
-      "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/2/4/7/6/4/24764.gif",
+      "name": "Incline dumbbell bench press",
+      "target": "10-12 reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif",
       "instructions": "Medium weight, should burn by the end"
     },
     {
-      "name": "Dumbbell single arm bent over row",
-      "target": "10-12 Reps",
-      "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/1/0/4/0/3/10403.gif",
-      "instructions": "Last few reps should be tough"
+      "name": "Dumbbell lateral raises",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://gymvisual.com/img/p/1/9/1/5/1/19151.gif",
+      "instructions": "Go light-medium weight, these can be tough"
     },
     {
-      "name": "Triceps rope pushdown",
-      "target": "10-12 Reps",
-      "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/5/9/1/5/5915.gif",
-      "instructions": "Go heavy as long as you can keep your chest high"
+      "name": "Dumbbell Tricep Extension",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "https://gymvisual.com/img/p/1/1/7/0/8/11708.gif",
+      "instructions": "both arms 10-12 reps"
     },
     {
-      "name": "Plank Hold",
-      "target": "45 Seconds",
-      "restSeconds": 45,
-      "mediaUrl": "https://media.giphy.com/media/xT8qBff8cRRFf7k2u4/giphy.gif",
+      "name": "Dumbbell front raises",
+      "target": "8-10 Reps",
+      "restSeconds": 120,
+      "mediaUrl": "https://gymvisual.com/img/p/2/4/9/4/0/24940.gif",
       "instructions": "Squeeze butt and core!"
     }
   ]
