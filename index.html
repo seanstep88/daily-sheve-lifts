@@ -57,7 +57,7 @@
         <div class="tracker-card">
           <div class="tracker-header">
             <span>Sets Completed: <strong id="completedCount">0</strong> / <span id="totalExerciseCount">0 sets</span></span>
-            <button id="resetProgressBtn" class="text-btn">Reset Checkmarks</button>
+            <button type="button" id="resetProgressBtn" class="text-btn" onclick="resetWorkoutCheckmarks()">Reset Checkmarks</button>
           </div>
           <div class="progress-bar-bg">
             <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
@@ -152,8 +152,8 @@
         <span class="timer-digits" id="timerDigits">00:45</span>
       </div>
       <div class="timer-controls">
-        <button id="add15SecBtn" class="timer-pill-btn">+15s</button>
-        <button id="stopTimerBtn" class="timer-pill-btn stop-btn">✕ Stop</button>
+        <button type="button" id="add15SecBtn" class="timer-pill-btn" onclick="add15SecondsToTimer()">+15s</button>
+        <button type="button" id="stopTimerBtn" class="timer-pill-btn stop-btn" onclick="stopRestTimer()">✕ Stop</button>
       </div>
     </div>
   </div>

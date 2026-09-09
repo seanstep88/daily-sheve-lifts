@@ -300,21 +300,23 @@ function updateProgressDisplay() {
   });
 
   const doneSetsCount = completedSets.size;
-  completedCountEl.textContent = doneSetsCount;
-  totalExerciseCountEl.textContent = `${totalSetsCount} sets`;
+  if (completedCountEl) completedCountEl.textContent = doneSetsCount;
+  if (totalExerciseCountEl) totalExerciseCountEl.textContent = `${totalSetsCount} sets`;
   
   const pct = totalSetsCount > 0 ? Math.min(100, Math.round((doneSetsCount / totalSetsCount) * 100)) : 0;
-  progressBarEl.style.width = `${pct}%`;
+  if (progressBarEl) progressBarEl.style.width = `${pct}%`;
 }
 
 // 4. Timer Feature
 window.startRestTimer = function(seconds) {
   clearInterval(timerInterval);
-  remainingSeconds = parseInt(seconds, 10);
-  restTimerOverlay.classList.remove('hidden');
+  remainingSeconds = parseInt(seconds, 10) || 60;
+  if (restTimerOverlay) {
+    restTimerOverlay.classList.remove('hidden');
+  }
   updateTimerDisplay();
 
-  // Gentle audio beep via Web Audio API when finished
+  // Gentle audio chime via Web Audio API when finished
   timerInterval = setInterval(() => {
     remainingSeconds--;
     if (remainingSeconds <= 0) {
@@ -323,12 +325,35 @@ window.startRestTimer = function(seconds) {
       updateTimerDisplay();
       playBeep();
       setTimeout(() => {
-        restTimerOverlay.classList.add('hidden');
+        if (restTimerOverlay) {
+          restTimerOverlay.classList.add('hidden');
+        }
       }, 2500);
     } else {
       updateTimerDisplay();
     }
   }, 1000);
+};
+
+window.stopRestTimer = function() {
+  clearInterval(timerInterval);
+  remainingSeconds = 0;
+  if (restTimerOverlay) {
+    restTimerOverlay.classList.add('hidden');
+  }
+};
+
+window.add15SecondsToTimer = function() {
+  remainingSeconds += 15;
+  updateTimerDisplay();
+};
+
+window.resetWorkoutCheckmarks = function() {
+  if (confirm('Reset today’s completed checkmarks?')) {
+    completedSets.clear();
+    saveProgress();
+    renderWorkoutView();
+  }
 };
 
 function updateTimerDisplay() {
