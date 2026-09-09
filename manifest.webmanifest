@@ -1,6 +1,6 @@
 {
-  "name": "FitStep Workout",
-  "short_name": "FitStep",
+  "name": "Sheve Workout",
+  "short_name": "Sheve Lifting",
   "description": "Daily workout routine with exercise GIFs and rest timers",
   "start_url": "./index.html",
   "display": "standalone",
