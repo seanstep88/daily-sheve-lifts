@@ -6,31 +6,31 @@
   "exercises": [
     {
       "name": "Incline dumbbell bench press",
-      "target": "10-12 reps",
+      "target": "8-10 reps",
       "restSeconds": 60,
       "mediaUrl": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif",
       "instructions": "Medium weight, should burn by the end"
     },
     {
       "name": "Dumbbell lateral raises",
-      "target": "8-10 Reps",
+      "target": "15 Reps",
       "restSeconds": 60,
       "mediaUrl": "https://gymvisual.com/img/p/1/9/1/5/1/19151.gif",
-      "instructions": "Go light-medium weight, these can be tough"
+      "instructions": "Go light weight, these can be tough"
     },
     {
       "name": "Dumbbell Tricep Extension",
       "target": "8-10 Reps",
       "restSeconds": 60,
       "mediaUrl": "https://gymvisual.com/img/p/1/1/7/0/8/11708.gif",
-      "instructions": "both arms 10-12 reps"
+      "instructions": "both arms 8-10 reps"
     },
     {
       "name": "Dumbbell front raises",
-      "target": "8-10 Reps",
+      "target": "15 Reps",
       "restSeconds": 120,
       "mediaUrl": "https://gymvisual.com/img/p/2/4/9/4/0/24940.gif",
-      "instructions": "Squeeze butt and core!"
+      "instructions": "Also can be hard, go light weight"
     }
   ]
 }
