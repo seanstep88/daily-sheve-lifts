@@ -7,15 +7,15 @@
       "sets": [
         {
           "set": 1,
-          "weight": "12"
+          "weight": "15"
         },
         {
           "set": 2,
-          "weight": "10"
+          "weight": "15"
         },
         {
           "set": 3,
-          "weight": "10"
+          "weight": "15"
         }
       ]
     },
@@ -24,15 +24,15 @@
       "sets": [
         {
           "set": 1,
-          "weight": "10"
+          "weight": "8"
         },
         {
           "set": 2,
-          "weight": "10"
+          "weight": "8"
         },
         {
           "set": 3,
-          "weight": "10"
+          "weight": "8"
         }
       ]
     },
@@ -41,15 +41,15 @@
       "sets": [
         {
           "set": 1,
-          "weight": "20"
+          "weight": "8"
         },
         {
           "set": 2,
-          "weight": "20"
+          "weight": "8"
         },
         {
           "set": 3,
-          "weight": "30"
+          "weight": "8"
         }
       ]
     },
@@ -58,15 +58,15 @@
       "sets": [
         {
           "set": 1,
-          "weight": ""
+          "weight": "8"
         },
         {
           "set": 2,
-          "weight": ""
+          "weight": "8"
         },
         {
           "set": 3,
-          "weight": ""
+          "weight": "8"
         }
       ]
     }
