@@ -766,12 +766,12 @@ function calcTotalVolume() {
 }
 
 const WEIGHT_ITEMS = [
-  { max: 300,   emoji: '🐾', text: 'a Villanova Wildcat plushie' },
+  { max: 300,   emoji: '🐾', text: 'about one Shawn 🐑' },
   { max: 700,   emoji: '🚒', text: 'a NYC fire hydrant' },
   { max: 1200,  emoji: '🥩', text: 'a Philly cheesesteak catering order' },
-  { max: 2000,  emoji: '🐗', text: "a wild boar (Neve's spirit animal)" },
+  { max: 2000,  emoji: '🐗', text: "a wild boar (pig who lifts?)" },
   { max: 3500,  emoji: '🎹', text: 'a baby grand piano' },
-  { max: 6000,  emoji: '🏀', text: 'a Villanova basketball team (one player)' },
+  { max: 6000,  emoji: '🏀', text: 'the Villanova basketball team' },
   { max: 10000, emoji: '🚕', text: 'a NYC yellow taxi cab' },
   { max: 18000, emoji: '🦕', text: 'a T-Rex skull replica' },
   { max: 30000, emoji: '🚡', text: 'an aerial tramway car' },
@@ -835,12 +835,11 @@ async function showCelebration() {
   });
 
   // Populate DOM
-  document.getElementById('celebTitle').textContent = 'Amazing work, Neve! 🐷';
+  document.getElementById('celebTitle').textContent = "You're ripped, Neve 🐷";
   document.getElementById('celebVolume').innerHTML =
-    volume > 0 ? `Total volume: <strong>${volume.toLocaleString()} lbs</strong> lifted` : 'Great job completing your workout!';
+    volume > 0 ? `You lifted <strong>${volume.toLocaleString()} lbs</strong>. That's the equivalent of ${item.emoji} ${item.text}!` : 'Great job completing your workout!';
   document.getElementById('celebItemEmoji').textContent = item.emoji;
-  document.getElementById('celebItemText').textContent =
-    volume > 0 ? `You lifted the equivalent of ${item.text}!` : 'Every rep counts!';
+  document.getElementById('celebItemText').textContent = item.text;
   document.getElementById('celebRecap').innerHTML = recapHtml;
 
   // Switch views
