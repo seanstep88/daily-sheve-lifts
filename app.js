@@ -6,9 +6,8 @@ const UNDER_CONSTRUCTION = false;
 const STORAGE_KEY = 'fitstep_daily_workout';
 const PROGRESS_KEY = 'fitstep_progress_state_v2';
 const WEIGHTS_KEY = 'fitstep_weights_v1';
-// 📬 GitHub Repo — weight log delivery
-const GITHUB_TOKEN = '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';
-const GITHUB_REPO = 'seanstep88/daily-sheve-lifts';
+// 📬 Cloudflare Worker proxy URL — paste your worker URL here after deploying
+const WORKER_URL = 'https://daily-sheve-lifts.sean-stepanek08.workers.dev';
 
 // Known workout dates — update this list when new workouts/YYYY-MM-DD.json files are added
 const WORKOUT_DATES = [
@@ -408,40 +407,17 @@ async function sendWeightsToGist() {
   btn.disabled = true;
 
   const date = new Date().toISOString().slice(0, 10);
-  const path = `logs/${date}.json`;
-  const summary = compileWeightSummary();
-  const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
-  const headers = {
-    'Authorization': `Bearer ${GITHUB_TOKEN}`,
-    'Content-Type': 'application/json'
-  };
+  const content = compileWeightSummary();
 
   try {
-    // Check if file already exists (need its SHA to update)
-    let sha = null;
-    const checkRes = await fetch(apiUrl, { headers });
-    if (checkRes.ok) {
-      const existing = await checkRes.json();
-      sha = existing.sha;
-    }
-
-    const body = {
-      message: `weight log: ${date}`,
-      content: btoa(unescape(encodeURIComponent(summary))),
-      ...(sha ? { sha } : {})
-    };
-
-    const res = await fetch(apiUrl, {
-      method: 'PUT',
-      headers,
-      body: JSON.stringify(body)
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date, content }),
     });
 
-    if (!res.ok) {
-      const errBody = await res.json().catch(() => ({}));
-      console.error('GitHub error', res.status, errBody);
-      throw new Error(`${res.status}: ${errBody.message || 'unknown'}`);
-    }
+    const json = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(`${res.status}: ${json.error || 'unknown'}`);
 
     btn.textContent = '✅ Sent!';
     setTimeout(() => {
