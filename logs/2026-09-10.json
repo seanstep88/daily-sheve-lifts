@@ -1,88 +1,72 @@
 {
-  "title": "Biceps, Triceps, and Back",
+  "title": "Triceps and Shoulders",
   "date": "2026-09-10",
   "exercises": [
     {
-      "name": "Dumbbell bicep curls",
+      "name": "Incline dumbbell bench press",
       "sets": [
         {
           "set": 1,
-          "weight": "5"
+          "weight": ""
         },
         {
           "set": 2,
-          "weight": "5"
+          "weight": ""
         },
         {
           "set": 3,
-          "weight": "5"
-        },
-        {
-          "set": 4,
-          "weight": "5"
+          "weight": ""
         }
       ]
     },
     {
-      "name": "Dumbbell single arm bent over row",
+      "name": "Dumbbell lateral raises",
       "sets": [
         {
           "set": 1,
-          "weight": "5"
+          "weight": ""
         },
         {
           "set": 2,
-          "weight": "5"
+          "weight": ""
         },
         {
           "set": 3,
-          "weight": "5"
-        },
-        {
-          "set": 4,
-          "weight": "5"
+          "weight": ""
         }
       ]
     },
     {
-      "name": "Triceps rope pushdown",
+      "name": "Dumbbell Tricep Extension",
       "sets": [
         {
           "set": 1,
-          "weight": "17.5"
+          "weight": ""
         },
         {
           "set": 2,
-          "weight": "17.5"
+          "weight": ""
         },
         {
           "set": 3,
-          "weight": "17.5"
-        },
-        {
-          "set": 4,
-          "weight": "17.5"
+          "weight": ""
         }
       ]
     },
     {
-      "name": "Plank Hold",
+      "name": "Dumbbell front raises",
       "sets": [
         {
           "set": 1,
-          "weight": "0"
+          "weight": ""
         },
         {
           "set": 2,
-          "weight": "0"
+          "weight": ""
         },
         {
           "set": 3,
-          "weight": "0"
-        },
-        {
-          "set": 4,
-          "weight": "0"
+          "weight": ""
         }
       ]
     }
