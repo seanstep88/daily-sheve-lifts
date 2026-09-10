@@ -1,0 +1,105 @@
+{
+  "lastUpdated": "2026-09-10T05:54:37.753Z",
+  "totalSessions": 1,
+  "personalRecords": {
+    "Incline dumbbell bench press": {
+      "date": "2026-09-10",
+      "weight": 15
+    },
+    "Dumbbell lateral raises": {
+      "date": "2026-09-10",
+      "weight": 8
+    },
+    "Dumbbell Tricep Extension": {
+      "date": "2026-09-10",
+      "weight": 8
+    },
+    "Dumbbell front raises": {
+      "date": "2026-09-10",
+      "weight": 7
+    }
+  },
+  "trends": {},
+  "weeklyVolume": {
+    "Incline dumbbell bench press": 45,
+    "Dumbbell lateral raises": 24,
+    "Dumbbell Tricep Extension": 24,
+    "Dumbbell front raises": 21
+  },
+  "recentSessions": [
+    {
+      "date": "2026-09-10",
+      "title": "Triceps and Shoulders",
+      "exercises": [
+        {
+          "name": "Incline dumbbell bench press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "15"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell lateral raises",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell Tricep Extension",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell front raises",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "7"
+            },
+            {
+              "set": 2,
+              "weight": "7"
+            },
+            {
+              "set": 3,
+              "weight": "7"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
