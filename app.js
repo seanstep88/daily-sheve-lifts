@@ -1141,10 +1141,14 @@ function setupEventListeners() {
   const homeToWorkoutBtn = document.getElementById('homeToWorkoutBtn');
   if (homeToWorkoutBtn) {
     homeToWorkoutBtn.addEventListener('click', async () => {
-      await loadWorkoutData();
-      renderWorkoutView();
       homeView.classList.add('hidden');
-      viewMode.classList.remove('hidden');
+      if (UNDER_CONSTRUCTION) {
+        document.getElementById('underConstruction').classList.remove('hidden');
+      } else {
+        await loadWorkoutData();
+        renderWorkoutView();
+        viewMode.classList.remove('hidden');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
