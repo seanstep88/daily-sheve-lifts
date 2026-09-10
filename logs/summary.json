@@ -1,113 +1,84 @@
 {
-  "lastUpdated": "2026-09-10T07:14:34.075Z",
+  "lastUpdated": "2026-09-10T20:24:56.307Z",
   "totalSessions": 1,
-  "personalRecords": {
-    "Dumbbell bicep curls": {
-      "date": "2026-09-10",
-      "weight": 5
-    },
-    "Dumbbell single arm bent over row": {
-      "date": "2026-09-10",
-      "weight": 5
-    },
-    "Triceps rope pushdown": {
-      "date": "2026-09-10",
-      "weight": 17.5
-    }
-  },
+  "personalRecords": {},
   "trends": {},
   "weeklyVolume": {
-    "Dumbbell bicep curls": 20,
-    "Dumbbell single arm bent over row": 20,
-    "Triceps rope pushdown": 70,
-    "Plank Hold": 0
+    "Incline dumbbell bench press": 0,
+    "Dumbbell lateral raises": 0,
+    "Dumbbell Tricep Extension": 0,
+    "Dumbbell front raises": 0
   },
   "recentSessions": [
     {
       "date": "2026-09-10",
-      "title": "Biceps, Triceps, and Back",
+      "title": "Triceps and Shoulders",
       "exercises": [
         {
-          "name": "Dumbbell bicep curls",
+          "name": "Incline dumbbell bench press",
           "sets": [
             {
               "set": 1,
-              "weight": "5"
+              "weight": ""
             },
             {
               "set": 2,
-              "weight": "5"
+              "weight": ""
             },
             {
               "set": 3,
-              "weight": "5"
-            },
-            {
-              "set": 4,
-              "weight": "5"
+              "weight": ""
             }
           ]
         },
         {
-          "name": "Dumbbell single arm bent over row",
+          "name": "Dumbbell lateral raises",
           "sets": [
             {
               "set": 1,
-              "weight": "5"
+              "weight": ""
             },
             {
               "set": 2,
-              "weight": "5"
+              "weight": ""
             },
             {
               "set": 3,
-              "weight": "5"
-            },
-            {
-              "set": 4,
-              "weight": "5"
+              "weight": ""
             }
           ]
         },
         {
-          "name": "Triceps rope pushdown",
+          "name": "Dumbbell Tricep Extension",
           "sets": [
             {
               "set": 1,
-              "weight": "17.5"
+              "weight": ""
             },
             {
               "set": 2,
-              "weight": "17.5"
+              "weight": ""
             },
             {
               "set": 3,
-              "weight": "17.5"
-            },
-            {
-              "set": 4,
-              "weight": "17.5"
+              "weight": ""
             }
           ]
         },
         {
-          "name": "Plank Hold",
+          "name": "Dumbbell front raises",
           "sets": [
             {
               "set": 1,
-              "weight": "0"
+              "weight": ""
             },
             {
               "set": 2,
-              "weight": "0"
+              "weight": ""
             },
             {
               "set": 3,
-              "weight": "0"
-            },
-            {
-              "set": 4,
-              "weight": "0"
+              "weight": ""
             }
           ]
         }
