@@ -118,3 +118,31 @@ Add a sticky "Send Weights 📬" button that appears once any weight field has b
 3. Create an **Email Template** with these variables: `{{workout_title}}`, `{{workout_date}}`, `{{weight_summary}}` → copy the **Template ID**
 4. Go to Account → **Public Key** → copy it
 5. Paste all three into the constants at the top of `app.js`
+
+---
+
+## Exercise Videos (Next Session)
+
+**Goal:** Replace external GIF links with local MP4s for all exercises for reliability and speed.
+
+**How it works:**
+- Download each exercise clip (yt-dlp or manual), trim to 5-15 seconds
+- Save to `exercises/videos/exercise-name.mp4`
+- Update `mediaUrl` in the relevant workout JSON to `exercises/videos/exercise-name.mp4`
+- Commit and push — GitHub Pages serves them directly
+
+**Exercises to update (current workout.json):**
+- [ ] Incline dumbbell bench press — `exercises/videos/incline-db-press.mp4`
+- [x] Dumbbell Tricep Extension — `exercises/videos/tricep-extension.mp4` ✅
+- [ ] Dumbbell lateral raises — `exercises/videos/lateral-raises.mp4`
+- [ ] Dumbbell front raises — `exercises/videos/front-raises.mp4`
+
+**Also update workouts/ files:**
+- [ ] `workouts/2026-09-08.json` — replace any external GIF URLs
+- [ ] `workouts/2026-09-09.json` — replace any external GIF URLs
+
+**Notes:**
+- Use `yt-dlp -f mp4 <url> -o "exercises/videos/<name>.mp4"` to download
+- MP4s are 5-10x smaller than GIFs and load faster on mobile
+- The app already auto-detects `.mp4` extension and uses a `<video>` tag
+

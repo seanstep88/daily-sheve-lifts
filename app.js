@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (UNDER_CONSTRUCTION) {
     document.getElementById('underConstruction').classList.remove('hidden');
     document.getElementById('viewMode').classList.add('hidden');
+    // Still allow calendar browsing of past workouts
+    setupEventListeners();
     return;
   }
   loadProgress();
@@ -1101,7 +1103,11 @@ function setupEventListeners() {
   if (calendarCloseBtn) {
     calendarCloseBtn.addEventListener('click', () => {
       calendarView.classList.add('hidden');
-      viewMode.classList.remove('hidden');
+      if (UNDER_CONSTRUCTION) {
+        document.getElementById('underConstruction').classList.remove('hidden');
+      } else {
+        viewMode.classList.remove('hidden');
+      }
     });
   }
 
