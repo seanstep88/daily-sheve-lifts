@@ -29,6 +29,7 @@ const viewMode = document.getElementById('viewMode');
 const editMode = document.getElementById('editMode');
 const calendarView = document.getElementById('calendarView');
 const homeView = document.getElementById('homeView');
+const celebrationView = document.getElementById('celebrationView');
 const toggleEditBtn = document.getElementById('toggleEditBtn');
 const cancelEditBtn = document.getElementById('cancelEditBtn');
 const saveAndApplyBtn = document.getElementById('saveAndApplyBtn');
@@ -44,8 +45,6 @@ const viewSets = document.getElementById('viewSets');
 const viewTitle = document.getElementById('viewTitle');
 const viewNotes = document.getElementById('viewNotes');
 const exercisesList = document.getElementById('exercisesList');
-const completedCountEl = document.getElementById('completedCount');
-const totalExerciseCountEl = document.getElementById('totalExerciseCount');
 const progressBarEl = document.getElementById('progressBar');
 
 // Edit Form Inputs
@@ -239,8 +238,8 @@ function renderWorkoutView() {
             placeholder="lb"
             data-ex-idx="${exIdx}"
             data-set-idx="${s}"
-            oninput="onWeightInput()"
-            onblur="onWeightBlur(${exIdx}, ${s}, this.value)"
+            oninput="onWeightInput(this)"
+            onblur="onWeightBlur(${exIdx}, ${s}, this.value, this)"
           >
         </div>
       `;
@@ -291,7 +290,10 @@ function renderWorkoutView() {
   });
 
   updateProgressDisplay();
-  loadWeightsIntoDOM();
+  const hadSavedWeights = loadWeightsIntoDOM();
+  if (!hadSavedWeights) {
+    autoFillLastWeights();
+  }
 }
 
 // Toggle GIF collapse/expand state for discreet gym viewing
@@ -336,17 +338,20 @@ function getWeightStorageKey() {
   return `${WEIGHTS_KEY}_${workoutData ? (workoutData.date || 'default') : 'default'}`;
 }
 
-window.onWeightInput = function() {
+window.onWeightInput = function(el) {
+  if (el) el.classList.remove('weight-input--autofill');
   saveWeights();
 };
 
-window.onWeightBlur = function(exIdx, setIdx, value) {
+window.onWeightBlur = function(exIdx, setIdx, value, el) {
+  if (el) el.classList.remove('weight-input--autofill');
   // Auto-fill remaining empty sets only when user finishes typing (on blur)
   if (setIdx === 1 && value !== '') {
     const allInputs = document.querySelectorAll(`.weight-input[data-ex-idx="${exIdx}"]`);
     allInputs.forEach(input => {
       if (parseInt(input.dataset.setIdx) > 1 && input.value === '') {
         input.value = value;
+        input.classList.remove('weight-input--autofill');
       }
     });
     saveWeights();
@@ -366,20 +371,24 @@ function saveWeights() {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
+// Returns true if any saved weights were loaded (used to decide whether to auto-fill)
 function loadWeightsIntoDOM() {
-  if (!workoutData) return;
+  if (!workoutData) return false;
   const key = getWeightStorageKey();
   const saved = localStorage.getItem(key);
-  if (!saved) return;
+  if (!saved) return false;
+  let found = false;
   try {
     const data = JSON.parse(saved);
     Object.entries(data).forEach(([exIdx, sets]) => {
       Object.entries(sets).forEach(([setIdx, value]) => {
+        if (!value) return;
         const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"]`);
-        if (input) input.value = value;
+        if (input) { input.value = value; found = true; }
       });
     });
   } catch (e) { /* ignore */ }
+  return found;
 }
 
 function compileWeightSummary() {
@@ -403,10 +412,6 @@ function compileWeightSummary() {
 }
 
 async function sendWeightsToGist() {
-  const btn = document.getElementById('sendWeightsBtn');
-  btn.textContent = '⏳ Sending…';
-  btn.disabled = true;
-
   const date = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
   const content = compileWeightSummary();
 
@@ -416,30 +421,14 @@ async function sendWeightsToGist() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ date, content }),
     });
-
     const json = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(`${res.status}: ${json.error || 'unknown'}`);
-
-    btn.textContent = '✅ Sent!';
-    setTimeout(() => {
-      btn.textContent = '📬 Send Weights to Sean';
-      btn.disabled = false;
-    }, 2500);
   } catch (err) {
-    console.error('sendWeights failed:', err);
-    btn.textContent = `❌ ${err.message}`;
-    btn.disabled = false;
+    console.error('sendWeightsToGist failed silently:', err);
   }
 }
 
 function updateProgressDisplay() {
-  if (workoutData?.underConstruction) {
-    if (completedCountEl) completedCountEl.textContent = "0";
-    if (totalExerciseCountEl) totalExerciseCountEl.textContent = "0 sets";
-    if (progressBarEl) progressBarEl.style.width = "0%";
-    return;
-  }
-
   const exercises = workoutData?.exercises || [];
   const bannerSets = workoutData?.totalSets || "3 Sets";
   
@@ -449,11 +438,22 @@ function updateProgressDisplay() {
   });
 
   const doneSetsCount = completedSets.size;
+
+  // Restore sets completed text
+  const completedCountEl = document.getElementById('completedCount');
+  const totalExerciseCountEl = document.getElementById('totalExerciseCount');
   if (completedCountEl) completedCountEl.textContent = doneSetsCount;
   if (totalExerciseCountEl) totalExerciseCountEl.textContent = `${totalSetsCount} sets`;
-  
+
   const pct = totalSetsCount > 0 ? Math.min(100, Math.round((doneSetsCount / totalSetsCount) * 100)) : 0;
   if (progressBarEl) progressBarEl.style.width = `${pct}%`;
+
+  // Show Complete Workout button only when all sets are done
+  const completeBtn = document.getElementById('completeWorkoutBtn');
+  if (completeBtn) {
+    const allDone = totalSetsCount > 0 && doneSetsCount >= totalSetsCount;
+    completeBtn.classList.toggle('hidden', !allDone);
+  }
 }
 
 // 4. Timer Feature
@@ -733,6 +733,245 @@ function collectFormData() {
   };
 }
 
+// 7. Celebration / Volume Helpers
+
+// Extracts rep count from strings like "15 Reps", "8-10 Reps", "3 Sets × 10 Reps". Returns upper bound. Default 10.
+function parseRepCount(targetStr) {
+  if (!targetStr) return 10;
+  // "8-10 Reps" → use 10
+  const rangeMatch = targetStr.match(/(\d+)\s*[-–]\s*(\d+)\s*reps?/i);
+  if (rangeMatch) return parseInt(rangeMatch[2], 10);
+  // "15 Reps" or "× 15 Reps"
+  const singleMatch = targetStr.match(/[×x]?\s*(\d+)\s*reps?/i);
+  if (singleMatch) return parseInt(singleMatch[1], 10);
+  return 10;
+}
+
+// Sums weight × reps across all sets/exercises from the current DOM
+function calcTotalVolume() {
+  if (!workoutData) return 0;
+  const exercises = workoutData.exercises || [];
+  const bannerSets = workoutData.totalSets || '3 Sets';
+  let total = 0;
+  exercises.forEach((ex, exIdx) => {
+    const reps = parseRepCount(ex.target);
+    const setCount = getSetCount(bannerSets, ex.target);
+    for (let s = 1; s <= setCount; s++) {
+      const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
+      const w = input ? parseFloat(input.value) : 0;
+      if (w > 0) total += w * reps;
+    }
+  });
+  return Math.round(total);
+}
+
+const WEIGHT_ITEMS = [
+  { max: 300,   emoji: '🐾', text: 'a Villanova Wildcat plushie' },
+  { max: 700,   emoji: '🚒', text: 'a NYC fire hydrant' },
+  { max: 1200,  emoji: '🥩', text: 'a Philly cheesesteak catering order' },
+  { max: 2000,  emoji: '🐗', text: "a wild boar (Neve's spirit animal)" },
+  { max: 3500,  emoji: '🎹', text: 'a baby grand piano' },
+  { max: 6000,  emoji: '🏀', text: 'a Villanova basketball team (one player)' },
+  { max: 10000, emoji: '🚕', text: 'a NYC yellow taxi cab' },
+  { max: 18000, emoji: '🦕', text: 'a T-Rex skull replica' },
+  { max: 30000, emoji: '🚡', text: 'an aerial tramway car' },
+  { max: 50000, emoji: '🔔', text: 'the Liberty Bell' },
+  { max: Infinity, emoji: '⛴️', text: 'a Staten Island Ferry' },
+];
+
+function getWeightItem(volumeLbs) {
+  return WEIGHT_ITEMS.find(item => volumeLbs < item.max) || WEIGHT_ITEMS[WEIGHT_ITEMS.length - 1];
+}
+
+const SUMMARY_URL = 'https://raw.githubusercontent.com/seanstep88/daily-sheve-lifts/main/logs/summary.json';
+
+async function showCelebration() {
+  // Fire send to GitHub (non-blocking)
+  sendWeightsToGist();
+
+  const volume = calcTotalVolume();
+  const item = getWeightItem(volume);
+
+  // Fetch PR data silently
+  let prData = {};
+  try {
+    const res = await fetch(SUMMARY_URL + '?t=' + Date.now());
+    if (res.ok) {
+      const json = await res.json();
+      prData = json.personalRecords || {};
+    }
+  } catch (e) { /* ignore */ }
+
+  // Build recap HTML
+  const exercises = workoutData?.exercises || [];
+  const bannerSets = workoutData?.totalSets || '3 Sets';
+  let recapHtml = '';
+  exercises.forEach((ex, exIdx) => {
+    const setCount = getSetCount(bannerSets, ex.target);
+    const weights = [];
+    for (let s = 1; s <= setCount; s++) {
+      const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
+      const w = input && input.value ? `${input.value} lb` : '—';
+      weights.push(`Set ${s}: ${w}`);
+    }
+    // PR detection: find max weight used today for this exercise
+    const todayMax = (() => {
+      let max = 0;
+      for (let s = 1; s <= setCount; s++) {
+        const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
+        const w = input ? parseFloat(input.value) : 0;
+        if (w > max) max = w;
+      }
+      return max;
+    })();
+    const pr = prData[ex.name];
+    const isNewPR = todayMax > 0 && (!pr || todayMax > parseFloat(pr.weight));
+    recapHtml += `
+      <div class="celeb-recap-card">
+        <div class="celeb-recap-name">${escapeHtml(ex.name)}${isNewPR ? ' <span class="celeb-pr-badge">🏆 PR!</span>' : ''}</div>
+        <div class="celeb-recap-sets">${weights.join(' · ')}</div>
+      </div>
+    `;
+  });
+
+  // Populate DOM
+  document.getElementById('celebTitle').textContent = 'Amazing work, Neve! 🐷';
+  document.getElementById('celebVolume').innerHTML =
+    volume > 0 ? `Total volume: <strong>${volume.toLocaleString()} lbs</strong> lifted` : 'Great job completing your workout!';
+  document.getElementById('celebItemEmoji').textContent = item.emoji;
+  document.getElementById('celebItemText').textContent =
+    volume > 0 ? `You lifted the equivalent of ${item.text}!` : 'Every rep counts!';
+  document.getElementById('celebRecap').innerHTML = recapHtml;
+
+  // Switch views
+  viewMode.classList.add('hidden');
+  celebrationView.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Fire confetti
+  launchConfetti();
+}
+
+// 8. Confetti Animation (pure canvas, no library)
+let confettiAnimFrame = null;
+
+function launchConfetti() {
+  const canvas = document.getElementById('confettiCanvas');
+  if (!canvas) return;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const COLORS = ['#a78bfa', '#fb7185', '#fbbf24', '#38bdf8', '#ffffff'];
+  const N = 120;
+  const particles = Array.from({ length: N }, () => ({
+    x: Math.random() * canvas.width,
+    y: -10 - Math.random() * 60,
+    size: 6 + Math.random() * 8,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    speedX: (Math.random() - 0.5) * 3,
+    speedY: 2 + Math.random() * 4,
+    rotation: Math.random() * Math.PI * 2,
+    rotSpeed: (Math.random() - 0.5) * 0.2,
+    shape: Math.random() > 0.5 ? 'rect' : 'circle',
+  }));
+
+  const startTime = performance.now();
+  const FADE_START = 2500;
+  const STOP_AT = 4000;
+
+  if (confettiAnimFrame) cancelAnimationFrame(confettiAnimFrame);
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    if (elapsed >= STOP_AT) {
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      canvas.style.opacity = '1';
+      return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Fade canvas after FADE_START ms
+    if (elapsed > FADE_START) {
+      canvas.style.opacity = String(1 - (elapsed - FADE_START) / (STOP_AT - FADE_START));
+    }
+
+    particles.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      // Wrap at bottom
+      if (p.y > canvas.height + 20) {
+        p.y = -10;
+        p.x = Math.random() * canvas.width;
+      }
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = 0.9;
+      if (p.shape === 'circle') {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      }
+      ctx.restore();
+    });
+
+    confettiAnimFrame = requestAnimationFrame(animate);
+  }
+
+  canvas.style.opacity = '1';
+  confettiAnimFrame = requestAnimationFrame(animate);
+}
+
+// 9. Auto-fill Last Weights
+async function autoFillLastWeights() {
+  if (!workoutData) return;
+  try {
+    const res = await fetch(SUMMARY_URL + '?t=' + Date.now());
+    if (!res.ok) return;
+    const json = await res.json();
+    const sessions = json.recentSessions || [];
+    if (!sessions.length) return;
+
+    // Build a map: exerciseName → most recent weights array
+    const lastWeights = {};
+    // sessions are most-recent-first; iterate to get the freshest data per exercise
+    sessions.forEach(session => {
+      (session.exercises || []).forEach(exData => {
+        const name = exData.name;
+        if (name && !lastWeights[name] && Array.isArray(exData.sets)) {
+          // sets is [{set, weight}] or [w1, w2, ...]
+          lastWeights[name] = exData.sets.map(s => (typeof s === 'object' ? s.weight : s));
+        }
+      });
+    });
+
+    const exercises = workoutData.exercises || [];
+    const bannerSets = workoutData.totalSets || '3 Sets';
+
+    exercises.forEach((ex, exIdx) => {
+      const prev = lastWeights[ex.name];
+      if (!prev || !prev.length) return;
+      const setCount = getSetCount(bannerSets, ex.target);
+      for (let s = 1; s <= setCount; s++) {
+        const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
+        if (!input || input.value) continue; // don't overwrite user-entered values
+        const w = prev[s - 1] || prev[0]; // use matching set or fallback to set 1
+        if (w) {
+          input.value = w;
+          input.classList.add('weight-input--autofill');
+        }
+      }
+    });
+  } catch (e) { /* silently skip if network unavailable */ }
+}
+
 // 6. Event Listeners
 function setupEventListeners() {
   if (toggleEditBtn) toggleEditBtn.addEventListener('click', openEditor);
@@ -851,6 +1090,7 @@ function setupEventListeners() {
       viewMode.classList.add('hidden');
       homeView.classList.add('hidden');
       editMode.classList.add('hidden');
+      document.getElementById('celebrationView').classList.add('hidden');
       calendarView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -902,19 +1142,23 @@ function setupEventListeners() {
     });
   }
 
-  // Send Weights button
-  const sendWeightsBtn = document.getElementById('sendWeightsBtn');
-  if (sendWeightsBtn) {
-    sendWeightsBtn.addEventListener('click', sendWeightsToGist);
+  // Complete Workout button → show celebration
+  const completeWorkoutBtn = document.getElementById('completeWorkoutBtn');
+  if (completeWorkoutBtn) {
+    completeWorkoutBtn.addEventListener('click', showCelebration);
   }
 
-  // Show send button whenever any weight field has a value
-  document.addEventListener('input', (e) => {
-    if (e.target.classList.contains('weight-input')) {
-      const anyFilled = [...document.querySelectorAll('.weight-input')].some(i => i.value !== '');
-      if (sendWeightsBtn) sendWeightsBtn.classList.toggle('hidden', !anyFilled);
-    }
-  });
+  // Celebration back button → return to home
+  const celebBackBtn = document.getElementById('celebBackBtn');
+  if (celebBackBtn) {
+    celebBackBtn.addEventListener('click', async () => {
+      celebrationView.classList.add('hidden');
+      homeView.classList.remove('hidden');
+      await loadWorkoutData();
+      renderWorkoutView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }
 
 function escapeHtml(str) {

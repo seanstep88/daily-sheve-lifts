@@ -94,6 +94,8 @@
           <div class="progress-bar-bg">
             <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
           </div>
+          <!-- Only shown when all sets are checked -->
+          <button type="button" id="completeWorkoutBtn" class="complete-workout-btn hidden">🎉 Complete Workout</button>
         </div>
       </div>
 
@@ -103,9 +105,30 @@
       </div>
 
       <!-- Send Weights Button -->
-      <button id="sendWeightsBtn" class="send-weights-btn hidden" type="button">
+      <!-- <button id="sendWeightsBtn" class="send-weights-btn hidden" type="button">
         📬 Send Weights to Sean
-      </button>
+      </button> -->
+    </section>
+
+    <!-- CELEBRATION VIEW: Shown after completing a workout -->
+    <section id="celebrationView" class="celebration-view hidden">
+      <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+      <div class="celeb-content">
+        <span class="celeb-badge">🎉 Workout Complete!</span>
+        <img
+          src="ChatGPT Image Sep 10, 2026 at 02_04_28 AM.png"
+          alt="Neve celebrating after a workout"
+          class="celeb-hero"
+        />
+        <h1 class="celeb-title" id="celebTitle">You're ripped, Neve 🐷</h1>
+        <p class="celeb-volume" id="celebVolume"></p>
+        <div class="celeb-item-card" id="celebItemCard">
+          <span class="celeb-item-emoji" id="celebItemEmoji"></span>
+          <span class="celeb-item-text" id="celebItemText"></span>
+        </div>
+        <div class="celeb-recap" id="celebRecap"></div>
+        <button type="button" id="celebBackBtn" class="celeb-back-btn">← Back to Home</button>
+      </div>
     </section>
 
     <!-- CALENDAR VIEW: Monthly calendar to browse past workouts -->

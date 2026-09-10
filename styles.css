@@ -1209,3 +1209,190 @@ body {
   background: rgba(167, 139, 250, 0.45);
   transform: scale(0.93);
 }
+
+/* ============================================================
+   COMPLETE WORKOUT BUTTON
+   ============================================================ */
+.complete-workout-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.complete-workout-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(167, 139, 250, 0.55);
+}
+
+.complete-workout-btn:active {
+  transform: scale(0.97);
+}
+
+/* ============================================================
+   WEIGHT INPUT — AUTOFILL STATE
+   ============================================================ */
+.weight-input--autofill {
+  opacity: 0.45;
+  font-style: italic;
+}
+
+/* ============================================================
+   CELEBRATION VIEW
+   ============================================================ */
+.confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.celebration-view {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 16px 16px 48px;
+}
+
+.celeb-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.celeb-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.celeb-hero {
+  width: 100%;
+  max-width: 360px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  object-fit: cover;
+}
+
+.celeb-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.celeb-volume {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: -6px;
+}
+
+.celeb-item-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.celeb-item-emoji {
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+.celeb-item-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Recap section */
+.celeb-recap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.celeb-recap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.celeb-recap-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.celeb-recap-sets {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.celeb-pr-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  background: rgba(251, 191, 36, 0.18);
+  color: var(--warning);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.celeb-back-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-top: 8px;
+}
+
+.celeb-back-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(167, 139, 250, 0.55);
+}
+
+.celeb-back-btn:active {
+  transform: scale(0.97);
+}
