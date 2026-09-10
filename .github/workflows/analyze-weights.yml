@@ -1,0 +1,28 @@
+name: Analyze Weight Logs
+
+on:
+  push:
+    paths:
+      - 'logs/**.json'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run weight analysis
+        run: node .github/scripts/analyze.js
+
+      - name: Commit summary
+        run: |
+          git config user.name "NeverLifts Bot"
+          git config user.email "bot@neverlifts.app"
+          git add logs/summary.json
+          git diff --staged --quiet || git commit -m "📊 update weight summary"
+          git push
