@@ -1,7 +1,7 @@
 // FitStep Application Logic
 
 // 🚧 UNDER CONSTRUCTION FLAG — set to true while actively building, false to go live
-const UNDER_CONSTRUCTION = false;
+const UNDER_CONSTRUCTION = true;
 
 const STORAGE_KEY = 'fitstep_daily_workout';
 const PROGRESS_KEY = 'fitstep_progress_state_v2';
