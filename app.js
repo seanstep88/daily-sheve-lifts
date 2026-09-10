@@ -398,7 +398,8 @@ function compileWeightSummary() {
     return { name: ex.name, sets };
   });
 
-  return JSON.stringify({ title, date: new Date().toISOString().slice(0,10), exercises: exerciseData }, null, 2);
+  const localDate = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
+  return JSON.stringify({ title, date: localDate, exercises: exerciseData }, null, 2);
 }
 
 async function sendWeightsToGist() {
@@ -406,7 +407,7 @@ async function sendWeightsToGist() {
   btn.textContent = '⏳ Sending…';
   btn.disabled = true;
 
-  const date = new Date().toISOString().slice(0, 10);
+  const date = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
   const content = compileWeightSummary();
 
   try {
