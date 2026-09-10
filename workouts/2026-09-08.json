@@ -1,0 +1,36 @@
+{
+  "date": "Steptember 8, 2026",
+  "title": "Biceps, Triceps, and Back",
+  "totalSets": "4 Sets",
+  "notes": "Slow and controlled reps",
+  "exercises": [
+    {
+      "name": "Dumbbell bicep curls",
+      "target": "15 reps",
+      "restSeconds": 45,
+      "mediaUrl": "https://gymvisual.com/img/p/2/4/7/6/4/24764.gif",
+      "instructions": "Medium weight, should burn by the end"
+    },
+    {
+      "name": "Dumbbell single arm bent over row",
+      "target": "10-12 Reps",
+      "restSeconds": 45,
+      "mediaUrl": "https://gymvisual.com/img/p/1/0/4/0/3/10403.gif",
+      "instructions": "Last few reps should be tough"
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "target": "10-12 Reps",
+      "restSeconds": 45,
+      "mediaUrl": "https://gymvisual.com/img/p/5/9/1/5/5915.gif",
+      "instructions": "Go heavy as long as you can keep your chest high"
+    },
+    {
+      "name": "Plank Hold",
+      "target": "45 Seconds",
+      "restSeconds": 45,
+      "mediaUrl": "https://media.giphy.com/media/xT8qBff8cRRFf7k2u4/giphy.gif",
+      "instructions": "Squeeze butt and core!"
+    }
+  ]
+}

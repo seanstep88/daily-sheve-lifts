@@ -1,6 +1,20 @@
 // FitStep Application Logic
+
+// 🚧 UNDER CONSTRUCTION FLAG — set to true while actively building, false to go live
+const UNDER_CONSTRUCTION = false;
+
 const STORAGE_KEY = 'fitstep_daily_workout';
 const PROGRESS_KEY = 'fitstep_progress_state_v2';
+const WEIGHTS_KEY = 'fitstep_weights_v1';
+// 📬 GitHub Repo — weight log delivery
+const GITHUB_TOKEN = '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';
+const GITHUB_REPO = 'seanstep88/daily-sheve-lifts';
+
+// Known workout dates — update this list when new workouts/YYYY-MM-DD.json files are added
+const WORKOUT_DATES = [
+  '2026-09-08',
+  '2026-09-09',
+];
 
 // State
 let workoutData = null;
@@ -14,6 +28,8 @@ let remainingSeconds = 0;
 // Elements
 const viewMode = document.getElementById('viewMode');
 const editMode = document.getElementById('editMode');
+const calendarView = document.getElementById('calendarView');
+const homeView = document.getElementById('homeView');
 const toggleEditBtn = document.getElementById('toggleEditBtn');
 const cancelEditBtn = document.getElementById('cancelEditBtn');
 const saveAndApplyBtn = document.getElementById('saveAndApplyBtn');
@@ -46,12 +62,25 @@ const timerDigits = document.getElementById('timerDigits');
 const stopTimerBtn = document.getElementById('stopTimerBtn');
 const add15SecBtn = document.getElementById('add15SecBtn');
 
+// Calendar State
+let calYear = new Date().getFullYear();
+let calMonth = new Date().getMonth(); // 0-indexed
+
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
+  if (UNDER_CONSTRUCTION) {
+    document.getElementById('underConstruction').classList.remove('hidden');
+    document.getElementById('viewMode').classList.add('hidden');
+    return;
+  }
   loadProgress();
   await loadWorkoutData();
   renderWorkoutView();
   setupEventListeners();
+
+  // Show home page first
+  viewMode.classList.add('hidden');
+  homeView.classList.remove('hidden');
 });
 
 // 1. Data Fetching / Storage
@@ -193,16 +222,28 @@ function renderWorkoutView() {
       ? `<button class="rest-badge-btn" onclick="startRestTimer(${ex.restSeconds})">⏱️ ${ex.restSeconds}s Rest</button>`
       : '';
 
-    // Generate individual checkboxes for each set
-    let setCheckboxesHtml = '';
+    // Generate combined set rows: checkbox + weight input side by side
+    let setRowsHtml = '';
     for (let s = 1; s <= setCount; s++) {
       const setKey = `${exIdx}-${s}`;
       const isSetDone = completedSets.has(setKey);
-      setCheckboxesHtml += `
-        <label class="set-check-item ${isSetDone ? 'done' : ''}">
-          <input type="checkbox" ${isSetDone ? 'checked' : ''} onchange="toggleSetDone(${exIdx}, ${s})">
-          <span>Set ${s}</span>
-        </label>
+      setRowsHtml += `
+        <div class="set-row ${isSetDone ? 'done' : ''}">
+          <label class="set-row-check">
+            <input type="checkbox" ${isSetDone ? 'checked' : ''} onchange="toggleSetDone(${exIdx}, ${s})">
+            <span class="set-row-label">Set ${s}</span>
+          </label>
+          <input
+            type="number"
+            class="weight-input"
+            inputmode="decimal"
+            placeholder="lb"
+            data-ex-idx="${exIdx}"
+            data-set-idx="${s}"
+            oninput="onWeightInput()"
+            onblur="onWeightBlur(${exIdx}, ${s}, this.value)"
+          >
+        </div>
       `;
     }
 
@@ -226,8 +267,8 @@ function renderWorkoutView() {
             <span>Sets Completed</span>
             <span>${doneSetsForEx}/${setCount} Done</span>
           </div>
-          <div class="sets-checkbox-group">
-            ${setCheckboxesHtml}
+          <div class="set-rows-group">
+            ${setRowsHtml}
           </div>
         </div>
 
@@ -251,6 +292,7 @@ function renderWorkoutView() {
   });
 
   updateProgressDisplay();
+  loadWeightsIntoDOM();
 }
 
 // Toggle GIF collapse/expand state for discreet gym viewing
@@ -290,7 +332,137 @@ function loadProgress() {
   }
 }
 
+// Weight tracking
+function getWeightStorageKey() {
+  return `${WEIGHTS_KEY}_${workoutData ? (workoutData.date || 'default') : 'default'}`;
+}
+
+window.onWeightInput = function() {
+  saveWeights();
+};
+
+window.onWeightBlur = function(exIdx, setIdx, value) {
+  // Auto-fill remaining empty sets only when user finishes typing (on blur)
+  if (setIdx === 1 && value !== '') {
+    const allInputs = document.querySelectorAll(`.weight-input[data-ex-idx="${exIdx}"]`);
+    allInputs.forEach(input => {
+      if (parseInt(input.dataset.setIdx) > 1 && input.value === '') {
+        input.value = value;
+      }
+    });
+    saveWeights();
+  }
+};
+
+function saveWeights() {
+  if (!workoutData) return;
+  const key = getWeightStorageKey();
+  const data = {};
+  document.querySelectorAll('.weight-input').forEach(input => {
+    const exIdx = input.dataset.exIdx;
+    const setIdx = input.dataset.setIdx;
+    if (!data[exIdx]) data[exIdx] = {};
+    data[exIdx][setIdx] = input.value;
+  });
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
+function loadWeightsIntoDOM() {
+  if (!workoutData) return;
+  const key = getWeightStorageKey();
+  const saved = localStorage.getItem(key);
+  if (!saved) return;
+  try {
+    const data = JSON.parse(saved);
+    Object.entries(data).forEach(([exIdx, sets]) => {
+      Object.entries(sets).forEach(([setIdx, value]) => {
+        const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"]`);
+        if (input) input.value = value;
+      });
+    });
+  } catch (e) { /* ignore */ }
+}
+
+function compileWeightSummary() {
+  const title = workoutData?.title || 'Workout';
+  const date = workoutData?.date || new Date().toLocaleDateString();
+  const exercises = workoutData?.exercises || [];
+  const bannerSets = workoutData?.totalSets || '3 Sets';
+
+  const exerciseData = exercises.map((ex, exIdx) => {
+    const setCount = getSetCount(bannerSets, ex.target);
+    const sets = [];
+    for (let s = 1; s <= setCount; s++) {
+      const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
+      sets.push({ set: s, weight: input ? (input.value || '') : '' });
+    }
+    return { name: ex.name, sets };
+  });
+
+  return JSON.stringify({ title, date: new Date().toISOString().slice(0,10), exercises: exerciseData }, null, 2);
+}
+
+async function sendWeightsToGist() {
+  const btn = document.getElementById('sendWeightsBtn');
+  btn.textContent = '⏳ Sending…';
+  btn.disabled = true;
+
+  const date = new Date().toISOString().slice(0, 10);
+  const path = `logs/${date}.json`;
+  const summary = compileWeightSummary();
+  const apiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`;
+  const headers = {
+    'Authorization': `Bearer ${GITHUB_TOKEN}`,
+    'Content-Type': 'application/json'
+  };
+
+  try {
+    // Check if file already exists (need its SHA to update)
+    let sha = null;
+    const checkRes = await fetch(apiUrl, { headers });
+    if (checkRes.ok) {
+      const existing = await checkRes.json();
+      sha = existing.sha;
+    }
+
+    const body = {
+      message: `weight log: ${date}`,
+      content: btoa(unescape(encodeURIComponent(summary))),
+      ...(sha ? { sha } : {})
+    };
+
+    const res = await fetch(apiUrl, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok) {
+      const errBody = await res.json().catch(() => ({}));
+      console.error('GitHub error', res.status, errBody);
+      throw new Error(`${res.status}: ${errBody.message || 'unknown'}`);
+    }
+
+    btn.textContent = '✅ Sent!';
+    setTimeout(() => {
+      btn.textContent = '📬 Send Weights to Sean';
+      btn.disabled = false;
+    }, 2500);
+  } catch (err) {
+    console.error('sendWeights failed:', err);
+    btn.textContent = `❌ ${err.message}`;
+    btn.disabled = false;
+  }
+}
+
 function updateProgressDisplay() {
+  if (workoutData?.underConstruction) {
+    if (completedCountEl) completedCountEl.textContent = "0";
+    if (totalExerciseCountEl) totalExerciseCountEl.textContent = "0 sets";
+    if (progressBarEl) progressBarEl.style.width = "0%";
+    return;
+  }
+
   const exercises = workoutData?.exercises || [];
   const bannerSets = workoutData?.totalSets || "3 Sets";
   
@@ -379,7 +551,72 @@ function playBeep() {
   }
 }
 
-// 5. Editor Features
+// 5. Calendar Features
+function renderCalendar(year, month) {
+  const monthNames = ['January','February','March','April','May','June',
+                      'July','August','September','October','November','December'];
+  document.getElementById('calMonthLabel').textContent = `${monthNames[month]} ${year}`;
+
+  const grid = document.getElementById('calendarGrid');
+  grid.innerHTML = '';
+
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
+  // First day of month (0=Sun…6=Sat) and total days
+  const firstDow = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Blank cells before day 1
+  for (let i = 0; i < firstDow; i++) {
+    const blank = document.createElement('div');
+    blank.className = 'calendar-day empty';
+    grid.appendChild(blank);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const cell = document.createElement('div');
+    cell.className = 'calendar-day';
+    cell.textContent = d;
+
+    if (dateStr === todayStr) {
+      cell.classList.add('today');
+      cell.style.cursor = 'pointer';
+      cell.addEventListener('click', async () => {
+        await loadWorkoutData();
+        renderWorkoutView();
+        calendarView.classList.add('hidden');
+        viewMode.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    if (WORKOUT_DATES.includes(dateStr)) {
+      cell.classList.add('has-workout');
+      cell.addEventListener('click', () => loadCalendarWorkout(dateStr));
+    }
+
+    grid.appendChild(cell);
+  }
+}
+
+async function loadCalendarWorkout(dateStr) {
+  try {
+    const res = await fetch(`workouts/${dateStr}.json?t=${Date.now()}`);
+    if (!res.ok) throw new Error('Not found');
+    workoutData = await res.json();
+    completedSets.clear();
+    saveProgress();
+    renderWorkoutView();
+    calendarView.classList.add('hidden');
+    viewMode.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    alert(`Could not load workout for ${dateStr}.`);
+  }
+}
+
+// 6. Editor Features
 function openEditor() {
   editDate.value = workoutData.date || '';
   editSets.value = workoutData.totalSets || '';
@@ -521,9 +758,9 @@ function collectFormData() {
 
 // 6. Event Listeners
 function setupEventListeners() {
-  toggleEditBtn.addEventListener('click', openEditor);
+  if (toggleEditBtn) toggleEditBtn.addEventListener('click', openEditor);
   
-  cancelEditBtn.addEventListener('click', () => {
+  if (cancelEditBtn) cancelEditBtn.addEventListener('click', () => {
     editMode.classList.add('hidden');
     viewMode.classList.remove('hidden');
   });
@@ -540,7 +777,7 @@ function setupEventListeners() {
     renderEditorExerciseInputs(current.exercises);
   });
 
-  saveAndApplyBtn.addEventListener('click', () => {
+  if (saveAndApplyBtn) saveAndApplyBtn.addEventListener('click', () => {
     workoutData = collectFormData();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(workoutData));
     completedSets.clear();
@@ -595,7 +832,7 @@ function setupEventListeners() {
     });
   }
 
-  downloadJsonBtn.addEventListener('click', () => {
+  if (downloadJsonBtn) downloadJsonBtn.addEventListener('click', () => {
     const updatedData = collectFormData();
     const jsonStr = JSON.stringify(updatedData, null, 2);
     const blob = new Blob([jsonStr], { type: 'application/json' });
@@ -625,6 +862,81 @@ function setupEventListeners() {
   add15SecBtn.addEventListener('click', () => {
     remainingSeconds += 15;
     updateTimerDisplay();
+  });
+
+  // Calendar button — open calendar
+  const calendarBtn = document.getElementById('calendarBtn');
+  if (calendarBtn) {
+    calendarBtn.addEventListener('click', () => {
+      calYear = new Date().getFullYear();
+      calMonth = new Date().getMonth();
+      renderCalendar(calYear, calMonth);
+      viewMode.classList.add('hidden');
+      homeView.classList.add('hidden');
+      editMode.classList.add('hidden');
+      calendarView.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Calendar close — return to view mode
+  const calendarCloseBtn = document.getElementById('calendarCloseBtn');
+  if (calendarCloseBtn) {
+    calendarCloseBtn.addEventListener('click', () => {
+      calendarView.classList.add('hidden');
+      viewMode.classList.remove('hidden');
+    });
+  }
+
+  // Calendar month prev/next
+  document.getElementById('calPrevBtn').addEventListener('click', () => {
+    calMonth--;
+    if (calMonth < 0) { calMonth = 11; calYear--; }
+    renderCalendar(calYear, calMonth);
+  });
+
+  document.getElementById('calNextBtn').addEventListener('click', () => {
+    calMonth++;
+    if (calMonth > 11) { calMonth = 0; calYear++; }
+    renderCalendar(calYear, calMonth);
+  });
+
+  // Home panel — logo click opens home
+  const homeBtn = document.getElementById('homeBtn');
+  if (homeBtn) {
+    homeBtn.addEventListener('click', () => {
+      viewMode.classList.add('hidden');
+      calendarView.classList.add('hidden');
+      editMode.classList.add('hidden');
+      homeView.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Home CTA — go to today's workout (always reloads from workout.json / localStorage)
+  const homeToWorkoutBtn = document.getElementById('homeToWorkoutBtn');
+  if (homeToWorkoutBtn) {
+    homeToWorkoutBtn.addEventListener('click', async () => {
+      await loadWorkoutData();
+      renderWorkoutView();
+      homeView.classList.add('hidden');
+      viewMode.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Send Weights button
+  const sendWeightsBtn = document.getElementById('sendWeightsBtn');
+  if (sendWeightsBtn) {
+    sendWeightsBtn.addEventListener('click', sendWeightsToGist);
+  }
+
+  // Show send button whenever any weight field has a value
+  document.addEventListener('input', (e) => {
+    if (e.target.classList.contains('weight-input')) {
+      const anyFilled = [...document.querySelectorAll('.weight-input')].some(i => i.value !== '');
+      if (sendWeightsBtn) sendWeightsBtn.classList.toggle('hidden', !anyFilled);
+    }
   });
 }
 
