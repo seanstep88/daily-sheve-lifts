@@ -12,6 +12,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -22,9 +24,11 @@ jobs:
         run: node .github/scripts/analyze.js
 
       - name: Commit summary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "NeverLifts Bot"
           git config user.email "bot@neverlifts.app"
           git add logs/summary.json
           git diff --staged --quiet || git commit -m "📊 update weight summary"
-          git push
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/seanstep88/daily-sheve-lifts.git
