@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-10T20:26:12.158Z",
+  "lastUpdated": "2026-09-10T23:17:56.624Z",
   "totalSessions": 1,
   "personalRecords": {
     "Incline dumbbell bench press": {
@@ -21,7 +21,7 @@
   },
   "trends": {},
   "weeklyVolume": {
-    "Incline dumbbell bench press": 31,
+    "Incline dumbbell bench press": 45,
     "Dumbbell lateral raises": 24,
     "Dumbbell Tricep Extension": 24,
     "Dumbbell front raises": 24
@@ -40,11 +40,11 @@
             },
             {
               "set": 2,
-              "weight": "8"
+              "weight": "15"
             },
             {
               "set": 3,
-              "weight": "8"
+              "weight": "15"
             }
           ]
         },
