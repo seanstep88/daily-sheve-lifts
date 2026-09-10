@@ -1,13 +1,30 @@
 {
-  "lastUpdated": "2026-09-10T20:24:56.307Z",
+  "lastUpdated": "2026-09-10T20:26:12.158Z",
   "totalSessions": 1,
-  "personalRecords": {},
+  "personalRecords": {
+    "Incline dumbbell bench press": {
+      "date": "2026-09-10",
+      "weight": 15
+    },
+    "Dumbbell lateral raises": {
+      "date": "2026-09-10",
+      "weight": 8
+    },
+    "Dumbbell Tricep Extension": {
+      "date": "2026-09-10",
+      "weight": 8
+    },
+    "Dumbbell front raises": {
+      "date": "2026-09-10",
+      "weight": 8
+    }
+  },
   "trends": {},
   "weeklyVolume": {
-    "Incline dumbbell bench press": 0,
-    "Dumbbell lateral raises": 0,
-    "Dumbbell Tricep Extension": 0,
-    "Dumbbell front raises": 0
+    "Incline dumbbell bench press": 31,
+    "Dumbbell lateral raises": 24,
+    "Dumbbell Tricep Extension": 24,
+    "Dumbbell front raises": 24
   },
   "recentSessions": [
     {
@@ -19,15 +36,15 @@
           "sets": [
             {
               "set": 1,
-              "weight": ""
+              "weight": "15"
             },
             {
               "set": 2,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 3,
-              "weight": ""
+              "weight": "8"
             }
           ]
         },
@@ -36,15 +53,15 @@
           "sets": [
             {
               "set": 1,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 2,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 3,
-              "weight": ""
+              "weight": "8"
             }
           ]
         },
@@ -53,15 +70,15 @@
           "sets": [
             {
               "set": 1,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 2,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 3,
-              "weight": ""
+              "weight": "8"
             }
           ]
         },
@@ -70,15 +87,15 @@
           "sets": [
             {
               "set": 1,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 2,
-              "weight": ""
+              "weight": "8"
             },
             {
               "set": 3,
-              "weight": ""
+              "weight": "8"
             }
           ]
         }
