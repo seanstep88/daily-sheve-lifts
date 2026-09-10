@@ -769,7 +769,7 @@ const WEIGHT_ITEMS = [
   { max: 300,   emoji: '🐑', text: 'about one Shawn' },
   { max: 700,   emoji: '🚒', text: 'a NYC fire hydrant' },
   { max: 1200,  emoji: '🎹', text: 'a baby grand piano' },
-  { max: 2000,  emoji: '🐗', text: 'a sounder of wild boars (pigs who lift?)' },
+  { max: 2000,  emoji: '🐗🐗🐗', text: 'a sounder of wild boars (pigs who lift?)' },
   { max: 3500,  emoji: '🚕', text: 'a NYC yellow taxi cab' },
   { max: 6000,  emoji: '🚌', text: 'an MBTA 77 bus to Arlington' },
   { max: 10000, emoji: '🚜', text: 'a farm tractor' },
