@@ -1093,6 +1093,7 @@ function setupEventListeners() {
       homeView.classList.add('hidden');
       editMode.classList.add('hidden');
       document.getElementById('celebrationView').classList.add('hidden');
+      document.getElementById('underConstruction').classList.add('hidden');
       calendarView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
