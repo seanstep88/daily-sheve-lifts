@@ -766,16 +766,16 @@ function calcTotalVolume() {
 }
 
 const WEIGHT_ITEMS = [
-  { max: 300,   emoji: '🐾', text: 'about one Shawn 🐑' },
+  { max: 300,   emoji: '🐑', text: 'about one Shawn' },
   { max: 700,   emoji: '🚒', text: 'a NYC fire hydrant' },
-  { max: 1200,  emoji: '🥩', text: 'a Philly cheesesteak catering order' },
-  { max: 2000,  emoji: '🐗', text: "a wild boar (pig who lifts?)" },
-  { max: 3500,  emoji: '🎹', text: 'a baby grand piano' },
-  { max: 6000,  emoji: '🏀', text: 'the Villanova basketball team' },
-  { max: 10000, emoji: '🚕', text: 'a NYC yellow taxi cab' },
-  { max: 18000, emoji: '🦕', text: 'a T-Rex skull replica' },
-  { max: 30000, emoji: '🚡', text: 'an aerial tramway car' },
-  { max: 50000, emoji: '🔔', text: 'the Liberty Bell' },
+  { max: 1200,  emoji: '🎹', text: 'a baby grand piano' },
+  { max: 2000,  emoji: '🐗', text: 'a sounder of wild boars (pigs who lift?)' },
+  { max: 3500,  emoji: '🚕', text: 'a NYC yellow taxi cab' },
+  { max: 6000,  emoji: '🚌', text: 'an MBTA 77 bus to Arlington' },
+  { max: 10000, emoji: '🚜', text: 'a farm tractor' },
+  { max: 18000, emoji: '🚡', text: 'an aerial tramway car' },
+  { max: 30000, emoji: '🚛', text: 'a loaded semi-truck' },
+  { max: 50000, emoji: '🚂', text: 'Big Boy (the train)' },
   { max: Infinity, emoji: '⛴️', text: 'a Staten Island Ferry' },
 ];
 
@@ -837,9 +837,10 @@ async function showCelebration() {
   // Populate DOM
   document.getElementById('celebTitle').textContent = "You're ripped, Neve 🐷";
   document.getElementById('celebVolume').innerHTML =
-    volume > 0 ? `You lifted <strong>${volume.toLocaleString()} lbs</strong>. That's the equivalent of ${item.emoji} ${item.text}!` : 'Great job completing your workout!';
+    volume > 0 ? `You lifted <strong>${volume.toLocaleString()} lbs</strong>` : 'Great job completing your workout!';
   document.getElementById('celebItemEmoji').textContent = item.emoji;
-  document.getElementById('celebItemText').textContent = item.text;
+  document.getElementById('celebItemText').textContent =
+    volume > 0 ? `That's the equivalent of ${item.text}!` : '';
   document.getElementById('celebRecap').innerHTML = recapHtml;
 
   // Switch views
