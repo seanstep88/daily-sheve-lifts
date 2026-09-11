@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-10T23:17:56.624Z",
-  "totalSessions": 1,
+  "lastUpdated": "2026-09-11T23:40:28.826Z",
+  "totalSessions": 2,
   "personalRecords": {
     "Incline dumbbell bench press": {
       "date": "2026-09-10",
@@ -17,6 +17,18 @@
     "Dumbbell front raises": {
       "date": "2026-09-10",
       "weight": 8
+    },
+    "Dumbbell bicep curls": {
+      "date": "2026-09-11",
+      "weight": 5
+    },
+    "Dumbbell single arm bent over row": {
+      "date": "2026-09-11",
+      "weight": 5
+    },
+    "Triceps rope pushdown": {
+      "date": "2026-09-11",
+      "weight": 17.5
     }
   },
   "trends": {},
@@ -24,9 +36,103 @@
     "Incline dumbbell bench press": 45,
     "Dumbbell lateral raises": 24,
     "Dumbbell Tricep Extension": 24,
-    "Dumbbell front raises": 24
+    "Dumbbell front raises": 24,
+    "Dumbbell bicep curls": 20,
+    "Dumbbell single arm bent over row": 20,
+    "Triceps rope pushdown": 70,
+    "Plank Hold": 0
   },
   "recentSessions": [
+    {
+      "date": "2026-09-11",
+      "title": "Biceps, Triceps, and Back",
+      "exercises": [
+        {
+          "name": "Dumbbell bicep curls",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "5"
+            },
+            {
+              "set": 2,
+              "weight": "5"
+            },
+            {
+              "set": 3,
+              "weight": "5"
+            },
+            {
+              "set": 4,
+              "weight": "5"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell single arm bent over row",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "5"
+            },
+            {
+              "set": 2,
+              "weight": "5"
+            },
+            {
+              "set": 3,
+              "weight": "5"
+            },
+            {
+              "set": 4,
+              "weight": "5"
+            }
+          ]
+        },
+        {
+          "name": "Triceps rope pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "17.5"
+            },
+            {
+              "set": 2,
+              "weight": "17.5"
+            },
+            {
+              "set": 3,
+              "weight": "17.5"
+            },
+            {
+              "set": 4,
+              "weight": "17.5"
+            }
+          ]
+        },
+        {
+          "name": "Plank Hold",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "0"
+            },
+            {
+              "set": 2,
+              "weight": "0"
+            },
+            {
+              "set": 3,
+              "weight": "0"
+            },
+            {
+              "set": 4,
+              "weight": "0"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-10",
       "title": "Triceps and Shoulders",
