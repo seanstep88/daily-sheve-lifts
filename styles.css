@@ -186,6 +186,23 @@ body {
   border-radius: 999px;
 }
 
+.banner-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.duration-badge {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--success);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
 .sets-badge {
   font-size: 0.85rem;
   font-weight: 700;
@@ -346,9 +363,27 @@ body {
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ℹ️ Info button in card-top */
+.card-info-btn {
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.55;
+  flex-shrink: 0;
+  border-radius: 6px;
+  transition: opacity 0.15s;
+}
+.card-info-btn:hover,
+.card-info-btn:active {
+  opacity: 1;
 }
 
 /* Card Body & Details (Placed Above Media) */
@@ -393,8 +428,7 @@ body {
 .exercise-media {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
   display: block;
 }
 
@@ -591,6 +625,53 @@ body {
 .weight-input::placeholder {
   color: var(--text-muted);
   font-weight: 400;
+}
+
+.time-input-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.time-part {
+  width: 40px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 4px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  transition: border-color 0.2s;
+}
+
+.time-part::-webkit-outer-spin-button,
+.time-part::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.time-part:focus {
+  outline: none;
+  border-color: #a78bfa;
+}
+
+.time-part::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.time-colon {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 1px;
+  user-select: none;
 }
 
 .instructions-box {
@@ -1372,6 +1453,14 @@ body {
   font-weight: 700;
 }
 
+.celeb-meme-gif {
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--radius-md);
+  margin: 16px auto 8px;
+  display: block;
+}
+
 .celeb-back-btn {
   width: 100%;
   padding: 14px;
@@ -1395,4 +1484,458 @@ body {
 
 .celeb-back-btn:active {
   transform: scale(0.97);
+}
+
+/* ============================================================
+   EXERCISE LIBRARY
+   ============================================================ */
+
+/* Trophy button in header */
+.library-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.library-btn:hover {
+  border-color: var(--accent);
+}
+
+@keyframes libraryGlow {
+  0%, 100% { box-shadow: 0 0 0px transparent; }
+  50%       { box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent); }
+}
+
+.library-btn[data-has-new="true"] {
+  animation: libraryGlow 1.8s ease-in-out infinite;
+  border-color: var(--accent);
+}
+
+/* Library view container */
+.library-view {
+  padding: 0 0 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.library-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 16px;
+}
+
+.library-back-btn {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.library-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Accordion group */
+.lib-group {
+  margin-bottom: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.lib-group[open] .lib-group-header::after {
+  content: ' ▼';
+}
+
+.lib-group-header {
+  list-style: none;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: var(--bg-surface-elevated);
+  user-select: none;
+}
+
+.lib-group-header::after {
+  content: ' ▶';
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.lib-group-header::-webkit-details-marker { display: none; }
+
+/* Card grid */
+.lib-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (min-width: 480px) {
+  .lib-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card base */
+.lib-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media */
+.lib-card-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-primary);
+}
+
+.lib-no-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* Card body */
+.lib-card-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.lib-card-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.lib-pr-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--warning);
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 6px;
+  padding: 2px 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.lib-pr-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.lib-view-btn {
+  margin-top: auto;
+  font-size: 0.78rem;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: rgba(255,255,255,0.05);
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lib-view-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: var(--accent);
+}
+
+/* Unlock badge */
+.unlock-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  color: #0b0f19;
+  border-radius: 6px;
+  padding: 2px 7px;
+  display: inline-block;
+  width: fit-content;
+  text-shadow: none;
+}
+
+/* Mystery card */
+.lib-card.mystery {
+  background: var(--bg-primary);
+  border-color: rgba(255,255,255,0.06);
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.lib-mystery-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  aspect-ratio: 1 / 1;
+  background: rgba(255,255,255,0.03);
+}
+
+.lib-mystery-name {
+  color: var(--text-muted);
+}
+
+.lib-mystery-badge {
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-6px); }
+  30%  { transform: translateX(6px); }
+  45%  { transform: translateX(-5px); }
+  60%  { transform: translateX(5px); }
+  75%  { transform: translateX(-3px); }
+  90%  { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+.lib-card.shake {
+  animation: shake 0.6s ease;
+}
+
+/* Loading / empty states */
+.lib-loading,
+.lib-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   EXERCISE DETAIL MODAL
+   ============================================================ */
+
+.ex-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+.ex-detail-overlay.hidden {
+  display: none !important;
+}
+
+.ex-detail-modal {
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.ex-detail-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.ex-detail-media {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.ex-detail-no-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  height: 180px;
+  background: var(--bg-primary);
+}
+
+.ex-detail-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ex-detail-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ex-detail-group {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ex-detail-pr {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.ex-detail-pr-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.lib-card.unlocked {
+  cursor: pointer;
+}
+
+.lib-card.unlocked:active {
+  opacity: 0.85;
+  transform: scale(0.97);
+  transition: transform 0.1s;
+}
+
+.ex-detail-steps {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ex-detail-steps li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PAST WORKOUT VIEW
+   ============================================================ */
+
+.past-workout-view {
+  padding: 0 0 32px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.past-workout-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 16px;
+}
+
+.past-workout-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.past-workout-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.past-workout-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Read-only set rows */
+.past-set-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.past-set-row:last-child {
+  border-bottom: none;
+}
+
+.past-set-label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  min-width: 48px;
+}
+
+.past-set-check {
+  font-size: 0.9rem;
+}
+
+.past-set-weight {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--success);
+  margin-left: auto;
+}
+
+/* Weight note on exercise cards */
+.weight-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(56, 189, 248, 0.06);
+  border-left: 2px solid rgba(56, 189, 248, 0.3);
+  padding: 6px 10px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 0;
+  line-height: 1.4;
 }

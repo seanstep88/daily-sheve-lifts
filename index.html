@@ -10,9 +10,9 @@
   <title>Sheve Lift</title>
   
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/svg+xml" href="apple-touch-icon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/apple-touch-icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,9 @@
         <button id="calendarBtn" class="calendar-btn" title="View workout history" aria-label="Open calendar">
           📅
         </button>
+        <button id="libraryBtn" class="library-btn" title="Exercise library" aria-label="Open exercise library">
+          🏆
+        </button>
       </div>
     </div>
   </header>
@@ -56,7 +59,7 @@
       <div class="construction-media">
         <img
           class="construction-gif"
-          src="ChatGPT Image Sep 9, 2026 at 11_33_15 PM.png"
+          src="assets/images/under-construction.png"
           alt="A cute sheep wearing a hard hat telling a cute pig that a workout is being built for them"
         />
       </div>
@@ -65,7 +68,7 @@
     <!-- HOME PANEL -->
     <section id="homeView" class="home-view hidden">
       <div class="home-hero">
-        <img src="ChatGPT Image Sep 10, 2026 at 12_11_15 AM.png" alt="Sheve's Lifting Journey" class="home-hero-img" />
+        <img src="assets/images/home-hero.png" alt="Sheve's Lifting Journey" class="home-hero-img" />
       </div>
       <div class="home-content">
         <h1 class="home-title">Sheve's Lifting Journey 🐷</h1>
@@ -80,7 +83,10 @@
       <div class="workout-banner">
         <div class="banner-top">
           <span class="date-badge" id="viewDate">Steptember 9, 2026</span>
-          <span class="sets-badge" id="viewSets">4 Sets</span>
+          <div class="banner-meta">
+            <span class="sets-badge" id="viewSets">4 Sets</span>
+            <span class="duration-badge" id="viewDuration"></span>
+          </div>
         </div>
         <h1 class="workout-title" id="viewTitle">Daily Workout</h1>
         <p class="workout-notes" id="viewNotes"></p>
@@ -116,7 +122,7 @@
       <div class="celeb-content">
         <span class="celeb-badge">🎉 Workout Complete!</span>
         <img
-          src="ChatGPT Image Sep 10, 2026 at 02_04_28 AM.png"
+          src="assets/images/taxi.png"
           alt="Neve celebrating after a workout"
           class="celeb-hero"
         />
@@ -145,6 +151,32 @@
         <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
       </div>
       <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <!-- PAST WORKOUT VIEW: Read-only recap of a completed workout -->
+    <section id="pastWorkoutView" class="past-workout-view hidden">
+      <div class="workout-banner">
+        <div class="banner-top">
+          <button id="pastWorkoutCloseBtn" class="library-back-btn" aria-label="Close past workout">← Back</button>
+          <span class="date-badge" id="pastWorkoutDate"></span>
+          <div class="banner-meta">
+            <span class="sets-badge" id="pastWorkoutSets"></span>
+            <span class="duration-badge" id="pastWorkoutDuration"></span>
+          </div>
+        </div>
+        <h1 class="workout-title" id="pastWorkoutTitle"></h1>
+        <p class="workout-notes hidden" id="pastWorkoutNotes"></p>
+      </div>
+      <div id="pastWorkoutContent" class="exercises-container"></div>
+    </section>
+
+    <!-- LIBRARY VIEW: Collect-them-all exercise library -->
+    <section id="libraryView" class="library-view hidden">
+      <div class="library-header">
+        <button id="libraryCloseBtn" class="library-back-btn" aria-label="Close library">← Back</button>
+        <h2 class="library-title">Neve's Pumps</h2>
+      </div>
+      <div id="libraryContent"></div>
     </section>
 
     <!-- EDIT MODE: Simple built-in editor to update the workout -->
@@ -237,6 +269,14 @@
   <footer class="app-footer">
     <p>Neve<s>r</s>Lifts • Made by Sean 🐑</p>
   </footer>
+
+  <!-- Exercise detail modal -->
+  <div id="exerciseDetailOverlay" class="ex-detail-overlay hidden" onclick="closeExerciseDetail()">
+    <div class="ex-detail-modal" onclick="event.stopPropagation()">
+      <button class="ex-detail-close" onclick="closeExerciseDetail()">✕</button>
+      <div id="exerciseDetailContent"></div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

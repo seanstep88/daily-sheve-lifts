@@ -1,7 +1,7 @@
 // FitStep Application Logic
 
 // 🚧 UNDER CONSTRUCTION FLAG — set to true while actively building, false to go live
-const UNDER_CONSTRUCTION = true;
+const UNDER_CONSTRUCTION = false;
 
 const STORAGE_KEY = 'fitstep_daily_workout';
 const PROGRESS_KEY = 'fitstep_progress_state_v2';
@@ -13,6 +13,7 @@ const WORKER_URL = 'https://daily-sheve-lifts.sean-stepanek08.workers.dev';
 const WORKOUT_DATES = [
   '2026-09-08',
   '2026-09-09',
+  '2026-09-12',
 ];
 
 // State
@@ -24,10 +25,28 @@ let expandedGifs = new Set();
 let timerInterval = null;
 let remainingSeconds = 0;
 
+// Exercise Library
+let exerciseIndex = {}; // { [name]: { mediaUrl, muscleGroup, unit } }
+let cachedPrData = {}; // most-recently-fetched PR data — used by ℹ️ button
+let newlyUnlocked = new Set();
+const LIBRARY_SEEN_KEY = 'fitstep_library_seen_v1';
+
+const MUSCLE_GROUPS = [
+  { key: 'Chest',     label: '💪 Chest' },
+  { key: 'Back',      label: '🔙 Back' },
+  { key: 'Legs',      label: '🦵 Legs' },
+  { key: 'Shoulders', label: '🏋️ Shoulders' },
+  { key: 'Triceps',   label: '💥 Triceps' },
+  { key: 'Biceps',    label: '🦾 Biceps' },
+  { key: 'Core',      label: '🧘 Core' },
+];
+
 // Elements
 const viewMode = document.getElementById('viewMode');
 const editMode = document.getElementById('editMode');
 const calendarView = document.getElementById('calendarView');
+const libraryView = document.getElementById('libraryView');
+const pastWorkoutView = document.getElementById('pastWorkoutView');
 const homeView = document.getElementById('homeView');
 const celebrationView = document.getElementById('celebrationView');
 const toggleEditBtn = document.getElementById('toggleEditBtn');
@@ -66,6 +85,14 @@ let calMonth = new Date().getMonth(); // 0-indexed
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
+  // Build exercise index regardless of construction mode (library is always available)
+  buildExerciseIndex();
+
+  // Pre-fetch PR data so the ℹ️ modal shows PRs without needing to open the library first
+  fetchSummary().then(json => {
+    if (json) cachedPrData = json.personalRecords || {};
+  }).catch(() => {});
+
   if (UNDER_CONSTRUCTION) {
     document.getElementById('underConstruction').classList.remove('hidden');
     document.getElementById('viewMode').classList.add('hidden');
@@ -169,6 +196,28 @@ function getSetCount(setsStr, targetStr) {
   return 3; // Default 3 sets
 }
 
+// Estimate total workout duration in minutes
+function estimateWorkoutDuration(exercises, totalSetsStr) {
+  const SEC_PER_REP = 3;       // ~3 seconds per rep
+  const WARMUP_MIN = 3;        // fixed warmup buffer
+  const BUFFER_MIN = 5;        // general water/misc buffer
+  const SEC_PER_EXERCISE = 90; // transition time between exercises (setup, adjust machine, etc.)
+  let totalSeconds = 0;
+
+  exercises.forEach(ex => {
+    const sets = getSetCount(totalSetsStr, ex.target);
+    const reps = parseRepCount(ex.target); // reuse existing helper
+    const rest = ex.restSeconds || 60;
+    const isTime = ex.unit === 'time';
+    // For time exercises use 45s of work per set; for reps use reps × SEC_PER_REP
+    const workPerSet = isTime ? 45 : reps * SEC_PER_REP;
+    totalSeconds += sets * (workPerSet + rest) + SEC_PER_EXERCISE;
+  });
+
+  const totalMin = Math.round(totalSeconds / 60) + WARMUP_MIN + BUFFER_MIN - 15;
+  return totalMin;
+}
+
 // 2. Render Workout View
 function renderWorkoutView() {
   if (!workoutData) return;
@@ -176,6 +225,12 @@ function renderWorkoutView() {
   viewDate.textContent = workoutData.date || "Today's Workout";
   viewSets.textContent = workoutData.totalSets || "3-4 Sets";
   viewTitle.textContent = workoutData.title || "Daily Routine";
+
+  const durEl = document.getElementById('viewDuration');
+  if (durEl) {
+    const mins = estimateWorkoutDuration(workoutData.exercises || [], workoutData.totalSets || '3 Sets');
+    durEl.textContent = `~${mins} min`;
+  }
   
   if (workoutData.notes && workoutData.notes.trim()) {
     viewNotes.textContent = workoutData.notes;
@@ -233,16 +288,37 @@ function renderWorkoutView() {
             <input type="checkbox" ${isSetDone ? 'checked' : ''} onchange="toggleSetDone(${exIdx}, ${s})">
             <span class="set-row-label">Set ${s}</span>
           </label>
-          <input
+          ${ex.unit === 'time'
+            ? `<span class="time-input-group">
+                <input type="number" class="time-part" min="0" max="99" maxlength="2" placeholder="0"
+                  inputmode="numeric"
+                  data-ex-idx="${exIdx}" data-set-idx="${s}" data-part="min"
+                  onkeydown="blockNonNumeric(event)"
+                  oninput="clampTimePart(this,99); onTimePartInput(this)" onblur="onTimePartBlur(${exIdx}, ${s})">
+                <span class="time-colon">:</span>
+                <input type="number" class="time-part" min="0" max="59" maxlength="2" placeholder="00"
+                  inputmode="numeric"
+                  data-ex-idx="${exIdx}" data-set-idx="${s}" data-part="sec"
+                  onkeydown="blockNonNumeric(event)"
+                  oninput="clampTimePart(this,59); onTimePartInput(this)" onblur="onTimePartBlur(${exIdx}, ${s})">
+              </span>
+              <input type="hidden"
+                class="weight-input"
+                data-ex-idx="${exIdx}"
+                data-set-idx="${s}"
+                data-unit="time">`
+            : `<input
             type="number"
             class="weight-input"
             inputmode="decimal"
             placeholder="lb"
             data-ex-idx="${exIdx}"
             data-set-idx="${s}"
+            data-unit="lbs"
+            onkeydown="blockNonNumeric(event, true)"
             oninput="onWeightInput(this)"
             onblur="onWeightBlur(${exIdx}, ${s}, this.value, this)"
-          >
+          >`}
         </div>
       `;
     }
@@ -253,6 +329,7 @@ function renderWorkoutView() {
           <span class="exercise-index">${exIdx + 1}</span>
           <h2 class="exercise-name" title="${escapeHtml(ex.name)}">${escapeHtml(ex.name)}</h2>
         </div>
+        <button type="button" class="card-info-btn" data-ex-name="${escapeHtml(ex.name)}" aria-label="Exercise info">ℹ️</button>
       </div>
 
       <!-- 1. Exercise Details & Checkboxes Above GIF -->
@@ -287,6 +364,18 @@ function renderWorkoutView() {
         </button>
       </div>
     `;
+
+    // Wire ℹ️ button → library detail modal
+    const infoBtn = card.querySelector('.card-info-btn');
+    if (infoBtn) {
+      infoBtn.addEventListener('click', () => {
+        const name = infoBtn.dataset.exName;
+        const info = exerciseIndex[name];
+        if (!info) return;
+        const pr = cachedPrData[name] || { weight: '—', date: null };
+        openExerciseDetail({ name, info, pr });
+      });
+    }
 
     exercisesList.appendChild(card);
   });
@@ -335,6 +424,24 @@ function loadProgress() {
   }
 }
 
+// Block non-numeric keys. allowDecimal=true permits '.' for lbs fields.
+window.blockNonNumeric = function(e, allowDecimal = false) {
+  const allowed = ['Backspace','Delete','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Tab','Enter'];
+  if (allowed.includes(e.key)) return;
+  if (allowDecimal && e.key === '.') return;
+  if (e.key >= '0' && e.key <= '9') return;
+  e.preventDefault();
+};
+
+// Clamp a number input to max digits and a ceiling value immediately on input.
+window.clampTimePart = function(el, maxVal) {
+  if (el.value === '') return;
+  // Strip beyond 2 digits
+  if (el.value.length > 2) el.value = el.value.slice(0, 2);
+  const n = parseInt(el.value, 10);
+  if (!isNaN(n) && n > maxVal) el.value = maxVal;
+};
+
 // Weight tracking
 function getWeightStorageKey() {
   return `${WEIGHTS_KEY}_${workoutData ? (workoutData.date || 'default') : 'default'}`;
@@ -354,6 +461,39 @@ window.onWeightBlur = function(exIdx, setIdx, value, el) {
       if (parseInt(input.dataset.setIdx) > 1 && input.value === '') {
         input.value = value;
         input.classList.remove('weight-input--autofill');
+      }
+    });
+    saveWeights();
+  }
+};
+
+// Sync the two time-part inputs (min + sec) into the hidden .weight-input and auto-fill sets
+window.onTimePartInput = function(el) {
+  const exIdx = el.dataset.exIdx;
+  const setIdx = el.dataset.setIdx;
+  const minEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"][data-part="min"]`);
+  const secEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"][data-part="sec"]`);
+  const combined = `${minEl.value || '0'}:${String(secEl.value || '0').padStart(2, '0')}`;
+  const hidden = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"]`);
+  if (hidden) hidden.value = combined;
+  saveWeights();
+};
+
+window.onTimePartBlur = function(exIdx, setIdx) {
+  const hidden = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"]`);
+  const value = hidden ? hidden.value : '';
+  if (setIdx === 1 && value && value !== '0:00') {
+    // Auto-fill remaining empty sets
+    const allHidden = document.querySelectorAll(`.weight-input[data-ex-idx="${exIdx}"][data-unit="time"]`);
+    allHidden.forEach(h => {
+      if (parseInt(h.dataset.setIdx) > 1 && !h.value) {
+        h.value = value;
+        // Also populate the visible min/sec fields
+        const [m, sc] = value.split(':');
+        const mEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${h.dataset.setIdx}"][data-part="min"]`);
+        const sEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${h.dataset.setIdx}"][data-part="sec"]`);
+        if (mEl) mEl.value = m;
+        if (sEl) sEl.value = sc;
       }
     });
     saveWeights();
@@ -386,7 +526,18 @@ function loadWeightsIntoDOM() {
       Object.entries(sets).forEach(([setIdx, value]) => {
         if (!value) return;
         const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"]`);
-        if (input) { input.value = value; found = true; }
+        if (input) {
+          input.value = value;
+          found = true;
+          // If this is a time field, also restore the visible min/sec inputs
+          if (input.dataset.unit === 'time' && value.includes(':')) {
+            const [m, sc] = value.split(':');
+            const mEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"][data-part="min"]`);
+            const sEl = document.querySelector(`.time-part[data-ex-idx="${exIdx}"][data-set-idx="${setIdx}"][data-part="sec"]`);
+            if (mEl) mEl.value = m;
+            if (sEl) sEl.value = sc;
+          }
+        }
       });
     });
   } catch (e) { /* ignore */ }
@@ -409,12 +560,14 @@ function compileWeightSummary() {
     return { name: ex.name, sets };
   });
 
-  const localDate = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
-  return JSON.stringify({ title, date: localDate, exercises: exerciseData }, null, 2);
+  // Use the workout's own isoDate so logs are filed under the workout's date,
+  // not today's date (important when testing or loading past workouts).
+  const logDate = workoutData?.isoDate || new Date().toLocaleDateString('en-CA');
+  return JSON.stringify({ title, date: logDate, exercises: exerciseData }, null, 2);
 }
 
 async function sendWeightsToGist() {
-  const date = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD in local time
+  const date = workoutData?.isoDate || new Date().toLocaleDateString('en-CA');
   const content = compileWeightSummary();
 
   try {
@@ -530,6 +683,216 @@ function playBeep() {
   }
 }
 
+// 6. Exercise Library
+
+async function buildExerciseIndex() {
+  const filesToFetch = [
+    'workout.json',
+    ...WORKOUT_DATES.map(d => `workouts/${d}.json`),
+  ];
+  for (const file of filesToFetch) {
+    try {
+      const res = await fetch(`${file}?t=${Date.now()}`);
+      if (!res.ok) continue;
+      const json = await res.json();
+      (json.exercises || []).forEach(ex => {
+        if (!ex.name || exerciseIndex[ex.name]) return; // first-seen wins
+        exerciseIndex[ex.name] = {
+          mediaUrl: ex.mediaUrl || '',
+          muscleGroup: ex.muscleGroup || 'Core',
+          unit: ex.unit || 'lbs',
+          description: ex.description || '',
+          weightNote: ex.weightNote || '',
+        };
+      });
+    } catch (e) { /* ignore missing files */ }
+  }
+}
+
+function computeNewlyUnlocked(prData) {
+  const seen = JSON.parse(localStorage.getItem(LIBRARY_SEEN_KEY) || '[]');
+  const seenSet = new Set(seen);
+  newlyUnlocked = new Set();
+  Object.keys(prData).forEach(name => {
+    if (!seenSet.has(name)) newlyUnlocked.add(name);
+  });
+  // Save updated seen list
+  const updated = Array.from(new Set([...seen, ...Object.keys(prData)]));
+  localStorage.setItem(LIBRARY_SEEN_KEY, JSON.stringify(updated));
+}
+
+// Lookup map for exercise detail data — keyed by index, populated each renderLibrary call
+const libraryCardData = {};
+
+async function renderLibrary() {
+  const content = document.getElementById('libraryContent');
+  if (!content) return;
+  content.innerHTML = '<p class="lib-loading">Loading…</p>';
+
+  // Fetch PR data
+  let prData = {};
+  try {
+    const json = await fetchSummary();
+    if (json) {
+      prData = json.personalRecords || {};
+      cachedPrData = prData;
+    }
+  } catch (e) { /* offline — show what we can */ }
+
+  computeNewlyUnlocked(prData);
+
+  // Glow the trophy button if there are new unlocks
+  const libraryBtn = document.getElementById('libraryBtn');
+  if (libraryBtn) {
+    libraryBtn.dataset.hasNew = newlyUnlocked.size > 0 ? 'true' : 'false';
+  }
+
+  let html = '';
+  let cardIdx = 0;
+  Object.keys(libraryCardData).forEach(k => delete libraryCardData[k]); // clear previous
+
+  MUSCLE_GROUPS.forEach(({ key, label }) => {
+    // Exercises in this group from the index
+    const groupExercises = Object.entries(exerciseIndex)
+      .filter(([, info]) => info.muscleGroup === key);
+
+    if (groupExercises.length === 0) return;
+
+    // Split into unlocked (has PR) and locked
+    const unlocked = groupExercises.filter(([name]) => prData[name]);
+    const locked   = groupExercises.filter(([name]) => !prData[name]);
+
+    let cardsHtml = '';
+
+    // Unlocked cards — tappable, opens detail modal
+    unlocked.forEach(([name, info]) => {
+      const pr = prData[name];
+      const isNew = newlyUnlocked.has(name);
+      const newBadge = isNew ? '<span class="unlock-badge">✨ Unlocked!</span>' : '';
+      const prValue = info.unit === 'time' ? pr.weight : `${pr.weight} lbs`;
+      const prDate  = pr.date ? `<span class="lib-pr-date">PR on ${pr.date}</span>` : '';
+
+      let mediaHtml;
+      const url = info.mediaUrl.trim();
+      if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('video')) {
+        mediaHtml = `<video class="lib-card-media" autoplay loop muted playsinline src="${escapeHtml(url)}"></video>`;
+      } else if (url) {
+        mediaHtml = `<img class="lib-card-media" src="${escapeHtml(url)}" alt="${escapeHtml(name)}" loading="lazy">`;
+      } else {
+        mediaHtml = `<div class="lib-card-media lib-no-media">🏋️</div>`;
+      }
+
+      libraryCardData[cardIdx] = { name, info, pr };
+      cardsHtml += `
+        <article class="lib-card unlocked" data-card-idx="${cardIdx++}">
+          ${mediaHtml}
+          <div class="lib-card-body">
+            ${newBadge}
+            <h3 class="lib-card-name">${escapeHtml(name)}</h3>
+            <span class="lib-pr-badge">🏋️ ${prValue}</span>
+            ${prDate}
+          </div>
+        </article>`;
+    });
+
+    // Mystery cards at end of each group (show all locked ones, max 3)
+    const mysteryCount = Math.min(locked.length, 3);
+    for (let i = 0; i < mysteryCount; i++) {
+      cardsHtml += `
+        <article class="lib-card mystery" onclick="shakeCard(this)">
+          <div class="lib-card-media lib-mystery-icon">❓</div>
+          <div class="lib-card-body">
+            <h3 class="lib-card-name lib-mystery-name">???</h3>
+            <span class="lib-pr-badge lib-mystery-badge">🔒 Locked</span>
+          </div>
+        </article>`;
+    }
+
+    if (!cardsHtml) return;
+
+    html += `
+      <details class="lib-group" open>
+        <summary class="lib-group-header">${label}</summary>
+        <div class="lib-card-grid">${cardsHtml}</div>
+      </details>`;
+  });
+
+  content.innerHTML = html || '<p class="lib-empty">No exercises logged yet — complete a workout to unlock your first card!</p>';
+
+  // Wire up card clicks via delegation (avoids inline onclick + encoding issues)
+  content.querySelectorAll('.lib-card.unlocked[data-card-idx]').forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = card.dataset.cardIdx;
+      if (libraryCardData[idx]) openExerciseDetail(libraryCardData[idx]);
+    });
+  });
+}
+
+window.shakeCard = function(el) {
+  el.classList.add('shake');
+  setTimeout(() => el.classList.remove('shake'), 600);
+};
+
+window.openExerciseDetail = function(data) {
+  const { name, info, pr } = data;
+  const prValue = info.unit === 'time' ? pr.weight : `${pr.weight} lbs`;
+  const prDate  = pr.date ? `<p class="ex-detail-pr-date">PR set on ${pr.date}</p>` : '';
+
+  let mediaHtml;
+  const url = (info.mediaUrl || '').trim();
+  if (url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('video')) {
+    mediaHtml = `<video class="ex-detail-media" autoplay loop muted playsinline src="${escapeHtml(url)}"></video>`;
+  } else if (url) {
+    mediaHtml = `<img class="ex-detail-media" src="${escapeHtml(url)}" alt="${escapeHtml(name)}" loading="lazy">`;
+  } else {
+    mediaHtml = `<div class="ex-detail-media ex-detail-no-media">🏋️</div>`;
+  }
+
+  const descHtml = info.description
+    ? `<ol class="ex-detail-steps">${info.description.split('\n').map(step =>
+        `<li>${escapeHtml(step.replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>`
+    : '';
+
+  const weightNoteHtml = info.weightNote
+    ? `<p class="weight-note">💡 ${escapeHtml(info.weightNote)}</p>`
+    : '';
+
+  document.getElementById('exerciseDetailContent').innerHTML = `
+    ${mediaHtml}
+    <div class="ex-detail-body">
+      <h2 class="ex-detail-name">${escapeHtml(name)}</h2>
+      <span class="ex-detail-group">${escapeHtml(info.muscleGroup || '')}</span>
+      <div class="ex-detail-pr">
+        <span class="lib-pr-badge">🏆 PR: ${prValue}</span>
+        ${prDate}
+      </div>
+      ${weightNoteHtml}
+      ${descHtml}
+    </div>`;
+
+  document.getElementById('exerciseDetailOverlay').classList.remove('hidden');
+};
+
+window.closeExerciseDetail = function() {
+  document.getElementById('exerciseDetailOverlay').classList.add('hidden');
+};
+
+window.loadWorkoutByDate = async function(dateStr) {
+  if (!dateStr) return;
+  try {
+    const res = await fetch(`workouts/${dateStr}.json?t=${Date.now()}`);
+    if (!res.ok) return;
+    workoutData = await res.json();
+    workoutData.isoDate = dateStr; // derive from filename, no need in JSON
+    completedSets.clear();
+    saveProgress();
+    renderWorkoutView();
+    libraryView.classList.add('hidden');
+    viewMode.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (e) { /* ignore */ }
+};
+
 // 5. Calendar Features
 function renderCalendar(year, month) {
   const monthNames = ['January','February','March','April','May','June',
@@ -559,20 +922,24 @@ function renderCalendar(year, month) {
     cell.className = 'calendar-day';
     cell.textContent = d;
 
+    // Past/future workout days stay purple and tappable
+    if (WORKOUT_DATES.includes(dateStr) && dateStr !== todayStr) {
+      cell.classList.add('has-workout');
+      cell.addEventListener('click', () => loadCalendarWorkout(dateStr));
+    }
+
+    // Today gets blue ring and is always tappable
     if (dateStr === todayStr) {
       cell.classList.add('today');
       cell.style.cursor = 'pointer';
-      cell.addEventListener('click', async () => {
-        await loadWorkoutData();
-        renderWorkoutView();
-        calendarView.classList.add('hidden');
-        viewMode.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      cell.addEventListener('click', () => {
+        if (UNDER_CONSTRUCTION) {
+          calendarView.classList.add('hidden');
+          document.getElementById('underConstruction').classList.remove('hidden');
+        } else {
+          loadCalendarWorkout(dateStr);
+        }
       });
-    }
-    if (WORKOUT_DATES.includes(dateStr)) {
-      cell.classList.add('has-workout');
-      cell.addEventListener('click', () => loadCalendarWorkout(dateStr));
     }
 
     grid.appendChild(cell);
@@ -580,10 +947,33 @@ function renderCalendar(year, month) {
 }
 
 async function loadCalendarWorkout(dateStr) {
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const isPast = dateStr < todayStr;
+
   try {
-    const res = await fetch(`workouts/${dateStr}.json?t=${Date.now()}`);
+    // Past date — try to show read-only log recap first
+    if (isPast) {
+      const logRes = await fetch(`logs/${dateStr}.json?t=${Date.now()}`);
+      if (logRes.ok) {
+        const logData = await logRes.json();
+        let workoutDef = null;
+        try {
+          const wRes = await fetch(`workouts/${dateStr}.json?t=${Date.now()}`);
+          if (wRes.ok) workoutDef = await wRes.json();
+        } catch (e) { /* no workout def */ }
+        calendarView.classList.add('hidden');
+        renderPastWorkout(dateStr, logData, workoutDef);
+        return;
+      }
+    }
+
+    // No log or today/future — try specific date file, fall back to workout.json
+    let res = await fetch(`workouts/${dateStr}.json?t=${Date.now()}`);
+    if (!res.ok) res = await fetch(`workout.json?t=${Date.now()}`);
     if (!res.ok) throw new Error('Not found');
     workoutData = await res.json();
+    workoutData.isoDate = dateStr;
     completedSets.clear();
     saveProgress();
     renderWorkoutView();
@@ -594,6 +984,107 @@ async function loadCalendarWorkout(dateStr) {
     alert(`Could not load workout for ${dateStr}.`);
   }
 }
+
+function renderPastWorkout(dateStr, logData, workoutDef) {
+  // Build def map from workout definition file
+  const defMap = {};
+  (workoutDef?.exercises || []).forEach(ex => {
+    defMap[ex.name] = ex;
+  });
+
+  // Header — use display date + rounds from workoutDef, fall back to logData
+  const displayDate = workoutDef?.date || logData.date || dateStr;
+  const totalSets = workoutDef?.totalSets || '';
+  const notes = workoutDef?.notes || '';
+
+  document.getElementById('pastWorkoutTitle').textContent = logData.title || workoutDef?.title || 'Workout';
+  document.getElementById('pastWorkoutDate').textContent = displayDate;
+
+  // Duration estimate using workoutDef exercises
+  const durEl = document.getElementById('pastWorkoutDuration');
+  if (durEl && workoutDef?.exercises) {
+    const mins = estimateWorkoutDuration(workoutDef.exercises, totalSets);
+    durEl.textContent = `~${mins} min`;
+  } else if (durEl) {
+    durEl.textContent = '';
+  }
+  const setsEl = document.getElementById('pastWorkoutSets');
+  if (setsEl) setsEl.textContent = totalSets;
+
+  const notesEl = document.getElementById('pastWorkoutNotes');
+  if (notesEl) {
+    notesEl.textContent = notes;
+    notesEl.classList.toggle('hidden', !notes);
+  }
+
+  const content = document.getElementById('pastWorkoutContent');
+  content.innerHTML = (logData.exercises || []).map((ex, i) => {
+    const def = defMap[ex.name] || {};
+    const url = (def.mediaUrl || '').trim();
+    const isVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('video');
+    let mediaEl = '';
+    if (isVideo) {
+      mediaEl = `<video class="exercise-media" autoplay loop muted playsinline src="${escapeHtml(url)}"></video>`;
+    } else if (url) {
+      mediaEl = `<img class="exercise-media" src="${escapeHtml(url)}" alt="${escapeHtml(ex.name)}" loading="lazy">`;
+    }
+
+    const setCount = ex.sets?.length || 0;
+    const setsHtml = (ex.sets || []).map(s => {
+      const val = s.weight && s.weight !== '0' ? s.weight : '—';
+      const label = def.unit === 'time' ? val : (val === '—' ? '—' : `${val} lbs`);
+      return `<div class="set-row done">
+        <label class="set-row-check">
+          <input type="checkbox" checked disabled>
+          <span class="set-row-label">Set ${s.set}</span>
+        </label>
+        <span class="past-set-weight">${escapeHtml(label)}</span>
+      </div>`;
+    }).join('');
+
+    return `<article class="exercise-card completed past-card">
+      <div class="card-top">
+        <div class="exercise-title-group">
+          <span class="exercise-index">${i + 1}</span>
+          <h2 class="exercise-name" title="${escapeHtml(ex.name)}">${escapeHtml(ex.name)}</h2>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="badge-row">
+          <span class="target-badge">🎯 ${escapeHtml(def.target || '')}</span>
+        </div>
+        <div class="sets-tracker">
+          <div class="sets-tracker-title">
+            <span>Sets Completed</span>
+            <span>${setCount}/${setCount} Done</span>
+          </div>
+          <div class="set-rows-group">${setsHtml}</div>
+        </div>
+        ${def.instructions ? `<div class="instructions-box">${escapeHtml(def.instructions)}</div>` : ''}
+      </div>
+      ${mediaEl ? `
+      <div class="media-container collapsed" id="past-media-${i}">${mediaEl}</div>
+      <div class="card-footer-toggle">
+        <button type="button" class="toggle-media-btn" onclick="togglePastMedia(${i})">
+          <span>👀 Show Exercise Form / GIF</span>
+        </button>
+      </div>` : ''}
+    </article>`;
+  }).join('');
+
+  [viewMode, homeView, editMode, calendarView, libraryView, celebrationView].forEach(v => v?.classList.add('hidden'));
+  document.getElementById('underConstruction').classList.add('hidden');
+  pastWorkoutView.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.togglePastMedia = function(idx) {
+  const box = document.getElementById(`past-media-${idx}`);
+  const btn = box?.nextElementSibling?.querySelector('.toggle-media-btn');
+  if (!box) return;
+  const collapsed = box.classList.toggle('collapsed');
+  if (btn) btn.innerHTML = `<span>${collapsed ? '👀 Show Exercise Form / GIF' : '🙈 Hide Exercise Form'}</span>`;
+};
 
 // 6. Editor Features
 function openEditor() {
@@ -749,7 +1240,9 @@ function parseRepCount(targetStr) {
   return 10;
 }
 
-// Sums weight × reps across all sets/exercises from the current DOM
+// Sums weight × reps across all sets/exercises from the current DOM.
+// Dumbbell exercises (dumbbell:true) are doubled since Neve enters one dumbbell's weight
+// but uses two (or does both arms) each set.
 function calcTotalVolume() {
   if (!workoutData) return 0;
   const exercises = workoutData.exercises || [];
@@ -758,10 +1251,11 @@ function calcTotalVolume() {
   exercises.forEach((ex, exIdx) => {
     const reps = parseRepCount(ex.target);
     const setCount = getSetCount(bannerSets, ex.target);
+    const multiplier = ex.dumbbell ? 2 : 1;
     for (let s = 1; s <= setCount; s++) {
       const input = document.querySelector(`.weight-input[data-ex-idx="${exIdx}"][data-set-idx="${s}"]`);
       const w = input ? parseFloat(input.value) : 0;
-      if (w > 0) total += w * reps;
+      if (w > 0) total += w * reps * multiplier;
     }
   });
   return Math.round(total);
@@ -786,6 +1280,20 @@ function getWeightItem(volumeLbs) {
 }
 
 const SUMMARY_URL = 'https://raw.githubusercontent.com/seanstep88/daily-sheve-lifts/main/logs/summary.json';
+const LOCAL_SUMMARY = 'logs/summary.json';
+
+// Fetch summary.json — tries GitHub first, falls back to local copy.
+// This lets the local dev server use the local file while production uses GitHub.
+async function fetchSummary() {
+  try {
+    const res = await fetch(SUMMARY_URL + '?t=' + Date.now());
+    if (res.ok) return res.json();
+  } catch (e) { /* network unavailable or CORS — fall through */ }
+  // Fallback: same-origin local file (works when running via local server)
+  const res = await fetch(LOCAL_SUMMARY + '?t=' + Date.now());
+  if (res.ok) return res.json();
+  return null;
+}
 
 async function showCelebration() {
   // Fire send to GitHub (non-blocking)
@@ -797,10 +1305,10 @@ async function showCelebration() {
   // Fetch PR data silently
   let prData = {};
   try {
-    const res = await fetch(SUMMARY_URL + '?t=' + Date.now());
-    if (res.ok) {
-      const json = await res.json();
+    const json = await fetchSummary();
+    if (json) {
       prData = json.personalRecords || {};
+      cachedPrData = prData;
     }
   } catch (e) { /* ignore */ }
 
@@ -935,9 +1443,8 @@ function launchConfetti() {
 async function autoFillLastWeights() {
   if (!workoutData) return;
   try {
-    const res = await fetch(SUMMARY_URL + '?t=' + Date.now());
-    if (!res.ok) return;
-    const json = await res.json();
+    const json = await fetchSummary();
+    if (!json) return;
     const sessions = json.recentSessions || [];
     if (!sessions.length) return;
 
@@ -1092,6 +1599,8 @@ function setupEventListeners() {
       viewMode.classList.add('hidden');
       homeView.classList.add('hidden');
       editMode.classList.add('hidden');
+      libraryView.classList.add('hidden');
+      pastWorkoutView.classList.add('hidden');
       document.getElementById('celebrationView').classList.add('hidden');
       document.getElementById('underConstruction').classList.add('hidden');
       calendarView.classList.remove('hidden');
@@ -1109,6 +1618,45 @@ function setupEventListeners() {
       } else {
         viewMode.classList.remove('hidden');
       }
+    });
+  }
+
+  // Library button — open exercise library
+  const libraryBtn = document.getElementById('libraryBtn');
+  if (libraryBtn) {
+    libraryBtn.addEventListener('click', () => {
+      viewMode.classList.add('hidden');
+      homeView.classList.add('hidden');
+      editMode.classList.add('hidden');
+      calendarView.classList.add('hidden');
+      pastWorkoutView.classList.add('hidden');
+      document.getElementById('celebrationView').classList.add('hidden');
+      document.getElementById('underConstruction').classList.add('hidden');
+      libraryView.classList.remove('hidden');
+      renderLibrary();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Library close — return to previous view
+  const libraryCloseBtn = document.getElementById('libraryCloseBtn');
+  if (libraryCloseBtn) {
+    libraryCloseBtn.addEventListener('click', () => {
+      libraryView.classList.add('hidden');
+      if (UNDER_CONSTRUCTION) {
+        document.getElementById('underConstruction').classList.remove('hidden');
+      } else {
+        viewMode.classList.remove('hidden');
+      }
+    });
+  }
+
+  // Past workout close — return to calendar
+  const pastWorkoutCloseBtn = document.getElementById('pastWorkoutCloseBtn');
+  if (pastWorkoutCloseBtn) {
+    pastWorkoutCloseBtn.addEventListener('click', () => {
+      pastWorkoutView.classList.add('hidden');
+      calendarView.classList.remove('hidden');
     });
   }
 
@@ -1131,8 +1679,16 @@ function setupEventListeners() {
     homeBtn.addEventListener('click', () => {
       viewMode.classList.add('hidden');
       calendarView.classList.add('hidden');
+      libraryView.classList.add('hidden');
+      pastWorkoutView.classList.add('hidden');
       editMode.classList.add('hidden');
-      homeView.classList.remove('hidden');
+      homeView.classList.add('hidden');
+      celebrationView.classList.add('hidden');
+      if (UNDER_CONSTRUCTION) {
+        document.getElementById('underConstruction').classList.remove('hidden');
+      } else {
+        homeView.classList.remove('hidden');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }

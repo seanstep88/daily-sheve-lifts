@@ -50,29 +50,34 @@ Add a calendar icon button in the top-right header that toggles a full-screen ca
 ## Sub-Task 2 — Per-Set Weight Inputs on Exercise Cards
 
 **Intent**
-Add weight input fields to each exercise card — one field per set. Typing a value into the first set auto-fills all subsequent set fields for that exercise. Fields are persisted in `localStorage` so they survive a page refresh.
+Add weight input fields to each exercise card — one field per set. Typing a value into the first set auto-fills all subsequent set fields for that exercise. Fields are persisted in `localStorage` so they survive a page refresh. Exercises with `"unit": "time"` get a `MM:SS` time input instead of a number/lbs input — this handles planks, dead hangs, wall sits, and any future hold exercises.
 
 **Expected Outcomes**
-- Each exercise card shows a row of small weight inputs labeled "Set 1", "Set 2", etc., matching the set count from `target` (parsed from strings like "3 Sets × 10 Reps" or the `totalSets` field).
+- Each exercise card shows a row of small inputs labeled "Set 1", "Set 2", etc., matching the set count.
 - Entering a value in Set 1 immediately fills Set 2, Set 3, etc. for that exercise only.
 - Editing a later set field does not affect other fields.
-- Weight values are saved to `localStorage` under a new key `fitstep_weights_v1` (keyed by workout date + exercise name).
-- Weights are restored on page load.
+- Exercises with `"unit": "lbs"` (or no `unit` field — default) show `<input type="number" placeholder="lbs">`.
+- Exercises with `"unit": "time"` show `<input type="text" placeholder="0:00" pattern="[0-9]+:[0-5][0-9]">` — a MM:SS text field.
+- The auto-fill-from-Set-1 behavior works the same for both input types.
+- Values are saved to `localStorage` under key `fitstep_weights_v1` (keyed by workout date + exercise name).
+- Values are restored on page load.
 
 **Todo List**
-1. In `renderWorkoutView()` in `app.js`, after rendering each exercise card's set checkboxes, append a weight inputs row.
-2. Parse the set count from the exercise `target` string (e.g. "3 Sets × 10 Reps" → 3) with a helper `parseSetCount(target, totalSets)`. Fall back to the workout-level `totalSets` if the exercise target doesn't contain a number.
-3. Render `<input type="number" class="weight-input" placeholder="lb">` for each set, with `data-ex-idx` and `data-set-idx` attributes.
-4. Add a `window.onWeightInput(exIdx, setIdx, value)` handler: if `setIdx === 0`, fill all other set inputs for that exercise with the same value.
-5. Add `saveWeights()` / `loadWeights()` functions using `localStorage` key `fitstep_weights_v1`, stored as `{ [workoutDate]: { [exerciseName]: [w1, w2, w3] } }`.
-6. Call `loadWeights()` after `renderWorkoutView()` to repopulate fields.
-7. Add `.weight-input-row`, `.weight-input-label`, `.weight-input` CSS to `styles.css` — compact, inline, dark-themed to match existing set checkboxes.
+1. In `renderWorkoutView()` in `app.js`, after rendering each exercise card's set checkboxes, append a weight/time inputs row.
+2. Parse the set count from the exercise `target` string with a helper `parseSetCount(target, totalSets)`. Fall back to the workout-level `totalSets` if not found.
+3. Check `ex.unit` — if `"time"`, render `<input type="text" class="weight-input time-input" placeholder="0:00">` per set; otherwise render `<input type="number" class="weight-input" placeholder="lbs">`.
+4. Add `data-ex-idx`, `data-set-idx`, and `data-unit` attributes to each input.
+5. Add a `window.onWeightInput(el)` handler: if the input is Set 0, fill all other set inputs for that exercise with the same value.
+6. Add `saveWeights()` / `loadWeights()` using `localStorage` key `fitstep_weights_v1`, stored as `{ [workoutDate]: { [exerciseName]: [v1, v2, v3] } }` — values are strings for both types.
+7. Call `loadWeights()` after `renderWorkoutView()` to repopulate fields.
+8. Add `.weight-input-row`, `.weight-input-label`, `.weight-input`, `.time-input` CSS to `styles.css` — compact, inline, dark-themed to match existing set checkboxes.
 
 **Relevant Context**
 - Set checkboxes rendered in `renderWorkoutView()` around `app.js:200–250` — weight row goes directly below
 - `getSetCount()` helper already exists at `app.js:125` — reuse or extend it for `parseSetCount`
 - Existing localStorage pattern: `saveProgress()` / `loadProgress()` at `app.js:287–300`
-- Exercise index available as loop variable in `renderWorkoutView()`
+- `"unit": "time"` is a new optional field — default is lbs if absent; add it to Plank Hold in `workouts/2026-09-08.json`
+- PR badge in the library (Sub-Task L4) should display time values as-is (e.g. `1:30`) and lbs values as `X lbs`
 
 **Status** — `[ ] pending`
 
@@ -145,4 +150,71 @@ Add a sticky "Send Weights 📬" button that appears once any weight field has b
 - Use `yt-dlp -f mp4 <url> -o "exercises/videos/<name>.mp4"` to download
 - MP4s are 5-10x smaller than GIFs and load faster on mobile
 - The app already auto-detects `.mp4` extension and uses a `<video>` tag
+
+
+---
+
+## Sub-Task 4 — Fix "NeverLifts" Logo Button During Under Construction ✅
+
+**Intent**
+When `UNDER_CONSTRUCTION` is `true` and Neve taps the "NeverLifts" logo in the header, the current code shows `#homeView` without hiding `#underConstruction`. This makes the coming-soon card and the home screen appear at the same time. The fix: when in under-construction mode, tapping the logo should hide everything and show only `#underConstruction` — the same clean state as app load.
+
+**Expected Outcomes**
+- Tapping "NeverLifts" while `UNDER_CONSTRUCTION` is `true` hides all views and shows only `#underConstruction` — no home screen visible.
+- Tapping "NeverLifts" while `UNDER_CONSTRUCTION` is `false` continues to work as before (shows `#homeView`).
+- Also hides calendar and library views if they happen to be open when the logo is tapped.
+
+**Todo List**
+1. In `app.js`, inside the `homeBtn` click handler (currently at line ~1131), add a branch: if `UNDER_CONSTRUCTION`, hide all views (`viewMode`, `calendarView`, `editMode`, `homeView`, `#libraryView`) and show `#underConstruction` — then `return`. Otherwise fall through to the existing logic.
+
+**Relevant Context**
+- `homeBtn` click handler: `app.js:1131–1137`
+- `UNDER_CONSTRUCTION` constant: `app.js:3`
+- Same pattern used in `homeToWorkoutBtn` handler: `app.js:1145–1147`
+
+**Status** — `[x] done`
+
+---
+
+## Exercise Library View (Future)
+
+**Goal:** A trophy/library button in the header (next to the 📅 calendar button) that opens a full exercise library showing every exercise Neve has ever done, with her best performance and a link back to the workout it came from.
+
+**What it shows:**
+- Every unique exercise name across all `logs/*.json` files, **grouped by muscle group**
+- The exercise GIF/video (matched from current workout JSON files by name)
+- **Max weight** ever lifted for that exercise + the date it happened
+- **Max reps** target from the workout JSON
+- A "📅 View workout" link that opens that date in the calendar view
+
+**Muscle group sections (collapsible, in this order):**
+1. 💪 Chest
+2. 🔙 Back
+3. 🦵 Legs
+4. 🏋️ Shoulders
+5. 💥 Triceps
+6. 🦾 Biceps
+7. 🧘 Core
+8. 🫀 Cardio / Other
+
+**Data source:**
+- `logs/summary.json` already has `personalRecords: { [exerciseName]: { date, weight } }` — use this
+- Exercise GIF/video URLs come from matching the exercise name across `workout.json` and `workouts/*.json`
+- Muscle group assigned per exercise in workout JSON via a new optional `"muscleGroup"` field (e.g. `"muscleGroup": "Shoulders"`). Falls back to "Other" if not set.
+- Link back to the workout by loading `workouts/YYYY-MM-DD.json` for that PR date (same as calendar day tap)
+
+**UI:**
+- New button in header: 🏆 (sits next to 📅)
+- New `#libraryView` section (sibling to all other views, hidden by default)
+- Muscle group headers as sticky section dividers — tap to collapse/expand
+- Cards under each group: GIF/video, exercise name, max weight badge, PR date, "View Workout" button
+- ← Back button returns to wherever she came from (construction screen or home)
+
+**Implementation notes:**
+- Add `"muscleGroup"` field to exercises in `workout.json` and `workouts/*.json`
+- Build a name→mediaUrl map by fetching all workout JSON files at load time
+- Fall back to 🏋️ emoji if no media found for that exercise name
+- Available during under construction mode (same pattern as calendar)
+
+**Status:** `[ ] pending`
 
