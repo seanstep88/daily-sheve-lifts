@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-12T06:38:08.364Z",
-  "totalSessions": 5,
+  "lastUpdated": "2026-09-12T06:44:45.393Z",
+  "totalSessions": 4,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -49,8 +49,8 @@
       "trend": "📉 down"
     },
     "Triceps rope pushdown": {
-      "lastDate": "2026-09-12",
-      "prevDate": "2026-09-11",
+      "lastDate": "2026-09-11",
+      "prevDate": "2026-09-08",
       "lastMax": 17.5,
       "prevMax": 17.5,
       "change": 0,
@@ -92,109 +92,14 @@
   "weeklyVolume": {
     "Dumbbell bicep curls": 60,
     "Dumbbell single arm bent over row": 60,
-    "Triceps rope pushdown": 192.5,
+    "Triceps rope pushdown": 140,
     "Plank Hold": 0,
     "Incline dumbbell bench press": 81,
     "Dumbbell lateral raises": 48,
     "Dumbbell Tricep Extension": 48,
-    "Dumbbell front raises": 48,
-    "Flat dumbbell bench press": 0,
-    "Dumbbell skull crushers": 0,
-    "Tricep kickback": 0,
-    "Machine chest fly": 0
+    "Dumbbell front raises": 48
   },
   "recentSessions": [
-    {
-      "date": "2026-09-12",
-      "title": "Chest and Triceps",
-      "exercises": [
-        {
-          "name": "Flat dumbbell bench press",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell skull crushers",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Tricep kickback",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Machine chest fly",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Triceps rope pushdown",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "17.5"
-            },
-            {
-              "set": 2,
-              "weight": "17.5"
-            },
-            {
-              "set": 3,
-              "weight": "17.5"
-            }
-          ]
-        }
-      ]
-    },
     {
       "date": "2026-09-11",
       "title": "Biceps, Triceps, and Back",
