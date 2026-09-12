@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-12T06:45:15.617Z",
-  "totalSessions": 2,
+  "lastUpdated": "2026-09-12T16:27:47.031Z",
+  "totalSessions": 3,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -29,20 +29,140 @@
     "Dumbbell front raises": {
       "date": "2026-09-09",
       "weight": 8
+    },
+    "Flat dumbbell bench press": {
+      "date": "2026-09-12",
+      "weight": 15
+    },
+    "Dumbbell skull crushers": {
+      "date": "2026-09-12",
+      "weight": 10
+    },
+    "Tricep kickback": {
+      "date": "2026-09-12",
+      "weight": 10
+    },
+    "Machine chest fly": {
+      "date": "2026-09-12",
+      "weight": 30
     }
   },
-  "trends": {},
+  "trends": {
+    "Triceps rope pushdown": {
+      "lastDate": "2026-09-12",
+      "prevDate": "2026-09-08",
+      "lastMax": 17.5,
+      "prevMax": 17.5,
+      "change": 0,
+      "trend": "➡️ same"
+    }
+  },
   "weeklyVolume": {
     "Dumbbell bicep curls": 40,
     "Dumbbell single arm bent over row": 40,
-    "Triceps rope pushdown": 70,
+    "Triceps rope pushdown": 122.5,
     "Plank Hold": 0,
     "Incline dumbbell bench press": 36,
     "Dumbbell lateral raises": 24,
     "Dumbbell Tricep Extension": 24,
-    "Dumbbell front raises": 24
+    "Dumbbell front raises": 24,
+    "Flat dumbbell bench press": 40,
+    "Dumbbell skull crushers": 30,
+    "Tricep kickback": 28,
+    "Machine chest fly": 90
   },
   "recentSessions": [
+    {
+      "date": "2026-09-12",
+      "title": "Chest and Triceps",
+      "exercises": [
+        {
+          "name": "Flat dumbbell bench press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "10"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell skull crushers",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "10"
+            },
+            {
+              "set": 2,
+              "weight": "10"
+            },
+            {
+              "set": 3,
+              "weight": "10"
+            }
+          ]
+        },
+        {
+          "name": "Tricep kickback",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "10"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "10"
+            }
+          ]
+        },
+        {
+          "name": "Machine chest fly",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "30"
+            },
+            {
+              "set": 2,
+              "weight": "30"
+            },
+            {
+              "set": 3,
+              "weight": "30"
+            }
+          ]
+        },
+        {
+          "name": "Triceps rope pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "17.5"
+            },
+            {
+              "set": 2,
+              "weight": "17.5"
+            },
+            {
+              "set": 3,
+              "weight": "17.5"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-09",
       "title": "Triceps and Shoulders",
