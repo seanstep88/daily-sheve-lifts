@@ -1,0 +1,91 @@
+{
+  "title": "Chest and Triceps",
+  "date": "2026-09-12",
+  "exercises": [
+    {
+      "name": "Flat dumbbell bench press",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell skull crushers",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Tricep kickback",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Machine chest fly",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "17.5"
+        },
+        {
+          "set": 2,
+          "weight": "17.5"
+        },
+        {
+          "set": 3,
+          "weight": "17.5"
+        }
+      ]
+    }
+  ]
+}
