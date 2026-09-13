@@ -1,57 +1,55 @@
 {
-  "date": "Steptember 12, 2026",
-  "isoDate": "2026-09-12",
-  "title": "Chest and Triceps",
+  "date": "Steptember 13, 2026",
+  "isoDate": "2026-09-13",
+  "title": "Leg Day",
   "totalSets": "3 Rounds",
-  "notes": "First official push day wooo! slow, controlled reps.",
+  "notes": "form over weight always",
   "exercises": [
     {
-      "name": "Flat dumbbell bench press",
-      "muscleGroup": "Chest",
+      "name": "Goblet squat",
+      "muscleGroup": "Legs",
       "target": "10-12 Reps",
       "restSeconds": 60,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/db-bench-press.mp4",
-      "instructions": "Pick a weight where the last 2 reps are tough but form stays clean",
-      "description": "1. Grab a pair of dumbbells, sit on a flat gym bench, and place both weights on top of your thighs.\n2. Bring your shoulders back, engage your abs, take a breath, and flex your arms.\n3. Kick both dumbbells up with your thighs as you lie back.\n4. With your arms straight and dumbbells over your chest, dig your shoulder blades into the bench and place your feet flat on the floor.\n5. Take another breath and lower both dumbbells to your sides. Keep your elbows somewhat tucked.\n6. Lower the weights until your elbows are at torso level.\n7. Press both dumbbells to the starting position, bringing them together as you exhale."
+      "mediaUrl": "assets/videos/goblet-squat.mp4",
+      "instructions": "Keep your chest up and squat as low as you comfortably can",
+      "description": "1. Grab a dumbbell and raise it in front of your torso with both arms while keeping it vertical (with one side up).\n2. Position your hands to the sides of it with your palms placed firmly against the top weight plate.\n3. Straighten your back, engage your abs, and inhale.\n4. Descend into a squat while keeping your torso upright.\n5. Squat as low as you comfortably can — ideally until your thighs are parallel with the floor.\n6. Push through your heels to raise yourself back to the starting position and exhale near the top of the repetition."
     },
     {
-      "name": "Dumbbell skull crushers",
-      "muscleGroup": "Triceps",
-      "target": "10-12 Reps",
-      "restSeconds": 60,
+      "name": "Dumbbell reverse lunge",
+      "muscleGroup": "Legs",
+      "target": "10 Reps each leg",
+      "restSeconds": 120,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/Skullcrusher.mp4",
-      "instructions": "Go light, form matters more than weight here. Keep elbows pointing straight up.",
-      "description": "1. Grab a pair of dumbbells and lie on a flat gym bench.\n2. Straighten your arms and position the dumbbells over your chest with your wrists neutral (hands facing one another).\n3. Bring your shoulders back, engage your abs, and plant your feet flat on the floor.\n4. Take a breath and slowly bend your elbows to bring the dumbbells to the sides of your head.\n5. Hold the position momentarily and extend your arms by squeezing your triceps. Exhale near the top."
+      "mediaUrl": "assets/videos/db-reverse-lunge.mp4",
+      "instructions": "Keep your front shin vertical and your chest tall. alternate legs each rep",
+      "description": "1. Grab a pair of dumbbells and stand tall.\n2. Have your feet in a comfortable stance, bring your shoulders back, and engage your abs.\n3. Take a breath and bring the right leg back, landing on the ball of the right foot. Immediately sink into a lunge by bending your front leg.\n4. Descend until your front thigh is almost parallel to the floor and your rear knee is an inch or two from the floor. A good stride length is when your front shin remains relatively vertical (knee over ankle) as you descend.\n5. Pause at the bottom and engage your front leg to bring yourself back to the top as you exhale.\n6. Take another breath and lunge back with your left leg, landing on the ball of your left foot.\n7. Keep alternating."
     },
     {
-      "name": "Tricep kickback",
-      "muscleGroup": "Triceps",
+      "name": "Dumbbell hip thrust",
+      "muscleGroup": "Legs",
       "target": "12-15 Reps",
       "restSeconds": 60,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/Tricep-kickback.mp4",
-      "instructions": "Light weight, full extension at the top. squeeze and hold 1 second each rep",
-      "description": "1. Grab a light dumbbell and hold it to your side with your palm facing your thigh.\n2. Lean your torso forward as you push your butt back to maintain a neutral back.\n3. Lift your elbow to your side, inhale, and extend your arm by engaging your tricep. Breathe out.\n4. Hold the contraction for a second and slowly bring the dumbbell back down as you breathe in.\n5. Keep your shoulder and elbow in a stationary position throughout each repetition."
+      "mediaUrl": "assets/videos/db-hip-thrust.mp4",
+      "instructions": "Squeeze your glutes hard at the top and hold for 1 second",
+      "description": "1. Sit on the ground with a flat gym bench behind you and a dumbbell at your side.\n2. Lean back and place your upper back against the edge of the bench.\n3. Position your feet roughly hip-width apart and plant them flat on the ground.\n4. Grab the dumbbell and place it over your hips. Hold it in position with both hands.\n5. Breathe in, engage your abs, and push through your heels to drive your hips to the ceiling.\n6. Pause when your knees, hips, and upper body align. Exhale.\n7. Slowly lower your hips while keeping your abs engaged. Breathe in on the way down.\n8. Repeat."
     },
     {
-      "name": "Machine chest fly",
-      "muscleGroup": "Chest",
+      "name": "Leg extension",
+      "muscleGroup": "Legs",
       "target": "12-15 Reps",
-      "restSeconds": 90,
-      "mediaUrl": "assets/videos/Machine-chest-fly.mp4",
-      "instructions": "Light weight first time, focus on the squeeze at the center, try slow on the way back",
-      "description": "1. Select the appropriate load and adjust the seat height. The machine's handles should be at chest level when you sit.\n2. Sit down, bring your shoulders back, and reach to the sides to grab the handles.\n3. Engage your abs and take a breath.\n4. Squeeze your chest and bring your arms in, tapping your knuckles lightly in front of your chest as you breathe out.\n5. Bring your arms to your sides, feeling your chest muscles stretch. Breathe in."
+      "restSeconds": 45,
+      "mediaUrl": "assets/videos/leg-extension.mp4",
+      "instructions": "Slow and controlled, squeeze your quads at the top of each rep",
+      "description": "1. Select the appropriate load.\n2. Adjust the pad to be against your lower legs, just above your feet when seated.\n3. Sit down, grab the handles by your sides, place your lower shins against the pad, and retract your shoulders.\n4. Take a breath and straighten your legs by engaging your quadriceps.\n5. Lift the weight until your knees straighten, and breathe out.\n6. Hold for a moment and bend your knees slowly as you breathe in."
     },
     {
-      "name": "Triceps rope pushdown",
-      "muscleGroup": "Triceps",
+      "name": "Hamstring curl",
+      "muscleGroup": "Legs",
       "target": "12-15 Reps",
-      "restSeconds": 98,
-      "mediaUrl": "assets/videos/triceps-rope-pushdown.mp4",
-      "instructions": "You know this one! but keep back straight and chest high, if form is failing then go down in weight.",
-      "description": "1. Pick the appropriate weight, set the pulley to the highest position, and attach a rope.\n2. Grab the rope with both hands and bring your elbows to your sides.\n3. Take a step back and lean your torso forward slightly.\n4. Take a breath and extend your arms while keeping your elbows in position. Breathe out.\n5. Bend your arms slowly and breathe in. Stop when your wrists end up slightly higher than your elbows."
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/hamstring-curl.mp4",
+      "instructions": "Don't let the weight stack slam down, try slow on the way back",
+      "description": "1. Select the appropriate load.\n2. Adjust the pad position. It should be against your Achilles' heels as you sit down.\n3. Sit down, position the back of your lower legs against the pad, and grab the handles at your sides.\n4. Bring your shoulders back, engage your abs, and inhale.\n5. Bend your knees by contracting your hamstrings and breathe out.\n6. Hold for a moment and slowly extend your knees as you breathe in."
     }
   ]
 }
