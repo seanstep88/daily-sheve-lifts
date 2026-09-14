@@ -18,7 +18,7 @@
     {
       "name": "Dumbbell hip thrust",
       "muscleGroup": "Legs",
-      "target": "12-15 Reps",
+      "target": "10 Reps",
       "restSeconds": 60,
       "dumbbell": true,
       "mediaUrl": "assets/videos/db-hip-thrust.mp4",
@@ -31,6 +31,7 @@
       "target": "15 Steps each direction",
       "restSeconds": 45,
       "band": true,
+       "unit": "band",
       "mediaUrl": "assets/videos/band-lateral-walk.mp4",
       "instructions": "Keep the band just above your knees and stay low in an athletic stance the whole time. Pick a band that lets you keep good form, if you're standing up straight it's too heavy.",
       "description": "1. Place a resistance band just above your knees.\n2. Stand with your feet hip-width apart, bend your knees slightly, and hinge slightly at the hips into an athletic stance.\n3. Keep your chest up and your core tight.\n4. Step one foot out to the side, then bring the other foot in to follow — keeping constant tension on the band.\n5. Take 15 steps in one direction, then reverse for 15 steps back.\n6. Keep your toes pointed forward and avoid letting the knees cave inward."
@@ -41,6 +42,7 @@
       "target": "15 Reps each side",
       "restSeconds": 45,
       "band": true,
+      "unit": "band",
       "mediaUrl": "assets/videos/banded-adductor-pulls.mp4",
       "instructions": "Keep your standing leg slightly bent and your hips square. Pull with control, try not to swing the leg across.",
       "description": "1. Loop one end of a resistance band around a low rack post at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand side-on to the rack with the banded ankle furthest from it.\n3. Hold the rack lightly with the near hand for balance.\n4. Stand tall, engage your core, and keep your hips square.\n5. Slowly pull the banded leg across your body toward and past the standing leg.\n6. Pause at the end range and squeeze your inner thigh, then slowly let it return to the start.\n7. Don't let your torso rotate or your hip swing — the movement should come entirely from the inner thigh.\n8. Complete all reps on one side before switching."
@@ -51,6 +53,7 @@
       "target": "15 Reps each leg",
       "restSeconds": 45,
       "band": true,
+      "unit": "band",
       "mediaUrl": "assets/videos/banded-glute-kickbacks.mp4",
       "instructions": "Use a light to medium band, going too heavy causes you to lean forward and swing, which puts it on your back instead of your glute. Loop the band around the base of the rack low so it doesn't slip up mid-set.",
       "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."

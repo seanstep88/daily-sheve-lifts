@@ -307,6 +307,19 @@ function renderWorkoutView() {
                 data-ex-idx="${exIdx}"
                 data-set-idx="${s}"
                 data-unit="time">`
+            : ex.unit === 'band'
+            ? `<select
+                class="weight-input band-select"
+                data-ex-idx="${exIdx}"
+                data-set-idx="${s}"
+                data-unit="band"
+                onchange="onWeightInput(this)"
+                onblur="onWeightBlur(${exIdx}, ${s}, this.value, this)">
+                <option value="">band</option>
+                <option value="light">light</option>
+                <option value="medium">medium</option>
+                <option value="heavy">heavy</option>
+              </select>`
             : `<input
             type="number"
             class="weight-input"
