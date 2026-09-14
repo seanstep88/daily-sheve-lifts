@@ -309,7 +309,7 @@ function renderWorkoutView() {
                 data-unit="time">`
             : ex.unit === 'band'
             ? `<select
-                class="weight-input band-select"
+                class="band-select"
                 data-ex-idx="${exIdx}"
                 data-set-idx="${s}"
                 data-unit="band"
@@ -679,11 +679,9 @@ window.add15SecondsToTimer = function() {
 };
 
 window.resetWorkoutCheckmarks = function() {
-  if (confirm('Reset today’s completed checkmarks?')) {
-    completedSets.clear();
-    saveProgress();
-    renderWorkoutView();
-  }
+  completedSets.clear();
+  saveProgress();
+  renderWorkoutView();
 };
 
 function updateTimerDisplay() {

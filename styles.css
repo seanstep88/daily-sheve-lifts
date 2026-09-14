@@ -612,8 +612,17 @@ body {
 }
 
 .band-select {
-  width: 80px;
-  padding: 6px 4px;
+  width: 105px;
+  min-width: 105px;
+  flex-shrink: 0;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 6px 24px 6px 8px;
   cursor: pointer;
 }
 
