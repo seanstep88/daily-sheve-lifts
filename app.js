@@ -315,7 +315,7 @@ function renderWorkoutView() {
                 data-unit="band"
                 onchange="onWeightInput(this)"
                 onblur="onWeightBlur(${exIdx}, ${s}, this.value, this)">
-                <option value="">band</option>
+                <option value="" disabled selected>—</option>
                 <option value="light">light</option>
                 <option value="medium">medium</option>
                 <option value="heavy">heavy</option>
