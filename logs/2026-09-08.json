@@ -1,0 +1,42 @@
+{
+  "title": "Biceps, Triceps, and Back",
+  "date": "2026-09-08",
+  "exercises": [
+    {
+      "name": "Dumbbell bicep curls",
+      "sets": [
+        { "set": 1, "weight": "10" },
+        { "set": 2, "weight": "10" },
+        { "set": 3, "weight": "10" },
+        { "set": 4, "weight": "10" }
+      ]
+    },
+    {
+      "name": "Dumbbell single arm bent over row",
+      "sets": [
+        { "set": 1, "weight": "10" },
+        { "set": 2, "weight": "10" },
+        { "set": 3, "weight": "10" },
+        { "set": 4, "weight": "10" }
+      ]
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "sets": [
+        { "set": 1, "weight": "17.5" },
+        { "set": 2, "weight": "17.5" },
+        { "set": 3, "weight": "17.5" },
+        { "set": 4, "weight": "17.5" }
+      ]
+    },
+    {
+      "name": "Plank Hold",
+      "sets": [
+        { "set": 1, "weight": "0:45" },
+        { "set": 2, "weight": "0:45" },
+        { "set": 3, "weight": "0:45" },
+        { "set": 4, "weight": "0:45" }
+      ]
+    }
+  ]
+}

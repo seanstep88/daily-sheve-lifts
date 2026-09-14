@@ -1,0 +1,55 @@
+{
+  "date": "Steptember XX, 2026",
+  "isoDate": "2026-09-XX",
+  "title": "Leg Day",
+  "totalSets": "3 Rounds",
+  "notes": "form over weight always",
+  "exercises": [
+    {
+      "name": "Goblet squat",
+      "muscleGroup": "Legs",
+      "target": "10-12 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/goblet-squat.mp4",
+      "instructions": "Keep your chest up and squat as low as you comfortably can",
+      "description": "1. Grab a dumbbell and raise it in front of your torso with both arms while keeping it vertical (with one side up).\n2. Position your hands to the sides of it with your palms placed firmly against the top weight plate.\n3. Straighten your back, engage your abs, and inhale.\n4. Descend into a squat while keeping your torso upright.\n5. Squat as low as you comfortably can — ideally until your thighs are parallel with the floor.\n6. Push through your heels to raise yourself back to the starting position and exhale near the top of the repetition."
+    },
+    {
+      "name": "Dumbbell reverse lunge",
+      "muscleGroup": "Legs",
+      "target": "10 Reps each leg",
+      "restSeconds": 120,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/db-reverse-lunge.mp4",
+      "instructions": "Keep your front shin vertical and your chest tall. alternate legs each rep",
+      "description": "1. Grab a pair of dumbbells and stand tall.\n2. Have your feet in a comfortable stance, bring your shoulders back, and engage your abs.\n3. Take a breath and bring the right leg back, landing on the ball of the right foot. Immediately sink into a lunge by bending your front leg.\n4. Descend until your front thigh is almost parallel to the floor and your rear knee is an inch or two from the floor. A good stride length is when your front shin remains relatively vertical (knee over ankle) as you descend.\n5. Pause at the bottom and engage your front leg to bring yourself back to the top as you exhale.\n6. Take another breath and lunge back with your left leg, landing on the ball of your left foot.\n7. Keep alternating."
+    },
+    {
+      "name": "Dumbbell hip thrust",
+      "muscleGroup": "Legs",
+      "target": "12-15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/db-hip-thrust.mp4",
+      "instructions": "Squeeze your glutes hard at the top and hold for 1 second",
+      "description": "1. Sit on the ground with a flat gym bench behind you and a dumbbell at your side.\n2. Lean back and place your upper back against the edge of the bench.\n3. Position your feet roughly hip-width apart and plant them flat on the ground.\n4. Grab the dumbbell and place it over your hips. Hold it in position with both hands.\n5. Breathe in, engage your abs, and push through your heels to drive your hips to the ceiling.\n6. Pause when your knees, hips, and upper body align. Exhale.\n7. Slowly lower your hips while keeping your abs engaged. Breathe in on the way down.\n8. Repeat."
+    },
+    {
+      "name": "Leg extension",
+      "muscleGroup": "Legs",
+      "target": "12-15 Reps",
+      "restSeconds": 45,
+      "mediaUrl": "assets/videos/leg-extension.mp4",
+      "instructions": "Slow and controlled, squeeze your quads at the top of each rep",
+      "description": "1. Select the appropriate load.\n2. Adjust the pad to be against your lower legs, just above your feet when seated.\n3. Sit down, grab the handles by your sides, place your lower shins against the pad, and retract your shoulders.\n4. Take a breath and straighten your legs by engaging your quadriceps.\n5. Lift the weight until your knees straighten, and breathe out.\n6. Hold for a moment and bend your knees slowly as you breathe in."
+    },
+    {
+      "name": "Hamstring curl",
+      "muscleGroup": "Legs",
+      "target": "12-15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/hamstring-curl.mp4",
+      "instructions": "Don't let the weight stack slam down, try slow on the way back",
+      "description": "1. Select the appropriate load.\n2. Adjust the pad position. It should be against your Achilles' heels as you sit down.\n3. Sit down, position the back of your lower legs against the pad, and grab the handles at your sides.\n4. Bring your shoulders back, engage your abs, and inhale.\n5. Bend your knees by contracting your hamstrings and breathe out.\n6. Hold for a moment and slowly extend your knees as you breathe in."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "Sheve Workout",
-  "short_name": "Sheve Lifting",
+  "short_name": "Sheve",
   "description": "Daily workout routine with exercise GIFs and rest timers",
   "start_url": "./index.html",
   "display": "standalone",
@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "apple-touch-icon.png",
+      "src": "assets/icons/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "apple-touch-icon.svg",
+      "src": "assets/icons/apple-touch-icon.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"

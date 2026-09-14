@@ -33,22 +33,44 @@ const sessions = files.map(f => {
 const records = {}; // { exerciseName: { date, maxWeight, totalVolume } }
 const prs = {};     // { exerciseName: { date, weight } }
 
+// Convert "M:SS" time string to total seconds for comparison
+function timeToSeconds(str) {
+  const parts = str.split(':');
+  return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+}
+
 sessions.forEach(session => {
   const { date, exercises = [] } = session;
   exercises.forEach(ex => {
     const name = ex.name;
-    const weights = (ex.sets || []).map(s => parseFloat(s.weight) || 0).filter(w => w > 0);
-    if (weights.length === 0) return;
+    const rawValues = (ex.sets || []).map(s => s.weight).filter(Boolean);
+    if (rawValues.length === 0) return;
 
-    const maxWeight = Math.max(...weights);
-    const volume = weights.reduce((a, b) => a + b, 0);
+    // Detect time-based exercise (any set value contains ':')
+    const isTime = rawValues.some(v => String(v).includes(':'));
 
-    if (!records[name]) records[name] = [];
-    records[name].push({ date, maxWeight, volume, sets: ex.sets });
-
-    // Track PR
-    if (!prs[name] || maxWeight > prs[name].weight) {
-      prs[name] = { date, weight: maxWeight };
+    if (isTime) {
+      // For time exercises: find the longest hold (max seconds), store as "M:SS"
+      const timeValues = rawValues.filter(v => String(v).includes(':'));
+      if (timeValues.length === 0) return;
+      const best = timeValues.reduce((a, b) =>
+        timeToSeconds(String(a)) >= timeToSeconds(String(b)) ? a : b
+      );
+      if (!records[name]) records[name] = [];
+      records[name].push({ date, maxWeight: best, volume: 0, sets: ex.sets });
+      if (!prs[name] || timeToSeconds(String(best)) > timeToSeconds(String(prs[name].weight))) {
+        prs[name] = { date, weight: best };
+      }
+    } else {
+      const weights = rawValues.map(v => parseFloat(v) || 0).filter(w => w > 0);
+      if (weights.length === 0) return;
+      const maxWeight = Math.max(...weights);
+      const volume = weights.reduce((a, b) => a + b, 0);
+      if (!records[name]) records[name] = [];
+      records[name].push({ date, maxWeight, volume, sets: ex.sets });
+      if (!prs[name] || maxWeight > prs[name].weight) {
+        prs[name] = { date, weight: maxWeight };
+      }
     }
   });
 });

@@ -6,31 +6,42 @@
   "exercises": [
     {
       "name": "Dumbbell bicep curls",
+      "muscleGroup": "Biceps",
       "target": "15 reps",
       "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/2/4/7/6/4/24764.gif",
-      "instructions": "Medium weight, should burn by the end"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/bicep-curl.mp4",
+      "instructions": "Medium weight, should burn by the end",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet in a comfortable stance and shoulders retracted.\n2. Have your wrists pointing forward and your arms extended.\n3. Take a breath and curl both dumbbells simultaneously. Lift the weights until your wrists are slightly higher than your elbows and exhale.\n4. Extend your arms slowly and breathe in on the way down."
     },
     {
       "name": "Dumbbell single arm bent over row",
+      "muscleGroup": "Back",
       "target": "10-12 Reps",
       "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/1/0/4/0/3/10403.gif",
-      "instructions": "Last few reps should be tough"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/dumbbell-row.mp4",
+      "instructions": "Last few reps should be tough",
+      "description": "1. Grab a dumbbell.\n2. Place your right knee and right hand on a flat gym bench. Keep your left leg and arm straight with the dumbbell in your hand.\n3. Bring your shoulders back and engage your abs.\n4. Row the dumbbell until your elbow is at torso level and squeeze for a moment as you exhale.\n5. Lower the weight while keeping your shoulders in position. Breathe in on the way down.\n6. Once finished, grab the dumbbell with the opposite hand, position your left hand and knee on the bench, and repeat."
     },
     {
       "name": "Triceps rope pushdown",
+      "muscleGroup": "Triceps",
       "target": "10-12 Reps",
       "restSeconds": 45,
-      "mediaUrl": "https://gymvisual.com/img/p/5/9/1/5/5915.gif",
-      "instructions": "Go heavy as long as you can keep your chest high"
+      "mediaUrl": "assets/videos/triceps-rope-pushdown.mp4",
+      "instructions": "Go heavy as long as you can keep your chest high",
+      "description": "1. Pick the appropriate weight, set the pulley to the highest position, and attach a rope.\n2. Grab the rope with both hands and bring your elbows to your sides.\n3. Take a step back and lean your torso forward slightly.\n4. Take a breath and extend your arms while keeping your elbows in position. Breathe out.\n5. Bend your arms slowly and breathe in. Stop when your wrists end up slightly higher than your elbows."
     },
     {
       "name": "Plank Hold",
+      "muscleGroup": "Core",
       "target": "45 Seconds",
       "restSeconds": 45,
-      "mediaUrl": "https://media.giphy.com/media/xT8qBff8cRRFf7k2u4/giphy.gif",
-      "instructions": "Squeeze butt and core!"
+      "unit": "time",
+      "mediaUrl": "assets/videos/plank.mp4",
+      "instructions": "Squeeze butt and core!",
+      "description": "1. Get down on the floor.\n2. Extend your body. Support your lower body on your toes and your upper body on your forearms.\n3. Keep your shoulders neutral and abs engaged.\n4. Hold the position for as long as possible, breathing steadily as you do."
     }
   ]
 }

@@ -6,31 +6,43 @@
   "exercises": [
     {
       "name": "Incline dumbbell bench press",
+      "muscleGroup": "Chest",
       "target": "8-10 reps",
       "restSeconds": 60,
-      "mediaUrl": "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif",
-      "instructions": "Medium weight, should burn by the end"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/incline-bench-press.mp4",
+      "instructions": "Medium weight, should burn by the end",
+      "description": "1. Set the incline of a bench at 45 degrees, grab a pair of dumbbells, and sit down.\n2. Place the dumbbells on top of your thighs, and lie back as you kick the weights up and over your torso.\n3. Bring the dumbbells to your sides, plant your feet on the floor, retract your shoulders, and take a breath. Keep your elbows somewhat tucked in.\n4. Press both dumbbells toward the ceiling, tapping them lightly at the top. Breathe out.\n5. Lower the weights to your sides, breathing in on the way down."
     },
     {
       "name": "Dumbbell lateral raises",
+      "muscleGroup": "Shoulders",
       "target": "15 Reps",
       "restSeconds": 60,
-      "mediaUrl": "https://gymvisual.com/img/p/1/9/1/5/1/19151.gif",
-      "instructions": "Go light weight, these can be tough"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/lateral-raise.mp4",
+      "instructions": "Go light weight, these can be tough",
+      "description": "1. Grab a pair of light dumbbells and stand tall.\n2. Bring your shoulders back, engage your abs, and take a breath.\n3. Lift both arms laterally until your elbows and wrists align with your shoulders. Exhale at the top.\n4. Lower the dumbbells to your sides as you breathe in."
     },
     {
       "name": "Dumbbell Tricep Extension",
+      "muscleGroup": "Triceps",
       "target": "8-10 Reps",
       "restSeconds": 60,
-      "mediaUrl": "https://gymvisual.com/img/p/1/1/7/0/8/11708.gif",
-      "instructions": "both arms 8-10 reps"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
+      "instructions": "both arms 8-10 reps",
+      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
     },
     {
       "name": "Dumbbell front raises",
+      "muscleGroup": "Shoulders",
       "target": "15 Reps",
       "restSeconds": 120,
-      "mediaUrl": "https://gymvisual.com/img/p/2/4/9/4/0/24940.gif",
-      "instructions": "Also can be hard, go light weight"
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/front-raise.mp4",
+      "instructions": "Also can be hard, go light weight",
+      "description": "1. Grab a pair of dumbbells and stand tall.\n2. Position the dumbbells in front of your thighs with your palms facing back.\n3. Bring your shoulders back and inhale.\n4. Raise both dumbbells until they are at shoulder level. Exhale at the top.\n5. Lower the dumbbells to your upper thighs as you breathe in."
     }
   ]
 }

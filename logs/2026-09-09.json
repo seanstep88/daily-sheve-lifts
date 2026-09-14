@@ -1,0 +1,38 @@
+{
+  "title": "Triceps and Shoulders",
+  "date": "2026-09-09",
+  "exercises": [
+    {
+      "name": "Incline dumbbell bench press",
+      "sets": [
+        { "set": 1, "weight": "12" },
+        { "set": 2, "weight": "12" },
+        { "set": 3, "weight": "12" }
+      ]
+    },
+    {
+      "name": "Dumbbell lateral raises",
+      "sets": [
+        { "set": 1, "weight": "8" },
+        { "set": 2, "weight": "8" },
+        { "set": 3, "weight": "8" }
+      ]
+    },
+    {
+      "name": "Dumbbell Tricep Extension",
+      "sets": [
+        { "set": 1, "weight": "8" },
+        { "set": 2, "weight": "8" },
+        { "set": 3, "weight": "8" }
+      ]
+    },
+    {
+      "name": "Dumbbell front raises",
+      "sets": [
+        { "set": 1, "weight": "8" },
+        { "set": 2, "weight": "8" },
+        { "set": 3, "weight": "8" }
+      ]
+    }
+  ]
+}
