@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-14T21:33:38.342Z",
-  "totalSessions": 3,
+  "lastUpdated": "2026-09-14T21:52:52.676Z",
+  "totalSessions": 4,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -33,24 +33,144 @@
     "Dumbbell front raises": {
       "date": "2026-09-09",
       "weight": 8
+    },
+    "Flat dumbbell bench press": {
+      "date": "2026-09-12",
+      "weight": 15
+    },
+    "Dumbbell skull crushers": {
+      "date": "2026-09-12",
+      "weight": 8
+    },
+    "Tricep kickback": {
+      "date": "2026-09-12",
+      "weight": 8
+    },
+    "Machine chest press": {
+      "date": "2026-09-12",
+      "weight": 30
     }
   },
-  "trends": {},
+  "trends": {
+    "Triceps rope pushdown": {
+      "lastDate": "2026-09-12",
+      "prevDate": "2026-09-08",
+      "lastMax": 17.5,
+      "prevMax": 17.5,
+      "change": 0,
+      "trend": "➡️ same"
+    }
+  },
   "weeklyVolume": {
     "Dumbbell bicep curls": 40,
     "Dumbbell single arm bent over row": 40,
-    "Triceps rope pushdown": 70,
+    "Triceps rope pushdown": 122.5,
     "Plank Hold": 0,
     "Incline dumbbell bench press": 36,
     "Dumbbell lateral raises": 24,
     "Dumbbell Tricep Extension": 24,
-    "Dumbbell front raises": 24
+    "Dumbbell front raises": 24,
+    "Flat dumbbell bench press": 45,
+    "Dumbbell skull crushers": 24,
+    "Tricep kickback": 24,
+    "Machine chest press": 90
   },
   "recentSessions": [
     {
       "date": "2026-09-13",
       "title": "",
       "exercises": []
+    },
+    {
+      "date": "2026-09-12",
+      "title": "Chest and Triceps",
+      "exercises": [
+        {
+          "name": "Flat dumbbell bench press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "15"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell skull crushers",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Tricep kickback",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Machine chest press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "30"
+            },
+            {
+              "set": 2,
+              "weight": "30"
+            },
+            {
+              "set": 3,
+              "weight": "30"
+            }
+          ]
+        },
+        {
+          "name": "Triceps rope pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "17.5"
+            },
+            {
+              "set": 2,
+              "weight": "17.5"
+            },
+            {
+              "set": 3,
+              "weight": "17.5"
+            }
+          ]
+        }
+      ]
     },
     {
       "date": "2026-09-09",
