@@ -1,0 +1,91 @@
+{
+  "title": "Runners Leg Day",
+  "date": "2026-09-18",
+  "exercises": [
+    {
+      "name": "Dumbbell reverse lunge",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "0"
+        },
+        {
+          "set": 2,
+          "weight": "0"
+        },
+        {
+          "set": 3,
+          "weight": "0"
+        }
+      ]
+    },
+    {
+      "name": "Goblet Squat",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "10"
+        },
+        {
+          "set": 2,
+          "weight": "10"
+        },
+        {
+          "set": 3,
+          "weight": "10"
+        }
+      ]
+    },
+    {
+      "name": "Band lateral side steps",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Banded standing adductor pull",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Banded standing glute kickbacks",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    }
+  ]
+}
