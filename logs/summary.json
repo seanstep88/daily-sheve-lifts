@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-09-18T16:01:23.067Z",
-  "totalSessions": 5,
+  "lastUpdated": "2026-09-19T18:24:58.392Z",
+  "totalSessions": 6,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -51,7 +51,7 @@
       "weight": 30
     },
     "Goblet Squat": {
-      "date": "2026-09-18",
+      "date": "2026-09-15",
       "weight": 10
     }
   },
@@ -63,16 +63,19 @@
       "prevMax": 17.5,
       "change": 0,
       "trend": "➡️ same"
+    },
+    "Goblet Squat": {
+      "lastDate": "2026-09-18",
+      "prevDate": "2026-09-15",
+      "lastMax": 10,
+      "prevMax": 10,
+      "change": 0,
+      "trend": "➡️ same"
     }
   },
   "weeklyVolume": {
-    "Flat dumbbell bench press": 45,
-    "Dumbbell skull crushers": 24,
-    "Tricep kickback": 24,
-    "Machine chest press": 90,
-    "Triceps rope pushdown": 52.5,
     "Dumbbell reverse lunge": 0,
-    "Goblet Squat": 30,
+    "Goblet Squat": 60,
     "Band lateral side steps": 0,
     "Banded standing adductor pull": 0,
     "Banded standing glute kickbacks": 0
@@ -80,6 +83,97 @@
   "recentSessions": [
     {
       "date": "2026-09-18",
+      "title": "Runners Leg Day",
+      "exercises": [
+        {
+          "name": "Dumbbell reverse lunge",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "0"
+            },
+            {
+              "set": 2,
+              "weight": "0"
+            },
+            {
+              "set": 3,
+              "weight": "0"
+            }
+          ]
+        },
+        {
+          "name": "Goblet Squat",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "10"
+            },
+            {
+              "set": 2,
+              "weight": "10"
+            },
+            {
+              "set": 3,
+              "weight": "10"
+            }
+          ]
+        },
+        {
+          "name": "Band lateral side steps",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Banded standing adductor pull",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Banded standing glute kickbacks",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
       "title": "Runners Leg Day",
       "exercises": [
         {
@@ -334,96 +428,6 @@
             {
               "set": 3,
               "weight": "8"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-09-08",
-      "title": "Biceps, Triceps, and Back",
-      "exercises": [
-        {
-          "name": "Dumbbell bicep curls",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "10"
-            },
-            {
-              "set": 2,
-              "weight": "10"
-            },
-            {
-              "set": 3,
-              "weight": "10"
-            },
-            {
-              "set": 4,
-              "weight": "10"
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell single arm bent over row",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "10"
-            },
-            {
-              "set": 2,
-              "weight": "10"
-            },
-            {
-              "set": 3,
-              "weight": "10"
-            },
-            {
-              "set": 4,
-              "weight": "10"
-            }
-          ]
-        },
-        {
-          "name": "Triceps rope pushdown",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "17.5"
-            },
-            {
-              "set": 2,
-              "weight": "17.5"
-            },
-            {
-              "set": 3,
-              "weight": "17.5"
-            },
-            {
-              "set": 4,
-              "weight": "17.5"
-            }
-          ]
-        },
-        {
-          "name": "Plank Hold",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "0:45"
-            },
-            {
-              "set": 2,
-              "weight": "0:45"
-            },
-            {
-              "set": 3,
-              "weight": "0:45"
-            },
-            {
-              "set": 4,
-              "weight": "0:45"
             }
           ]
         }
