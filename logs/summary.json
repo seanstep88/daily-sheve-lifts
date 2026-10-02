@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T05:05:40.630Z",
+  "lastUpdated": "2026-10-02T05:23:08.313Z",
   "totalSessions": 7,
   "personalRecords": {
     "Dumbbell bicep curls": {
@@ -53,6 +53,14 @@
     "Goblet Squat": {
       "date": "2026-09-15",
       "weight": 10
+    },
+    "Reverse Grip Tricep Pushdown": {
+      "date": "2026-10-02",
+      "weight": 8
+    },
+    "Hammer Curls": {
+      "date": "2026-10-02",
+      "weight": 8
     }
   },
   "trends": {
@@ -82,13 +90,195 @@
     }
   },
   "weeklyVolume": {
-    "Dumbbell Tricep Extension": 0,
-    "Reverse Grip Tricep Pushdown": 0,
-    "Hammer Curls": 0,
+    "Dumbbell Tricep Extension": 24,
+    "Reverse Grip Tricep Pushdown": 24,
+    "Hammer Curls": 24,
     "Waiter Curl": 0,
     "Side Plank": 0
   },
   "recentSessions": [
+    {
+      "date": "2026-10-02",
+      "title": "Bis, Tris, & Core",
+      "exercises": [
+        {
+          "name": "Dumbbell Tricep Extension",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Reverse Grip Tricep Pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Hammer Curls",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Waiter Curl",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Side Plank",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "title": "Runners Leg Day",
+      "exercises": [
+        {
+          "name": "Dumbbell reverse lunge",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "0"
+            },
+            {
+              "set": 2,
+              "weight": "0"
+            },
+            {
+              "set": 3,
+              "weight": "0"
+            }
+          ]
+        },
+        {
+          "name": "Goblet Squat",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "10"
+            },
+            {
+              "set": 2,
+              "weight": "10"
+            },
+            {
+              "set": 3,
+              "weight": "10"
+            }
+          ]
+        },
+        {
+          "name": "Band lateral side steps",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Banded standing adductor pull",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Banded standing glute kickbacks",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-15",
       "title": "Runners Leg Day",
