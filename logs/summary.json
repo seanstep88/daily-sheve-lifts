@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T05:23:38.367Z",
+  "lastUpdated": "2026-10-02T05:45:19.880Z",
   "totalSessions": 6,
   "personalRecords": {
     "Dumbbell bicep curls": {
@@ -209,15 +209,15 @@
           "sets": [
             {
               "set": 1,
-              "weight": ""
+              "weight": "0"
             },
             {
               "set": 2,
-              "weight": ""
+              "weight": "0"
             },
             {
               "set": 3,
-              "weight": ""
+              "weight": "0"
             }
           ]
         },
