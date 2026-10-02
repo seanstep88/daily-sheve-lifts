@@ -327,6 +327,17 @@ body {
   color: var(--success);
 }
 
+.exercise-card.past-skipped {
+  opacity: 0.4;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.exercise-card.past-skipped .exercise-name {
+  color: var(--text-muted);
+}
+
+
+
 /* Card Header */
 .card-top {
   padding: 14px 16px;

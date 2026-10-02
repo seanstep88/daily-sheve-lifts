@@ -14,6 +14,7 @@ const WORKOUT_DATES = [
   '2026-09-08',
   '2026-09-09',
   '2026-09-12',
+  '2026-09-15',
 ];
 
 // State
@@ -1042,6 +1043,7 @@ function renderPastWorkout(dateStr, logData, workoutDef) {
 
   const content = document.getElementById('pastWorkoutContent');
   content.innerHTML = (logData.exercises || []).map((ex, i) => {
+    const wasSkipped = (ex.sets || []).every(s => s.weight === '' || s.weight === null || s.weight === undefined);
     const def = defMap[ex.name] || {};
     const url = (def.mediaUrl || '').trim();
     const isVideo = url.endsWith('.mp4') || url.endsWith('.webm') || url.includes('video');
@@ -1056,16 +1058,16 @@ function renderPastWorkout(dateStr, logData, workoutDef) {
     const setsHtml = (ex.sets || []).map(s => {
       const val = s.weight && s.weight !== '0' ? s.weight : '—';
       const label = def.unit === 'time' ? val : (val === '—' ? '—' : `${val} lbs`);
-      return `<div class="set-row done">
+      return `<div class="set-row ${wasSkipped ? '' : 'done'}">
         <label class="set-row-check">
-          <input type="checkbox" checked disabled>
+          <input type="checkbox" ${wasSkipped ? '' : 'checked'} disabled>
           <span class="set-row-label">Set ${s.set}</span>
         </label>
         <span class="past-set-weight">${escapeHtml(label)}</span>
       </div>`;
     }).join('');
 
-    return `<article class="exercise-card completed past-card">
+    return `<article class="exercise-card past-card ${wasSkipped ? 'past-skipped' : 'completed'}">
       <div class="card-top">
         <div class="exercise-title-group">
           <span class="exercise-index">${i + 1}</span>
@@ -1079,7 +1081,7 @@ function renderPastWorkout(dateStr, logData, workoutDef) {
         <div class="sets-tracker">
           <div class="sets-tracker-title">
             <span>Sets Completed</span>
-            <span>${setCount}/${setCount} Done</span>
+              <span>${wasSkipped ? 'Skipped' : `${setCount}/${setCount} Done`}</span>
           </div>
           <div class="set-rows-group">${setsHtml}</div>
         </div>
