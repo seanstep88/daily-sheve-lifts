@@ -629,11 +629,10 @@ function updateProgressDisplay() {
   const pct = totalSetsCount > 0 ? Math.min(100, Math.round((doneSetsCount / totalSetsCount) * 100)) : 0;
   if (progressBarEl) progressBarEl.style.width = `${pct}%`;
 
-  // Show Complete Workout button only when all sets are done
+  // Show Complete Workout button as soon as the workout has started (at least 1 set done)
   const completeBtn = document.getElementById('completeWorkoutBtn');
   if (completeBtn) {
-    const allDone = totalSetsCount > 0 && doneSetsCount >= totalSetsCount;
-    completeBtn.classList.toggle('hidden', !allDone);
+    completeBtn.classList.toggle('hidden', doneSetsCount === 0);
   }
 }
 
@@ -1320,8 +1319,10 @@ async function fetchSummary() {
 }
 
 async function showCelebration() {
-  // Fire send to GitHub (non-blocking)
-  sendWeightsToGist();
+  // Fire send to GitHub (non-blocking) — skip on localhost to avoid real commits during local testing
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+    sendWeightsToGist();
+  }
 
   const volume = calcTotalVolume();
   const item = getWeightItem(volume);
@@ -1733,10 +1734,42 @@ function setupEventListeners() {
     });
   }
 
-  // Complete Workout button → show celebration
+  // Complete Workout button → confirm if incomplete, otherwise go straight to celebration
   const completeWorkoutBtn = document.getElementById('completeWorkoutBtn');
   if (completeWorkoutBtn) {
-    completeWorkoutBtn.addEventListener('click', showCelebration);
+    completeWorkoutBtn.addEventListener('click', () => {
+      const exercises = workoutData?.exercises || [];
+      const bannerSets = workoutData?.totalSets || '3 Sets';
+      let totalSetsCount = 0;
+      exercises.forEach(ex => { totalSetsCount += getSetCount(bannerSets, ex.target); });
+      const doneSetsCount = completedSets.size;
+
+      if (doneSetsCount >= totalSetsCount) {
+        showCelebration();
+      } else {
+        // Show partial-completion confirm modal
+        document.getElementById('partialDoneCount').textContent = doneSetsCount;
+        document.getElementById('partialTotalCount').textContent = totalSetsCount;
+        document.getElementById('partialConfirmOverlay').classList.remove('hidden');
+      }
+    });
+  }
+
+  // Partial confirm — finish anyway
+  const partialFinishBtn = document.getElementById('partialFinishBtn');
+  if (partialFinishBtn) {
+    partialFinishBtn.addEventListener('click', () => {
+      document.getElementById('partialConfirmOverlay').classList.add('hidden');
+      showCelebration();
+    });
+  }
+
+  // Partial confirm — keep going
+  const partialKeepGoingBtn = document.getElementById('partialKeepGoingBtn');
+  if (partialKeepGoingBtn) {
+    partialKeepGoingBtn.addEventListener('click', () => {
+      document.getElementById('partialConfirmOverlay').classList.add('hidden');
+    });
   }
 
   // Celebration back button → return to home

@@ -1799,6 +1799,63 @@ body {
   z-index: 1;
 }
 
+/* Partial completion confirm modal */
+.partial-confirm-modal {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding-bottom: 40px;
+}
+
+.partial-confirm-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px 8px;
+  text-align: center;
+}
+
+.partial-confirm-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.partial-confirm-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.partial-confirm-msg {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.partial-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.partial-btn--finish {
+  background: var(--accent);
+  color: #fff;
+  margin-top: 4px;
+}
+
+.partial-btn--keep {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+
+
 .ex-detail-media {
   width: 100%;
   max-height: 320px;

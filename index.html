@@ -270,6 +270,19 @@
     <p>Neve<s>r</s>Lifts • Made by Sean 🐑</p>
   </footer>
 
+  <!-- Partial completion confirm modal -->
+  <div id="partialConfirmOverlay" class="ex-detail-overlay hidden">
+    <div class="ex-detail-modal partial-confirm-modal" onclick="event.stopPropagation()">
+      <div class="partial-confirm-body">
+        <div class="partial-confirm-emoji">💪</div>
+        <h2 class="partial-confirm-title">Finish early?</h2>
+        <p class="partial-confirm-msg">You've done <strong><span id="partialDoneCount"></span></strong> of <strong><span id="partialTotalCount"></span></strong> sets. You can still log what you've got!</p>
+        <button id="partialFinishBtn" class="partial-btn partial-btn--finish">Yes, I'm done!</button>
+        <button id="partialKeepGoingBtn" class="partial-btn partial-btn--keep">Keep going 🔥</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Exercise detail modal -->
   <div id="exerciseDetailOverlay" class="ex-detail-overlay hidden" onclick="closeExerciseDetail()">
     <div class="ex-detail-modal" onclick="event.stopPropagation()">
