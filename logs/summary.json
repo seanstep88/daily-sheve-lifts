@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-02T05:45:19.880Z",
-  "totalSessions": 6,
+  "lastUpdated": "2026-10-02T21:51:20.402Z",
+  "totalSessions": 7,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -53,6 +53,22 @@
     "Goblet Squat": {
       "date": "2026-09-15",
       "weight": 10
+    },
+    "Reverse Grip Tricep Pushdown": {
+      "date": "2026-10-02",
+      "weight": 27.5
+    },
+    "Hammer Curls": {
+      "date": "2026-10-02",
+      "weight": 12.5
+    },
+    "Waiter Curl": {
+      "date": "2026-10-02",
+      "weight": 30
+    },
+    "Side Plank": {
+      "date": "2026-10-02",
+      "weight": "2:00"
     }
   },
   "trends": {
@@ -61,6 +77,14 @@
       "prevDate": "2026-09-08",
       "lastMax": 17.5,
       "prevMax": 17.5,
+      "change": 0,
+      "trend": "➡️ same"
+    },
+    "Dumbbell Tricep Extension": {
+      "lastDate": "2026-10-02",
+      "prevDate": "2026-09-09",
+      "lastMax": 8,
+      "prevMax": 8,
       "change": 0,
       "trend": "➡️ same"
     },
@@ -73,8 +97,105 @@
       "trend": "➡️ same"
     }
   },
-  "weeklyVolume": {},
+  "weeklyVolume": {
+    "Dumbbell Tricep Extension": 24,
+    "Reverse Grip Tricep Pushdown": 77.5,
+    "Hammer Curls": 37.5,
+    "Waiter Curl": 80,
+    "Side Plank": 6
+  },
   "recentSessions": [
+    {
+      "date": "2026-10-02",
+      "title": "Bis, Tris, & Core",
+      "exercises": [
+        {
+          "name": "Dumbbell Tricep Extension",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Reverse Grip Tricep Pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "22.5"
+            },
+            {
+              "set": 2,
+              "weight": "27.5"
+            },
+            {
+              "set": 3,
+              "weight": "27.5"
+            }
+          ]
+        },
+        {
+          "name": "Hammer Curls",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "12.5"
+            },
+            {
+              "set": 2,
+              "weight": "12.5"
+            },
+            {
+              "set": 3,
+              "weight": "12.5"
+            }
+          ]
+        },
+        {
+          "name": "Waiter Curl",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "25"
+            },
+            {
+              "set": 2,
+              "weight": "25"
+            },
+            {
+              "set": 3,
+              "weight": "30"
+            }
+          ]
+        },
+        {
+          "name": "Side Plank",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "2:00"
+            },
+            {
+              "set": 2,
+              "weight": "2:00"
+            },
+            {
+              "set": 3,
+              "weight": "2:00"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-18",
       "title": "Runners Leg Day",
@@ -348,80 +469,6 @@
             {
               "set": 3,
               "weight": "17.5"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-09-09",
-      "title": "Triceps and Shoulders",
-      "exercises": [
-        {
-          "name": "Incline dumbbell bench press",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "12"
-            },
-            {
-              "set": 2,
-              "weight": "12"
-            },
-            {
-              "set": 3,
-              "weight": "12"
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell lateral raises",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell Tricep Extension",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell front raises",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
             }
           ]
         }
