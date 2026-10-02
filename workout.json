@@ -1,62 +1,58 @@
 {
-  "date": "Steptember 15, 2026",
-  "isoDate": "2026-09-15",
-  "title": "Runners Leg Day",
+  "date": "October 2, 2026",
+  "isoDate": "2026-10-02",
+  "title": "Bis, Tris, & Core",
   "totalSets": "3 Rounds",
-  "notes": "3 band exercises as if I listened the first time you asked :)",
+  "notes": "Happy weekend! A workout just for you, exactly when you asked for it :)",
   "exercises": [
     {
-      "name": "Dumbbell reverse lunge",
-      "muscleGroup": "Legs",
-      "target": "10 Reps each leg",
-      "restSeconds": 90,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/db-reverse-lunge.mp4",
-      "instructions": "Keep your front shin vertical and your chest tall. Alternate legs each rep. Skip the dumbbells if you need to.",
-      "description": "1. Grab a pair of dumbbells (or go bodyweight) and stand tall.\n2. Have your feet in a comfortable stance, bring your shoulders back, and engage your abs.\n3. Take a breath and bring the right leg back, landing on the ball of the right foot. Immediately sink into a lunge by bending your front leg.\n4. Descend until your front thigh is almost parallel to the floor and your rear knee is an inch or two from the floor. A good stride length is when your front shin remains relatively vertical (knee over ankle) as you descend.\n5. Pause at the bottom and engage your front leg to bring yourself back to the top as you exhale.\n6. Take another breath and lunge back with your left leg.\n7. Keep alternating."
-    },
-    {
-      "name": "Goblet Squat",
-      "muscleGroup": "Legs",
-      "target": "10 Reps",
+      "name": "Dumbbell Tricep Extension",
+      "muscleGroup": "Triceps",
+      "target": "8 Reps each arm",
       "restSeconds": 60,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/goblet-squat.mp4",
-      "instructions": "Keep your chest up and squat as low as you comfortably can. Hold the dumbbell vertical in front of your chest — skip it and go bodyweight if you need to.",
-      "description": "1. Hold a dumbbell vertically in front of your chest with both hands cupped around the top weight (or go bodyweight).\n2. Stand with your feet slightly wider than hip-width, toes turned out slightly.\n3. Bring your shoulders back, engage your abs, and take a breath.\n4. Push your knees out and descend into a squat, keeping your torso as upright as possible.\n5. Squat as low as you comfortably can — ideally until your thighs are parallel to the floor or lower.\n6. Drive through your heels to stand back up and exhale at the top.\n7. Squeeze your glutes at the top of each rep."
+      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
+      "instructions": "We practiced this! :D Keep your elbow facing forward without shifting it to the side. Lower the weight slowly behind your head.",
+      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
     },
     {
-      "name": "Band lateral side steps",
-      "muscleGroup": "Legs",
-      "target": "15 Steps each direction",
-      "restSeconds": 45,
-      "band": true,
-       "unit": "band",
-      "mediaUrl": "assets/videos/band-lateral-walk.mp4",
-      "instructions": "Keep the band just above your knees and stay low in an athletic stance the whole time. Pick a band that lets you keep good form, if you're standing up straight it's too heavy.",
-      "description": "1. Place a resistance band just above your knees.\n2. Stand with your feet hip-width apart, bend your knees slightly, and hinge slightly at the hips into an athletic stance.\n3. Keep your chest up and your core tight.\n4. Step one foot out to the side, then bring the other foot in to follow — keeping constant tension on the band.\n5. Take 15 steps in one direction, then reverse for 15 steps back.\n6. Keep your toes pointed forward and avoid letting the knees cave inward."
+      "name": "Reverse Grip Tricep Pushdown",
+      "muscleGroup": "Triceps",
+      "target": "10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/reverse-grip-triceps-pushdown.mp4",
+      "instructions": "This is like the ropes but use a bar and opposite grip. Use an underhand (supinated) grip on the bar attachment. Keep your elbows pinned to your sides and stand tall, don't lean into it.",
+      "description": "1. Set the cable pulley to the highest position and attach a straight bar or EZ bar.\n2. Grip the bar with an underhand (palms-up) grip, hands about shoulder-width apart.\n3. Bring your elbows to your sides and take a small step back.\n4. Stand tall with your chest up and core engaged.\n5. Take a breath and push the bar down until your arms are fully extended, squeezing your triceps hard at the bottom. Breathe out.\n6. Slowly allow the bar to rise back up, stopping when your wrists are at roughly elbow height. Breathe in.\n7. Keep your elbows locked in place throughout — only your forearms move."
     },
     {
-      "name": "Banded standing adductor pull",
-      "muscleGroup": "Legs",
-      "target": "15 Reps each side",
-      "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/banded-adductor-pulls.mp4",
-      "instructions": "Keep your standing leg slightly bent and your hips square. Pull with control, try not to swing the leg across.",
-      "description": "1. Loop one end of a resistance band around a low rack post at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand side-on to the rack with the banded ankle furthest from it.\n3. Hold the rack lightly with the near hand for balance.\n4. Stand tall, engage your core, and keep your hips square.\n5. Slowly pull the banded leg across your body toward and past the standing leg.\n6. Pause at the end range and squeeze your inner thigh, then slowly let it return to the start.\n7. Don't let your torso rotate or your hip swing — the movement should come entirely from the inner thigh.\n8. Complete all reps on one side before switching."
+      "name": "Hammer Curls",
+      "muscleGroup": "Biceps",
+      "target": "8-10 Reps each arm",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/hammer-curl.mp4",
+      "instructions": "This was my favorite exercise for a whileeee. Keep your palms facing each other the whole time, don't rotate at the top. Elbows stay glued to your sides.",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet shoulder-width apart.\n2. Let your arms hang at your sides with your palms facing your thighs — neutral (hammer) grip.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl both dumbbells up simultaneously, keeping your palms facing each other throughout.\n5. Curl until your wrists are at shoulder height and your biceps are fully contracted. Exhale at the top.\n6. Slowly lower the dumbbells back to the starting position as you breathe in.\n7. Don't swing your torso — keep it strict."
     },
     {
-      "name": "Banded standing glute kickbacks",
-      "muscleGroup": "Legs",
-      "target": "15 Reps each leg",
+      "name": "Waiter Curl",
+      "muscleGroup": "Biceps",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/waiter-curl.mp4",
+      "instructions": "Cup the top plate of one dumbbell with both hands, palms flat and facing up like you're carrying a tray or like precious mail on your mailwoman rounds. Keep tension on the biceps the whole way down, don't fully relax at the bottom.",
+      "description": "1. Hold a single dumbbell vertically with both hands, cupping the top weight plate with your palms facing up — like a waiter carrying a tray.\n2. Stand tall, feet shoulder-width apart, elbows tucked in close to your torso.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl the dumbbell up toward your chin, keeping the dumbbell vertical and your elbows stationary. Exhale at the top.\n5. Squeeze your biceps hard at the top, holding for a brief moment.\n6. Slowly lower the dumbbell back down, stopping just before your arms fully extend to keep tension on the biceps. Breathe in.\n7. Repeat for all reps."
+    },
+    {
+      "name": "Side Plank",
+      "muscleGroup": "Core",
+      "target": "60 Seconds each side",
       "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/banded-glute-kickbacks.mp4",
-      "instructions": "Use a light to medium band, going too heavy causes you to lean forward and swing, which puts it on your back instead of your glute. Loop the band around the base of the rack low so it doesn't slip up mid-set.",
-      "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."
+      "unit": "time",
+      "mediaUrl": "assets/videos/plank.mp4",
+      "instructions": "Stack your feet or stagger them for more stability. Keep your hips lifted, don't let them sag toward the floor. Squeeze your core and glutes the whole time.",
+      "description": "1. Lie on your side with your legs straight and stacked on top of each other.\n2. Prop yourself up on your forearm, elbow directly under your shoulder.\n3. Engage your core and lift your hips off the floor until your body forms a straight line from head to feet.\n4. Keep your top hand on your hip or extend it toward the ceiling.\n5. Hold the position, breathing steadily. Don't let your hips drop or rotate.\n6. After your time is up, switch sides and repeat."
     }
   ]
 }
