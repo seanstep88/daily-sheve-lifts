@@ -1,0 +1,91 @@
+{
+  "title": "Shoulders & Glutes",
+  "date": "2026-10-04",
+  "exercises": [
+    {
+      "name": "Dumbbell shoulder press",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "15"
+        },
+        {
+          "set": 2,
+          "weight": "15"
+        },
+        {
+          "set": 3,
+          "weight": "15"
+        }
+      ]
+    },
+    {
+      "name": "Single arm cable lateral raise",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "2.5"
+        },
+        {
+          "set": 2,
+          "weight": "2.5"
+        },
+        {
+          "set": 3,
+          "weight": "2.5"
+        }
+      ]
+    },
+    {
+      "name": "Rear delt reverse fly machine",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Clamshells",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Hip abduction machine",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "50"
+        },
+        {
+          "set": 2,
+          "weight": "50"
+        },
+        {
+          "set": 3,
+          "weight": "55"
+        }
+      ]
+    }
+  ]
+}
