@@ -1,58 +1,59 @@
 {
-  "date": "October 2, 2026",
-  "isoDate": "2026-10-02",
-  "title": "Bis, Tris, & Core",
+  "date": "October 7, 2026",
+  "isoDate": "2026-10-07",
+  "title": "Shoulders & Glutes",
   "totalSets": "3 Rounds",
-  "notes": "Happy weekend! A workout just for you, exactly when you asked for it :)",
+  "notes": "Controlled and slow on the shoulder press — light weight, perfect form. Feel the burn 🔥",
   "exercises": [
     {
-      "name": "Dumbbell Tricep Extension",
-      "muscleGroup": "Triceps",
-      "target": "8 Reps each arm",
-      "restSeconds": 60,
+      "name": "Dumbbell shoulder press",
+      "muscleGroup": "Shoulders",
+      "target": "8 Reps",
+      "restSeconds": 90,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
-      "instructions": "We practiced this! :D Keep your elbow facing forward without shifting it to the side. Lower the weight slowly behind your head.",
-      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
+      "mediaUrl": "assets/videos/shoulder-press-dumbbell.mp4",
+      "instructions": "Don't go heavy — keep it slow and controlled on the way down. Press straight up, don't flare your elbows too wide.",
+      "description": "1. Sit on a bench with back support or stand with feet shoulder-width apart.\n2. Hold a dumbbell in each hand at shoulder height, palms facing forward.\n3. Bring your shoulders back, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are fully extended overhead. Exhale at the top.\n5. Slowly lower the dumbbells back to shoulder height — take 3-4 seconds on the way down.\n6. Keep the movement smooth and controlled throughout."
     },
     {
-      "name": "Reverse Grip Tricep Pushdown",
-      "muscleGroup": "Triceps",
+      "name": "Single arm cable lateral raise",
+      "muscleGroup": "Shoulders",
+      "target": "10 Reps each arm",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/single-arm-lateral-raise-cable.mp4",
+      "instructions": "Cable stays in front of your body, raise to shoulder height only. Lead with your elbow, not your hand.",
+      "description": "1. Set the cable pulley to the lowest position and attach a single handle.\n2. Stand side-on to the machine and grip the handle with the hand furthest from it.\n3. Stand tall, core engaged, slight bend in the elbow.\n4. Take a breath and raise your arm out to the side until it's parallel to the floor. Exhale at the top.\n5. Slowly lower back to the start — don't let the weight stack drop.\n6. Complete all reps on one side, then switch."
+    },
+    {
+      "name": "Rear delt reverse fly machine",
+      "muscleGroup": "Shoulders",
       "target": "10 Reps",
       "restSeconds": 60,
-      "mediaUrl": "assets/videos/reverse-grip-triceps-pushdown.mp4",
-      "instructions": "This is like the ropes but use a bar attachment and underhand (supinated) grip. Keep your elbows pinned to your sides and stand tall, don't lean into it.",
-      "description": "1. Set the cable pulley to the highest position and attach a straight bar or EZ bar.\n2. Grip the bar with an underhand (palms-up) grip, hands about shoulder-width apart.\n3. Bring your elbows to your sides and take a small step back.\n4. Stand tall with your chest up and core engaged.\n5. Take a breath and push the bar down until your arms are fully extended, squeezing your triceps hard at the bottom. Breathe out.\n6. Slowly allow the bar to rise back up, stopping when your wrists are at roughly elbow height. Breathe in.\n7. Keep your elbows locked in place throughout — only your forearms move."
+      "mediaUrl": "assets/videos/rear-delt-reverse-fly-machine.mp4",
+      "instructions": "Chest against the pad, arms almost straight — just a soft bend at the elbow. Squeeze your shoulder blades together at the back, don't just swing your arms.",
+      "description": "1. Sit facing the pad on the reverse fly machine, chest pressed lightly against it.\n2. Grip the handles with a neutral or pronated grip, arms almost fully extended.\n3. Bring your shoulders down and back before you begin.\n4. Take a breath and pull the handles outward and back in a wide arc, squeezing your rear delts and rhomboids at the end range.\n5. Pause briefly at the back, then slowly return to the start. Breathe in on the way back.\n6. Keep your chest on the pad throughout — don't lean back into the movement."
     },
     {
-      "name": "Hammer Curls",
-      "muscleGroup": "Biceps",
-      "target": "8-10 Reps each arm",
-      "restSeconds": 60,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/hammer-curl.mp4",
-      "instructions": "This was my favorite exercise for a whileeee. Keep your palms facing each other the whole time, don't rotate at the top. Elbows stay glued to your sides.",
-      "description": "1. Grab a pair of dumbbells and stand tall with your feet shoulder-width apart.\n2. Let your arms hang at your sides with your palms facing your thighs — neutral (hammer) grip.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl both dumbbells up simultaneously, keeping your palms facing each other throughout.\n5. Curl until your wrists are at shoulder height and your biceps are fully contracted. Exhale at the top.\n6. Slowly lower the dumbbells back to the starting position as you breathe in.\n7. Don't swing your torso — keep it strict."
-    },
-    {
-      "name": "Waiter Curl",
-      "muscleGroup": "Biceps",
-      "target": "8-10 Reps",
-      "restSeconds": 60,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/waiter-curl.mp4",
-      "instructions": "Cup the top plate of one dumbbell with both hands, palms flat and facing up like you're carrying a tray or like precious mail on your mailwoman rounds. Keep tension on the biceps the whole way down, don't fully relax at the bottom.",
-      "description": "1. Hold a single dumbbell vertically with both hands, cupping the top weight plate with your palms facing up — like a waiter carrying a tray.\n2. Stand tall, feet shoulder-width apart, elbows tucked in close to your torso.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl the dumbbell up toward your chin, keeping the dumbbell vertical and your elbows stationary. Exhale at the top.\n5. Squeeze your biceps hard at the top, holding for a brief moment.\n6. Slowly lower the dumbbell back down, stopping just before your arms fully extend to keep tension on the biceps. Breathe in.\n7. Repeat for all reps."
-    },
-    {
-      "name": "Side Plank",
-      "muscleGroup": "Core",
-      "target": "60 Seconds each side",
+      "name": "Clamshells",
+      "muscleGroup": "Legs",
+      "target": "10-12 Reps each side",
       "restSeconds": 45,
-      "unit": "time",
-      "mediaUrl": "assets/videos/side-plank.mp4",
-      "instructions": "Stack your feet or stagger them for more stability. Keep your hips lifted, don't let them sag toward the floor. Squeeze your core and glutes the whole time.",
-      "description": "1. Lie on your side with your legs straight and stacked on top of each other.\n2. Prop yourself up on your forearm, elbow directly under your shoulder.\n3. Engage your core and lift your hips off the floor until your body forms a straight line from head to feet.\n4. Keep your top hand on your hip or extend it toward the ceiling.\n5. Hold the position, breathing steadily. Don't let your hips drop or rotate.\n6. After your time is up, switch sides and repeat."
+      "band": true,
+      "unit": "band",
+      "mediaUrl": "assets/videos/clamshell.mp4",
+      "instructions": "Loop a light band just above your knees. Keep your hips stacked and feet together — the only thing that moves is your top knee. Don't let your pelvis rock back.",
+      "description": "1. Loop a resistance band just above your knees.\n2. Lie on your side with your hips stacked, knees bent to about 45 degrees, and feet together.\n3. Rest your head on your bottom arm and place your top hand on your hip to keep it from rolling back.\n4. Engage your core and keep your feet together throughout.\n5. Take a breath and rotate your top knee upward like a clamshell opening, squeezing your glute at the top.\n6. Slowly lower your knee back to the start. Breathe out as you open.\n7. Complete all reps on one side before switching."
+    },
+    {
+      "name": "Banded standing glute kickbacks",
+      "muscleGroup": "Legs",
+      "target": "8-10 Reps each leg",
+      "restSeconds": 45,
+      "band": true,
+      "unit": "band",
+      "mediaUrl": "assets/videos/banded-glute-kickbacks.mp4",
+      "instructions": "Use a light to medium band. Keep your torso upright and squeeze your glute hard at the top — if you're leaning forward it's too heavy.",
+      "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."
     }
   ]
 }

@@ -75,15 +75,15 @@
       "sets": [
         {
           "set": 1,
-          "weight": "2:00"
+          "weight": "0:30"
         },
         {
           "set": 2,
-          "weight": "2:00"
+          "weight": "0:30"
         },
         {
           "set": 3,
-          "weight": "2:00"
+          "weight": "0:30"
         }
       ]
     }
