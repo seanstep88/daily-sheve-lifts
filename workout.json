@@ -45,15 +45,14 @@
       "description": "1. Loop a resistance band just above your knees.\n2. Lie on your side with your hips stacked, knees bent to about 45 degrees, and feet together.\n3. Rest your head on your bottom arm and place your top hand on your hip to keep it from rolling back.\n4. Engage your core and keep your feet together throughout.\n5. Take a breath and rotate your top knee upward like a clamshell opening, squeezing your glute at the top.\n6. Slowly lower your knee back to the start. Breathe out as you open.\n7. Complete all reps on one side before switching."
     },
     {
-      "name": "Banded standing glute kickbacks",
+      "name": "Hip abduction machine",
       "muscleGroup": "Legs",
-      "target": "8-10 Reps each leg",
+      "target": "8-10 Reps",
       "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/banded-glute-kickbacks.mp4",
-      "instructions": "Use a light to medium band. Keep your torso upright and squeeze your glute hard at the top, if you're leaning forward a lot it's probably too tight of a band.",
-      "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."
+      "unit": "lbs",
+      "mediaUrl": "assets/videos/hip-abduction-machine.mp4",
+      "instructions": "Sit tall with your back flat against the pad. Push your knees out against the pads slowly and squeeze at the widest point before returning with control.",
+      "description": "1. Select your weight and sit down in the machine with your back flat against the pad.\n2. Place your legs against the inner pads and your feet on the foot rests.\n3. Engage your core and sit tall — don't round your lower back.\n4. Take a breath and slowly push both knees outward as far as comfortable, squeezing your glutes and outer hips at the top.\n5. Hold briefly at the widest point, then slowly bring your knees back together with control.\n6. Don't let the weight slam back — keep tension throughout the return."
     }
   ]
 }
