@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-04T03:01:02.304Z",
-  "totalSessions": 7,
+  "lastUpdated": "2026-10-04T15:39:22.191Z",
+  "totalSessions": 8,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-09-08",
@@ -85,6 +85,26 @@
     "Side Plank": {
       "date": "2026-10-02",
       "weight": "0:30"
+    },
+    "Dumbbell shoulder press": {
+      "date": "2026-10-04",
+      "weight": 15
+    },
+    "Single arm cable lateral raise": {
+      "date": "2026-10-04",
+      "weight": 2.5
+    },
+    "Rear delt reverse fly machine": {
+      "date": "2026-10-04",
+      "weight": 0
+    },
+    "Clamshells": {
+      "date": "2026-10-04",
+      "weight": 0
+    },
+    "Hip abduction machine": {
+      "date": "2026-10-04",
+      "weight": 55
     }
   },
   "trends": {
@@ -118,9 +138,105 @@
     "Reverse Grip Tricep Pushdown": 77.5,
     "Hammer Curls": 37.5,
     "Waiter Curl": 80,
-    "Side Plank": 0
+    "Side Plank": 0,
+    "Dumbbell shoulder press": 45,
+    "Single arm cable lateral raise": 7.5,
+    "Rear delt reverse fly machine": 0,
+    "Clamshells": 0,
+    "Hip abduction machine": 155
   },
   "recentSessions": [
+    {
+      "date": "2026-10-04",
+      "title": "Shoulders & Glutes",
+      "exercises": [
+        {
+          "name": "Dumbbell shoulder press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "15"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Single arm cable lateral raise",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "2.5"
+            },
+            {
+              "set": 2,
+              "weight": "2.5"
+            },
+            {
+              "set": 3,
+              "weight": "2.5"
+            }
+          ]
+        },
+        {
+          "name": "Rear delt reverse fly machine",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Clamshells",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Hip abduction machine",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "50"
+            },
+            {
+              "set": 2,
+              "weight": "50"
+            },
+            {
+              "set": 3,
+              "weight": "55"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-02",
       "title": "Bis, Tris, & Core",
@@ -398,97 +514,6 @@
       "date": "2026-09-13",
       "title": "",
       "exercises": []
-    },
-    {
-      "date": "2026-09-12",
-      "title": "Chest and Triceps",
-      "exercises": [
-        {
-          "name": "Flat dumbbell bench press",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "15"
-            },
-            {
-              "set": 2,
-              "weight": "15"
-            },
-            {
-              "set": 3,
-              "weight": "15"
-            }
-          ]
-        },
-        {
-          "name": "Dumbbell skull crushers",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
-            }
-          ]
-        },
-        {
-          "name": "Tricep kickback",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
-            }
-          ]
-        },
-        {
-          "name": "Machine chest press",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "30"
-            },
-            {
-              "set": 2,
-              "weight": "30"
-            },
-            {
-              "set": 3,
-              "weight": "30"
-            }
-          ]
-        },
-        {
-          "name": "Triceps rope pushdown",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "17.5"
-            },
-            {
-              "set": 2,
-              "weight": "17.5"
-            },
-            {
-              "set": 3,
-              "weight": "17.5"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
