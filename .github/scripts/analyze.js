@@ -43,8 +43,9 @@ sessions.forEach(session => {
   const { date, exercises = [] } = session;
   exercises.forEach(ex => {
     const name = ex.name;
-    const rawValues = (ex.sets || []).map(s => s.weight).filter(Boolean);
-    if (rawValues.length === 0) return;
+    const allValues = (ex.sets || []).map(s => s.weight);
+    const rawValues = allValues.filter(Boolean);
+    const hasSets = allValues.length > 0;
 
     // Detect time-based exercise (any set value contains ':')
     const isTime = rawValues.some(v => String(v).includes(':'));
@@ -63,13 +64,19 @@ sessions.forEach(session => {
       }
     } else {
       const weights = rawValues.map(v => parseFloat(v) || 0).filter(w => w > 0);
-      if (weights.length === 0) return;
-      const maxWeight = Math.max(...weights);
-      const volume = weights.reduce((a, b) => a + b, 0);
-      if (!records[name]) records[name] = [];
-      records[name].push({ date, maxWeight, volume, sets: ex.sets });
-      if (!prs[name] || maxWeight > prs[name].weight) {
-        prs[name] = { date, weight: maxWeight };
+      if (weights.length > 0) {
+        const maxWeight = Math.max(...weights);
+        const volume = weights.reduce((a, b) => a + b, 0);
+        if (!records[name]) records[name] = [];
+        records[name].push({ date, maxWeight, volume, sets: ex.sets });
+        if (!prs[name] || maxWeight > prs[name].weight) {
+          prs[name] = { date, weight: maxWeight };
+        }
+      } else if (hasSets && !prs[name]) {
+        // Band/bodyweight exercise logged with no numeric weight — record presence so it unlocks in the library
+        if (!records[name]) records[name] = [];
+        records[name].push({ date, maxWeight: 0, volume: 0, sets: ex.sets });
+        prs[name] = { date, weight: 0 };
       }
     }
   });

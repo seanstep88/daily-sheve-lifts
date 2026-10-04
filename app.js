@@ -793,7 +793,9 @@ async function renderLibrary() {
       const pr = prData[name];
       const isNew = newlyUnlocked.has(name);
       const newBadge = isNew ? '<span class="unlock-badge">✨ Unlocked!</span>' : '';
-      const prValue = info.unit === 'time' ? pr.weight : `${pr.weight} lbs`;
+      const prValue = info.unit === 'time' ? pr.weight
+                    : info.unit === 'band' || pr.weight === 0 ? 'Bodyweight / Band'
+                    : `${pr.weight} lbs`;
       const prDate  = pr.date ? `<span class="lib-pr-date">PR on ${pr.date}</span>` : '';
 
       let mediaHtml;
@@ -859,7 +861,9 @@ window.shakeCard = function(el) {
 
 window.openExerciseDetail = function(data) {
   const { name, info, pr } = data;
-  const prValue = info.unit === 'time' ? pr.weight : `${pr.weight} lbs`;
+  const prValue = info.unit === 'time' ? pr.weight
+                : info.unit === 'band' || pr.weight === 0 ? 'Bodyweight / Band'
+                : `${pr.weight} lbs`;
   const prDate  = pr.date ? `<p class="ex-detail-pr-date">PR set on ${pr.date}</p>` : '';
 
   let mediaHtml;

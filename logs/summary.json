@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-02T21:51:20.402Z",
+  "lastUpdated": "2026-10-04T02:39:05.480Z",
   "totalSessions": 7,
   "personalRecords": {
     "Dumbbell bicep curls": {
@@ -50,9 +50,25 @@
       "date": "2026-09-12",
       "weight": 30
     },
+    "Dumbbell reverse lunge": {
+      "date": "2026-09-15",
+      "weight": 0
+    },
     "Goblet Squat": {
       "date": "2026-09-15",
       "weight": 10
+    },
+    "Band lateral side steps": {
+      "date": "2026-09-15",
+      "weight": 0
+    },
+    "Banded standing adductor pull": {
+      "date": "2026-09-15",
+      "weight": 0
+    },
+    "Banded standing glute kickbacks": {
+      "date": "2026-09-15",
+      "weight": 0
     },
     "Reverse Grip Tricep Pushdown": {
       "date": "2026-10-02",
