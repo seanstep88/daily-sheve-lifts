@@ -1,58 +1,57 @@
 {
-  "date": "October 4, 2026",
-  "isoDate": "2026-10-04",
-  "title": "Shoulders & Glutes",
+  "date": "October 5, 2026",
+  "isoDate": "2026-10-05",
+  "title": "Back & Bis",
   "totalSets": "3 Rounds",
-  "notes": "Best Sunday morning ever",
+  "notes": "Focus on controlled form and full range of motion",
   "exercises": [
     {
-      "name": "Dumbbell shoulder press",
-      "muscleGroup": "Shoulders",
-      "target": "8 Reps",
-      "restSeconds": 90,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/shoulder-press-dumbbell.mp4",
-      "instructions": "Don't go heavy, keep it slow and controlled on the way down. Press straight up, don't flare your elbows too wide.",
-      "description": "1. Sit on a bench with back support or stand with feet shoulder-width apart.\n2. Hold a dumbbell in each hand at shoulder height, palms facing forward.\n3. Bring your shoulders back, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are fully extended overhead. Exhale at the top.\n5. Slowly lower the dumbbells back to shoulder height — take 3-4 seconds on the way down.\n6. Keep the movement smooth and controlled throughout."
-    },
-    {
-      "name": "Single arm cable lateral raise",
-      "muscleGroup": "Shoulders",
-      "target": "10 Reps each arm",
+      "name": "Lat pulldown",
+      "muscleGroup": "Back",
+      "target": "8-10 Reps",
       "restSeconds": 60,
-      "mediaUrl": "assets/videos/single-arm-lateral-raise-cable.mp4",
-      "instructions": "I love this one, i like to cross my leg over the other and lean away from the cable a bit. Cable stays in front of your body, raise to shoulder height only. Try to focus on leading with your elbow, less so your hand.",
-      "description": "1. Set the cable pulley to the lowest position and attach a single handle.\n2. Stand side-on to the machine and grip the handle with the hand furthest from it.\n3. Stand tall, core engaged, slight bend in the elbow.\n4. Take a breath and raise your arm out to the side until it's parallel to the floor. Exhale at the top.\n5. Slowly lower back to the start — don't let the weight stack drop.\n6. Complete all reps on one side, then switch."
+      "mediaUrl": "assets/videos/lat-pulldown-cable.mp4",
+      "instructions": "Pull down toward your upper chest, leading with your elbows and squeezing your lats at the bottom the best you can.",
+      "description": "1. Sit down at the lat pulldown machine and adjust the thigh pads so they fit snugly against your legs.\n2. Grip the bar with hands slightly wider than shoulder-width, palms facing away.\n3. Sit tall, bring your shoulders down and back, and engage your core.\n4. Take a breath and pull the bar down toward your upper chest, driving your elbows down and back.\n5. Squeeze your lats briefly at the bottom, exhaling as you pull.\n6. Slowly extend your arms back up to the starting position with control as you inhale."
     },
     {
-      "name": "Rear delt reverse fly machine",
-      "muscleGroup": "Shoulders",
+      "name": "Straight arm lat pulldown",
+      "muscleGroup": "Back",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/straight-arm-lat-pulldown-cable.mov",
+      "instructions": "Favorite lat exercise. Keep a slight bend in your elbows and push the bar down in an arc toward your thighs using your upper back, not your arms. Just go very light and try to feel the activation in ur lats.",
+      "description": "1. Set the cable pulley to the highest position and attach a straight bar or wide bar.\n2. Grip the bar with an overhand grip, step back slightly, and hinge forward at the hips with a flat back.\n3. Keep a slight bend in your elbows and engage your core.\n4. Take a breath and pull the bar down in a sweeping arc toward your thighs, squeezing your lats at the bottom.\n5. Hold briefly, exhale, and slowly return the bar back up to shoulder height with control as you inhale."
+    },
+    {
+      "name": "Dumbbell bicep curls",
+      "muscleGroup": "Biceps",
       "target": "10 Reps",
       "restSeconds": 60,
-      "mediaUrl": "assets/videos/rear-delt-reverse-fly-machine.mp4",
-      "instructions": "Chest against the pad and squeeze your shoulder blades together at the back, try not to swing your arms cuz then the muscles wont work as hard.",
-      "description": "1. Sit facing the pad on the reverse fly machine, chest pressed lightly against it.\n2. Grip the handles with a neutral or pronated grip, arms almost fully extended.\n3. Bring your shoulders down and back before you begin.\n4. Take a breath and pull the handles outward and back in a wide arc, squeezing your rear delts and rhomboids at the end range.\n5. Pause briefly at the back, then slowly return to the start. Breathe in on the way back.\n6. Keep your chest on the pad throughout — don't lean back into the movement."
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/bicep-curl.mp4",
+      "instructions": "pumps!",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet in a comfortable stance and shoulders retracted.\n2. Have your wrists pointing forward and your arms extended.\n3. Take a breath and curl both dumbbells simultaneously. Lift the weights until your wrists are slightly higher than your elbows and exhale.\n4. Extend your arms slowly and breathe in on the way down."
     },
     {
-      "name": "Clamshells",
-      "muscleGroup": "Legs",
-      "target": "10-12 Reps each side",
-      "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/clamshell.mp4",
-      "instructions": "Loop a band just above your knees. Keep your hips stacked and feet together, the only thing that moves is your top knee. Try not to let the pelvis rock backwardss.",
-      "description": "1. Loop a resistance band just above your knees.\n2. Lie on your side with your hips stacked, knees bent to about 45 degrees, and feet together.\n3. Rest your head on your bottom arm and place your top hand on your hip to keep it from rolling back.\n4. Engage your core and keep your feet together throughout.\n5. Take a breath and rotate your top knee upward like a clamshell opening, squeezing your glute at the top.\n6. Slowly lower your knee back to the start. Breathe out as you open.\n7. Complete all reps on one side before switching."
+      "name": "Hammer Curls",
+      "muscleGroup": "Biceps",
+      "target": "10 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/hammer-curl.mp4",
+      "instructions": "Hammer pumps!",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet shoulder-width apart.\n2. Let your arms hang at your sides with your palms facing your thighs — neutral (hammer) grip.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl both dumbbells up simultaneously, keeping your palms facing each other throughout.\n5. Curl until your wrists are at shoulder height and your biceps are fully contracted. Exhale at the top.\n6. Slowly lower the dumbbells back to the starting position as you breathe in.\n7. Don't swing your torso — keep it strict."
     },
     {
-      "name": "Hip abduction machine",
-      "muscleGroup": "Legs",
-      "target": "8-10 Reps",
+      "name": "Plank Hold",
+      "muscleGroup": "Core",
+      "target": "1 Minute",
       "restSeconds": 45,
-      "unit": "lbs",
-      "mediaUrl": "assets/videos/hip-abduction-machine.mp4",
-      "instructions": "Sit tall with your back flat against the pad. Push your knees out against the pads slowly and squeeze at the widest point before returning with control.",
-      "description": "1. Select your weight and sit down in the machine with your back flat against the pad.\n2. Place your legs against the inner pads and your feet on the foot rests.\n3. Engage your core and sit tall — don't round your lower back.\n4. Take a breath and slowly push both knees outward as far as comfortable, squeezing your glutes and outer hips at the top.\n5. Hold briefly at the widest point, then slowly bring your knees back together with control.\n6. Don't let the weight slam back — keep tension throughout the return."
+      "unit": "time",
+      "mediaUrl": "assets/videos/plank.mp4",
+      "instructions": "damn sean dead damn",
+      "description": "1. Get down on the floor.\n2. Extend your body. Support your lower body on your toes and your upper body on your forearms.\n3. Keep your shoulders neutral and abs engaged.\n4. Hold the position for as long as possible, breathing steadily as you do."
     }
   ]
 }
