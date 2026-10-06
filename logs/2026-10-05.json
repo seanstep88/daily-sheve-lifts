@@ -1,0 +1,91 @@
+{
+  "title": "Back & Bis",
+  "date": "2026-10-05",
+  "exercises": [
+    {
+      "name": "Lat pulldown",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "40"
+        },
+        {
+          "set": 2,
+          "weight": "40"
+        },
+        {
+          "set": 3,
+          "weight": "40"
+        }
+      ]
+    },
+    {
+      "name": "Straight arm lat pulldown",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "25"
+        },
+        {
+          "set": 2,
+          "weight": "40"
+        },
+        {
+          "set": 3,
+          "weight": "40"
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell bicep curls",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "15"
+        },
+        {
+          "set": 2,
+          "weight": "15"
+        },
+        {
+          "set": 3,
+          "weight": "15"
+        }
+      ]
+    },
+    {
+      "name": "Hammer Curls",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "12.5"
+        },
+        {
+          "set": 2,
+          "weight": "12.5"
+        },
+        {
+          "set": 3,
+          "weight": "12.5"
+        }
+      ]
+    },
+    {
+      "name": "Plank Hold",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "1:00"
+        },
+        {
+          "set": 2,
+          "weight": "1:00"
+        },
+        {
+          "set": 3,
+          "weight": "1:00"
+        }
+      ]
+    }
+  ]
+}
