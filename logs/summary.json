@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-10-04T15:39:22.191Z",
-  "totalSessions": 8,
+  "lastUpdated": "2026-10-06T00:35:49.204Z",
+  "totalSessions": 9,
   "personalRecords": {
     "Dumbbell bicep curls": {
-      "date": "2026-09-08",
-      "weight": 10
+      "date": "2026-10-05",
+      "weight": 15
     },
     "Dumbbell single arm bent over row": {
       "date": "2026-09-08",
@@ -15,8 +15,8 @@
       "weight": 17.5
     },
     "Plank Hold": {
-      "date": "2026-09-08",
-      "weight": "0:45"
+      "date": "2026-10-05",
+      "weight": "1:00"
     },
     "Incline dumbbell bench press": {
       "date": "2026-09-09",
@@ -105,15 +105,39 @@
     "Hip abduction machine": {
       "date": "2026-10-04",
       "weight": 55
+    },
+    "Lat pulldown": {
+      "date": "2026-10-05",
+      "weight": 40
+    },
+    "Straight arm lat pulldown": {
+      "date": "2026-10-05",
+      "weight": 40
     }
   },
   "trends": {
+    "Dumbbell bicep curls": {
+      "lastDate": "2026-10-05",
+      "prevDate": "2026-09-08",
+      "lastMax": 15,
+      "prevMax": 10,
+      "change": 5,
+      "trend": "📈 up"
+    },
     "Triceps rope pushdown": {
       "lastDate": "2026-09-12",
       "prevDate": "2026-09-08",
       "lastMax": 17.5,
       "prevMax": 17.5,
       "change": 0,
+      "trend": "➡️ same"
+    },
+    "Plank Hold": {
+      "lastDate": "2026-10-05",
+      "prevDate": "2026-09-08",
+      "lastMax": "1:00",
+      "prevMax": "0:45",
+      "change": null,
       "trend": "➡️ same"
     },
     "Dumbbell Tricep Extension": {
@@ -131,21 +155,124 @@
       "prevMax": 10,
       "change": 0,
       "trend": "➡️ same"
+    },
+    "Hammer Curls": {
+      "lastDate": "2026-10-05",
+      "prevDate": "2026-10-02",
+      "lastMax": 12.5,
+      "prevMax": 12.5,
+      "change": 0,
+      "trend": "➡️ same"
     }
   },
   "weeklyVolume": {
     "Dumbbell Tricep Extension": 24,
     "Reverse Grip Tricep Pushdown": 77.5,
-    "Hammer Curls": 37.5,
+    "Hammer Curls": 75,
     "Waiter Curl": 80,
     "Side Plank": 0,
     "Dumbbell shoulder press": 45,
     "Single arm cable lateral raise": 7.5,
     "Rear delt reverse fly machine": 0,
     "Clamshells": 0,
-    "Hip abduction machine": 155
+    "Hip abduction machine": 155,
+    "Lat pulldown": 120,
+    "Straight arm lat pulldown": 105,
+    "Dumbbell bicep curls": 45,
+    "Plank Hold": 3
   },
   "recentSessions": [
+    {
+      "date": "2026-10-05",
+      "title": "Back & Bis",
+      "exercises": [
+        {
+          "name": "Lat pulldown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "40"
+            },
+            {
+              "set": 2,
+              "weight": "40"
+            },
+            {
+              "set": 3,
+              "weight": "40"
+            }
+          ]
+        },
+        {
+          "name": "Straight arm lat pulldown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "25"
+            },
+            {
+              "set": 2,
+              "weight": "40"
+            },
+            {
+              "set": 3,
+              "weight": "40"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell bicep curls",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "15"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Hammer Curls",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "12.5"
+            },
+            {
+              "set": 2,
+              "weight": "12.5"
+            },
+            {
+              "set": 3,
+              "weight": "12.5"
+            }
+          ]
+        },
+        {
+          "name": "Plank Hold",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "1:00"
+            },
+            {
+              "set": 2,
+              "weight": "1:00"
+            },
+            {
+              "set": 3,
+              "weight": "1:00"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-04",
       "title": "Shoulders & Glutes",
@@ -509,11 +636,6 @@
           ]
         }
       ]
-    },
-    {
-      "date": "2026-09-13",
-      "title": "",
-      "exercises": []
     }
   ]
 }
