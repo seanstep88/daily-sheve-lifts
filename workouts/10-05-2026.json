@@ -1,0 +1,57 @@
+{
+  "date": "October 5, 2026",
+  "isoDate": "2026-10-05",
+  "title": "Back & Bis",
+  "totalSets": "3 Rounds",
+  "notes": "Focus on controlled form and full range of motion",
+  "exercises": [
+    {
+      "name": "Lat pulldown",
+      "muscleGroup": "Back",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/lat-pulldown-cable.mp4",
+      "instructions": "Pull down toward your upper chest, leading with your elbows and squeezing your lats at the bottom the best you can.",
+      "description": "1. Sit down at the lat pulldown machine and adjust the thigh pads so they fit snugly against your legs.\n2. Grip the bar with hands slightly wider than shoulder-width, palms facing away.\n3. Sit tall, bring your shoulders down and back, and engage your core.\n4. Take a breath and pull the bar down toward your upper chest, driving your elbows down and back.\n5. Squeeze your lats briefly at the bottom, exhaling as you pull.\n6. Slowly extend your arms back up to the starting position with control as you inhale."
+    },
+    {
+      "name": "Straight arm lat pulldown",
+      "muscleGroup": "Back",
+      "target": "8-10 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/straight-arm-lat-pulldown-cable.mp4",
+      "instructions": "Favorite lat exercise. Keep a slight bend in your elbows and push the bar down in an arc toward your thighs using your upper back, not your arms. Just go very light and try to feel the activation in ur lats.",
+      "description": "1. Set the cable pulley to the highest position and attach a straight bar or wide bar.\n2. Grip the bar with an overhand grip, step back slightly, and hinge forward at the hips with a flat back.\n3. Keep a slight bend in your elbows and engage your core.\n4. Take a breath and pull the bar down in a sweeping arc toward your thighs, squeezing your lats at the bottom.\n5. Hold briefly, exhale, and slowly return the bar back up to shoulder height with control as you inhale."
+    },
+    {
+      "name": "Dumbbell bicep curls",
+      "muscleGroup": "Biceps",
+      "target": "10 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/bicep-curl.mp4",
+      "instructions": "pumps!",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet in a comfortable stance and shoulders retracted.\n2. Have your wrists pointing forward and your arms extended.\n3. Take a breath and curl both dumbbells simultaneously. Lift the weights until your wrists are slightly higher than your elbows and exhale.\n4. Extend your arms slowly and breathe in on the way down."
+    },
+    {
+      "name": "Hammer Curls",
+      "muscleGroup": "Biceps",
+      "target": "10 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/hammer-curl.mp4",
+      "instructions": "Hammer pumps!",
+      "description": "1. Grab a pair of dumbbells and stand tall with your feet shoulder-width apart.\n2. Let your arms hang at your sides with your palms facing your thighs — neutral (hammer) grip.\n3. Bring your shoulders back and engage your core.\n4. Take a breath and curl both dumbbells up simultaneously, keeping your palms facing each other throughout.\n5. Curl until your wrists are at shoulder height and your biceps are fully contracted. Exhale at the top.\n6. Slowly lower the dumbbells back to the starting position as you breathe in.\n7. Don't swing your torso — keep it strict."
+    },
+    {
+      "name": "Plank Hold",
+      "muscleGroup": "Core",
+      "target": "1 Minute",
+      "restSeconds": 45,
+      "unit": "time",
+      "mediaUrl": "assets/videos/plank.mp4",
+      "instructions": "damn sean dead damn",
+      "description": "1. Get down on the floor.\n2. Extend your body. Support your lower body on your toes and your upper body on your forearms.\n3. Keep your shoulders neutral and abs engaged.\n4. Hold the position for as long as possible, breathing steadily as you do."
+    }
+  ]
+}
