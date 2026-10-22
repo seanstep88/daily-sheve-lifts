@@ -1,0 +1,50 @@
+{
+  "date": "October 22, 2026",
+  "isoDate": "2026-10-22",
+  "title": "Glutes",
+  "totalSets": "3 Rounds",
+  "notes": "happy birthday dad",
+  "exercises": [
+    {
+      "name": "Dumbbell reverse lunge",
+      "muscleGroup": "Legs",
+      "target": "10 Reps each leg",
+      "restSeconds": 90,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/db-reverse-lunge.mp4",
+      "instructions": "a classic where u dont have to lay on the ground to hit glutes",
+      "description": "1. Grab a pair of dumbbells (or go bodyweight) and stand tall.\n2. Have your feet in a comfortable stance, bring your shoulders back, and engage your abs.\n3. Take a breath and bring the right leg back, landing on the ball of the right foot. Immediately sink into a lunge by bending your front leg.\n4. Descend until your front thigh is almost parallel to the floor and your rear knee is an inch or two from the floor. A good stride length is when your front shin remains relatively vertical (knee over ankle) as you descend.\n5. Pause at the bottom and engage your front leg to bring yourself back to the top as you exhale.\n6. Take another breath and lunge back with your left leg.\n7. Keep alternating."
+    },
+    {
+      "name": "Glute pushback",
+      "muscleGroup": "Legs",
+      "target": "15 Reps each leg",
+      "restSeconds": 45,
+      "band": true,
+      "unit": "band",
+      "mediaUrl": "assets/videos/glute-pushback.mp4",
+      "instructions": "Maybe if you don't have this machine, you can do goblet squats. But this machine is awesome",
+      "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."
+    },
+    {
+      "name": "Single leg glute bridge",
+      "muscleGroup": "Legs",
+      "target": "12 Reps each leg",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/single-leg-glute-bridge.mp4",
+      "instructions": "Kirsten and I agreed on this one",
+      "description": "1. Lie on your back with your knees bent and feet flat on the floor, hip-width apart.\n2. Extend one leg straight out, rest your arms at your sides, and engage your abs.\n3. Breathe in, then push through the heel of your planted foot to drive your hips up toward the ceiling.\n4. Pause when your hips, knee, and shoulders form a straight line. Squeeze your glutes and exhale.\n5. Slowly lower your hips back down while keeping your abs engaged. Breathe in on the way down.\n6. Complete all reps on one side before switching."
+    },
+    {
+      "name": "Band lateral side steps",
+      "muscleGroup": "Legs",
+      "target": "15 Steps each direction",
+      "restSeconds": 45,
+      "band": true,
+      "unit": "band",
+      "mediaUrl": "assets/videos/band-lateral-walk.mp4",
+      "instructions": "I sadly think this is just really good for glute workout finishes",
+      "description": "1. Place a resistance band just above your knees.\n2. Stand with your feet hip-width apart, bend your knees slightly, and hinge slightly at the hips into an athletic stance.\n3. Keep your chest up and your core tight.\n4. Step one foot out to the side, then bring the other foot in to follow — keeping constant tension on the band.\n5. Take 15 steps in one direction, then reverse for 15 steps back.\n6. Keep your toes pointed forward and avoid letting the knees cave inward."
+    }
+  ]
+}
