@@ -1,0 +1,74 @@
+{
+  "title": "Glutes",
+  "date": "2026-10-22",
+  "exercises": [
+    {
+      "name": "Dumbbell reverse lunge",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "0"
+        },
+        {
+          "set": 2,
+          "weight": "0"
+        },
+        {
+          "set": 3,
+          "weight": "0"
+        }
+      ]
+    },
+    {
+      "name": "Glute pushback",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Single leg glute bridge",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Band lateral side steps",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    }
+  ]
+}
