@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-14T02:02:14.230Z",
-  "totalSessions": 10,
+  "lastUpdated": "2026-10-31T01:37:38.989Z",
+  "totalSessions": 11,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-10-05",
@@ -113,6 +113,14 @@
     "Straight arm lat pulldown": {
       "date": "2026-10-05",
       "weight": 40
+    },
+    "Glute pushback": {
+      "date": "2026-10-22",
+      "weight": 0
+    },
+    "Single leg glute bridge": {
+      "date": "2026-10-22",
+      "weight": 0
     }
   },
   "trends": {
@@ -181,13 +189,82 @@
       "trend": "➡️ same"
     }
   },
-  "weeklyVolume": {
-    "Incline dumbbell bench press": 52.5,
-    "Dumbbell lateral raises": 0,
-    "Dumbbell Tricep Extension": 24,
-    "Dumbbell front raises": 22.5
-  },
+  "weeklyVolume": {},
   "recentSessions": [
+    {
+      "date": "2026-10-22",
+      "title": "Glutes",
+      "exercises": [
+        {
+          "name": "Dumbbell reverse lunge",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "0"
+            },
+            {
+              "set": 2,
+              "weight": "0"
+            },
+            {
+              "set": 3,
+              "weight": "0"
+            }
+          ]
+        },
+        {
+          "name": "Glute pushback",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Single leg glute bridge",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Band lateral side steps",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-13",
       "title": "Triceps and Shoulders",
@@ -530,97 +607,6 @@
             {
               "set": 3,
               "weight": "0:30"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-09-18",
-      "title": "Runners Leg Day",
-      "exercises": [
-        {
-          "name": "Dumbbell reverse lunge",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "0"
-            },
-            {
-              "set": 2,
-              "weight": "0"
-            },
-            {
-              "set": 3,
-              "weight": "0"
-            }
-          ]
-        },
-        {
-          "name": "Goblet Squat",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "10"
-            },
-            {
-              "set": 2,
-              "weight": "10"
-            },
-            {
-              "set": 3,
-              "weight": "10"
-            }
-          ]
-        },
-        {
-          "name": "Band lateral side steps",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Banded standing adductor pull",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Banded standing glute kickbacks",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
             }
           ]
         }
