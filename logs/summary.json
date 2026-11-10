@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-10-31T01:37:38.989Z",
-  "totalSessions": 11,
+  "lastUpdated": "2026-11-10T23:57:10.772Z",
+  "totalSessions": 12,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-10-05",
@@ -121,6 +121,10 @@
     "Single leg glute bridge": {
       "date": "2026-10-22",
       "weight": 0
+    },
+    "Dumbbell tricep extension": {
+      "date": "2026-11-10",
+      "weight": 10
     }
   },
   "trends": {
@@ -187,10 +191,133 @@
       "prevMax": 12.5,
       "change": 0,
       "trend": "➡️ same"
+    },
+    "Dumbbell shoulder press": {
+      "lastDate": "2026-11-10",
+      "prevDate": "2026-10-04",
+      "lastMax": 15,
+      "prevMax": 15,
+      "change": 0,
+      "trend": "➡️ same"
     }
   },
-  "weeklyVolume": {},
+  "weeklyVolume": {
+    "Dumbbell shoulder press": 45,
+    "Dumbbell lateral raises": 0,
+    "Rear delt reverse fly machine": 0,
+    "Dumbbell skull crushers": 0,
+    "Dumbbell tricep extension": 28,
+    "Triceps rope pushdown": 0
+  },
   "recentSessions": [
+    {
+      "date": "2026-11-10",
+      "title": "Boulders and Diamonds",
+      "exercises": [
+        {
+          "name": "Dumbbell shoulder press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "15"
+            },
+            {
+              "set": 2,
+              "weight": "15"
+            },
+            {
+              "set": 3,
+              "weight": "15"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell lateral raises",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Rear delt reverse fly machine",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell skull crushers",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell tricep extension",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "10"
+            },
+            {
+              "set": 3,
+              "weight": "10"
+            }
+          ]
+        },
+        {
+          "name": "Triceps rope pushdown",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-22",
       "title": "Glutes",
@@ -516,97 +643,6 @@
             {
               "set": 3,
               "weight": "55"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-10-02",
-      "title": "Bis, Tris, & Core",
-      "exercises": [
-        {
-          "name": "Dumbbell Tricep Extension",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "8"
-            },
-            {
-              "set": 2,
-              "weight": "8"
-            },
-            {
-              "set": 3,
-              "weight": "8"
-            }
-          ]
-        },
-        {
-          "name": "Reverse Grip Tricep Pushdown",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "22.5"
-            },
-            {
-              "set": 2,
-              "weight": "27.5"
-            },
-            {
-              "set": 3,
-              "weight": "27.5"
-            }
-          ]
-        },
-        {
-          "name": "Hammer Curls",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "12.5"
-            },
-            {
-              "set": 2,
-              "weight": "12.5"
-            },
-            {
-              "set": 3,
-              "weight": "12.5"
-            }
-          ]
-        },
-        {
-          "name": "Waiter Curl",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "25"
-            },
-            {
-              "set": 2,
-              "weight": "25"
-            },
-            {
-              "set": 3,
-              "weight": "30"
-            }
-          ]
-        },
-        {
-          "name": "Side Plank",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "0:30"
-            },
-            {
-              "set": 2,
-              "weight": "0:30"
-            },
-            {
-              "set": 3,
-              "weight": "0:30"
             }
           ]
         }
