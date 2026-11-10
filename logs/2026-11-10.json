@@ -1,0 +1,108 @@
+{
+  "title": "Boulders and Diamonds",
+  "date": "2026-11-10",
+  "exercises": [
+    {
+      "name": "Dumbbell shoulder press",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "15"
+        },
+        {
+          "set": 2,
+          "weight": "15"
+        },
+        {
+          "set": 3,
+          "weight": "15"
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell lateral raises",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Rear delt reverse fly machine",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell skull crushers",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell tricep extension",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "8"
+        },
+        {
+          "set": 2,
+          "weight": "10"
+        },
+        {
+          "set": 3,
+          "weight": "10"
+        }
+      ]
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    }
+  ]
+}
