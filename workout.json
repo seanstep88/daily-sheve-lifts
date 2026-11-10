@@ -1,50 +1,67 @@
 {
-  "date": "October 22, 2026",
-  "isoDate": "2026-10-22",
-  "title": "Glutes",
+  "date": "November 10, 2026",
+  "isoDate": "2026-11-10",
+  "title": "Boulders and Diamonds",
   "totalSets": "3 Rounds",
-  "notes": "happy birthday dad",
+  "notes": "Chasing pushups and diamonds",
   "exercises": [
     {
-      "name": "Dumbbell reverse lunge",
-      "muscleGroup": "Legs",
-      "target": "10 Reps each leg",
+      "name": "Dumbbell shoulder press",
+      "muscleGroup": "Shoulders",
+      "target": "8-10 Reps",
       "restSeconds": 90,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/db-reverse-lunge.mp4",
-      "instructions": "a classic where u dont have to lay on the ground to hit glutes",
-      "description": "1. Grab a pair of dumbbells (or go bodyweight) and stand tall.\n2. Have your feet in a comfortable stance, bring your shoulders back, and engage your abs.\n3. Take a breath and bring the right leg back, landing on the ball of the right foot. Immediately sink into a lunge by bending your front leg.\n4. Descend until your front thigh is almost parallel to the floor and your rear knee is an inch or two from the floor. A good stride length is when your front shin remains relatively vertical (knee over ankle) as you descend.\n5. Pause at the bottom and engage your front leg to bring yourself back to the top as you exhale.\n6. Take another breath and lunge back with your left leg.\n7. Keep alternating."
+      "mediaUrl": "assets/videos/shoulder-press-dumbbell.mp4",
+      "instructions": "Use a 90 degree bench to support your back. If it messes with your back then just skip.",
+      "description": "1. Sit on a bench with back support or stand with feet shoulder-width apart.\n2. Hold a dumbbell in each hand at shoulder height, palms facing forward.\n3. Bring your shoulders back, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are fully extended overhead. Exhale at the top.\n5. Slowly lower the dumbbells back to shoulder height — take 3-4 seconds on the way down.\n6. Keep the movement smooth and controlled throughout."
     },
     {
-      "name": "Glute pushback",
-      "muscleGroup": "Legs",
-      "target": "15 Reps each leg",
-      "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/glute-pushback.mp4",
-      "instructions": "Maybe if you don't have this machine, you can do goblet squats. But this machine is awesome",
-      "description": "1. Loop one end of a resistance band around the base of a squat rack at ankle height and the other end around your ankle — or place the band around both ankles if no rack is available.\n2. Stand facing the rack and hold it lightly with both hands — just for balance, not to pull on.\n3. Stand tall, engage your core, and keep your hips level.\n4. Slowly kick the banded leg straight back, squeezing your glute at the top.\n5. Don't let your hip hike up or your torso lean forward — that means the back is taking over.\n6. Pause at the top, then slowly bring the leg back to start.\n7. Complete all reps on one side before switching."
-    },
-    {
-      "name": "Single leg glute bridge",
-      "muscleGroup": "Legs",
-      "target": "12 Reps each leg",
+      "name": "Dumbbell lateral raises",
+      "muscleGroup": "Shoulders",
+      "target": "12-15 Reps",
       "restSeconds": 60,
-      "mediaUrl": "assets/videos/single-leg-glute-bridge.mp4",
-      "instructions": "Kirsten and I agreed on this one",
-      "description": "1. Lie on your back with your knees bent and feet flat on the floor, hip-width apart.\n2. Extend one leg straight out, rest your arms at your sides, and engage your abs.\n3. Breathe in, then push through the heel of your planted foot to drive your hips up toward the ceiling.\n4. Pause when your hips, knee, and shoulders form a straight line. Squeeze your glutes and exhale.\n5. Slowly lower your hips back down while keeping your abs engaged. Breathe in on the way down.\n6. Complete all reps on one side before switching."
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/lateral-raise.mp4",
+      "instructions": "Your favorite song was playin' from the far side of the gym.",
+      "description": "1. Grab a pair of light dumbbells and stand tall.\n2. Bring your shoulders back, engage your abs, and take a breath.\n3. Lift both arms laterally until your elbows and wrists align with your shoulders. Exhale at the top.\n4. Lower the dumbbells to your sides as you breathe in."
     },
     {
-      "name": "Band lateral side steps",
-      "muscleGroup": "Legs",
-      "target": "15 Steps each direction",
-      "restSeconds": 45,
-      "band": true,
-      "unit": "band",
-      "mediaUrl": "assets/videos/band-lateral-walk.mp4",
-      "instructions": "I sadly think this is just really good for glute workout finishes",
-      "description": "1. Place a resistance band just above your knees.\n2. Stand with your feet hip-width apart, bend your knees slightly, and hinge slightly at the hips into an athletic stance.\n3. Keep your chest up and your core tight.\n4. Step one foot out to the side, then bring the other foot in to follow — keeping constant tension on the band.\n5. Take 15 steps in one direction, then reverse for 15 steps back.\n6. Keep your toes pointed forward and avoid letting the knees cave inward."
+      "name": "Rear delt reverse fly machine",
+      "muscleGroup": "Shoulders",
+      "target": "12 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/rear-delt-reverse-fly-machine.mp4",
+      "instructions": "i will wait for you til the sun turns into ashesssss",
+      "description": "1. Sit facing the pad on the reverse fly machine, chest pressed lightly against it.\n2. Grip the handles with a neutral or pronated grip, arms almost fully extended.\n3. Bring your shoulders down and back before you begin.\n4. Take a breath and pull the handles outward and back in a wide arc, squeezing your rear delts and rhomboids at the end range.\n5. Pause briefly at the back, then slowly return to the start. Breathe in on the way back.\n6. Keep your chest on the pad throughout — don't lean back into the movement."
+    },
+    {
+      "name": "Dumbbell skull crushers",
+      "muscleGroup": "Triceps",
+      "target": "10-12 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/Skullcrusher.mp4",
+      "instructions": "The songs you added are really good for when putting together a workout. try to keep the elbows steady btw.",
+      "description": "1. Grab a pair of dumbbells and lie on a flat gym bench.\n2. Straighten your arms and position the dumbbells over your chest with your wrists neutral (hands facing one another).\n3. Bring your shoulders back, engage your abs, and plant your feet flat on the floor.\n4. Take a breath and slowly bend your elbows to bring the dumbbells to the sides of your head.\n5. Hold the position momentarily and extend your arms by squeezing your triceps. Exhale near the top."
+    },
+    {
+      "name": "Dumbbell tricep extension",
+      "muscleGroup": "Triceps",
+      "target": "10-12 Reps each arm",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
+      "instructions": "Keep your elbow pointing at the ceiling and feel the stretch in the diamonds",
+      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "muscleGroup": "Triceps",
+      "target": "12-15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/triceps-rope-pushdown.mp4",
+      "instructions": "Finisher. Keep your back straight and chest high, elbows pinned to your sides. If form is failing, drop the weight. Best for last",
+      "description": "1. Pick the appropriate weight, set the pulley to the highest position, and attach a rope.\n2. Grab the rope with both hands and bring your elbows to your sides.\n3. Take a step back and lean your torso forward slightly.\n4. Take a breath and extend your arms while keeping your elbows in position. Breathe out.\n5. Bend your arms slowly and breathe in. Stop when your wrists end up slightly higher than your elbows."
     }
   ]
 }

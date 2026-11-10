@@ -1,0 +1,67 @@
+{
+  "date": "November 10, 2026",
+  "isoDate": "2026-11-10",
+  "title": "Shoulders & Triceps",
+  "totalSets": "3 Rounds",
+  "notes": "Shoulders first while you're fresh, then finish the triceps. Slow and controlled reps.",
+  "exercises": [
+    {
+      "name": "Dumbbell shoulder press",
+      "muscleGroup": "Shoulders",
+      "target": "8-10 Reps",
+      "restSeconds": 90,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/shoulder-press-dumbbell.mp4",
+      "instructions": "Your heaviest lift today. Keep it slow and controlled on the way down. Press straight up, don't flare your elbows too wide.",
+      "description": "1. Sit on a bench with back support or stand with feet shoulder-width apart.\n2. Hold a dumbbell in each hand at shoulder height, palms facing forward.\n3. Bring your shoulders back, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are fully extended overhead. Exhale at the top.\n5. Slowly lower the dumbbells back to shoulder height — take 3-4 seconds on the way down.\n6. Keep the movement smooth and controlled throughout."
+    },
+    {
+      "name": "Dumbbell lateral raises",
+      "muscleGroup": "Shoulders",
+      "target": "12-15 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/lateral-raise.mp4",
+      "instructions": "Go light weight, these can be tough. Lead with your elbows and stop at shoulder height.",
+      "description": "1. Grab a pair of light dumbbells and stand tall.\n2. Bring your shoulders back, engage your abs, and take a breath.\n3. Lift both arms laterally until your elbows and wrists align with your shoulders. Exhale at the top.\n4. Lower the dumbbells to your sides as you breathe in."
+    },
+    {
+      "name": "Rear delt reverse fly machine",
+      "muscleGroup": "Shoulders",
+      "target": "12 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/rear-delt-reverse-fly-machine.mp4",
+      "instructions": "Chest against the pad and squeeze your shoulder blades together at the back, try not to swing your arms cuz then the muscles wont work as hard.",
+      "description": "1. Sit facing the pad on the reverse fly machine, chest pressed lightly against it.\n2. Grip the handles with a neutral or pronated grip, arms almost fully extended.\n3. Bring your shoulders down and back before you begin.\n4. Take a breath and pull the handles outward and back in a wide arc, squeezing your rear delts and rhomboids at the end range.\n5. Pause briefly at the back, then slowly return to the start. Breathe in on the way back.\n6. Keep your chest on the pad throughout — don't lean back into the movement."
+    },
+    {
+      "name": "Dumbbell skull crushers",
+      "muscleGroup": "Triceps",
+      "target": "10-12 Reps",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/Skullcrusher.mp4",
+      "instructions": "Go light, form matters more than weight here. Keep elbows pointing straight up.",
+      "description": "1. Grab a pair of dumbbells and lie on a flat gym bench.\n2. Straighten your arms and position the dumbbells over your chest with your wrists neutral (hands facing one another).\n3. Bring your shoulders back, engage your abs, and plant your feet flat on the floor.\n4. Take a breath and slowly bend your elbows to bring the dumbbells to the sides of your head.\n5. Hold the position momentarily and extend your arms by squeezing your triceps. Exhale near the top."
+    },
+    {
+      "name": "Dumbbell tricep extension",
+      "muscleGroup": "Triceps",
+      "target": "10-12 Reps each arm",
+      "restSeconds": 60,
+      "dumbbell": true,
+      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
+      "instructions": "Keep your elbow pointing at the ceiling and feel the stretch at the bottom.",
+      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
+    },
+    {
+      "name": "Triceps rope pushdown",
+      "muscleGroup": "Triceps",
+      "target": "12-15 Reps",
+      "restSeconds": 60,
+      "mediaUrl": "assets/videos/triceps-rope-pushdown.mp4",
+      "instructions": "Finisher. Keep your back straight and chest high, elbows pinned to your sides. If form is failing, drop the weight.",
+      "description": "1. Pick the appropriate weight, set the pulley to the highest position, and attach a rope.\n2. Grab the rope with both hands and bring your elbows to your sides.\n3. Take a step back and lean your torso forward slightly.\n4. Take a breath and extend your arms while keeping your elbows in position. Breathe out.\n5. Bend your arms slowly and breathe in. Stop when your wrists end up slightly higher than your elbows."
+    }
+  ]
+}
