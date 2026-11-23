@@ -1,38 +1,29 @@
 {
-  "date": "November 10, 2026",
-  "isoDate": "2026-11-10",
-  "title": "Boulders and Diamonds",
+  "date": "November 23, 2026",
+  "isoDate": "2026-11-23",
+  "title": "Bench and Bell(a)",
   "totalSets": "3 Rounds",
-  "notes": "Chasing pushups and diamonds",
+  "notes": "Jack says have a nice workout with your dog",
   "exercises": [
     {
-      "name": "Dumbbell shoulder press",
-      "muscleGroup": "Shoulders",
+      "name": "Dumbbell bench press",
+      "muscleGroup": "Chest",
       "target": "8-10 Reps",
       "restSeconds": 90,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/shoulder-press-dumbbell.mp4",
-      "instructions": "Use a 90 degree bench to support your back. If it messes with your back then just skip.",
-      "description": "1. Sit on a bench with back support or stand with feet shoulder-width apart.\n2. Hold a dumbbell in each hand at shoulder height, palms facing forward.\n3. Bring your shoulders back, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are fully extended overhead. Exhale at the top.\n5. Slowly lower the dumbbells back to shoulder height — take 3-4 seconds on the way down.\n6. Keep the movement smooth and controlled throughout."
+      "mediaUrl": "assets/videos/db-bench-press.mp4",
+      "instructions": "classic basement lift",
+      "description": "1. Sit on the end of a flat bench with a dumbbell on each thigh.\n2. Lie back, bringing the dumbbells to chest level with palms facing forward.\n3. Bring your shoulders back and down, engage your core, and take a breath.\n4. Press the dumbbells straight up until your arms are extended. Exhale at the top.\n5. Slowly lower the dumbbells to the sides of your chest over 3 seconds.\n6. Keep your wrists stacked over your elbows throughout."
     },
     {
-      "name": "Dumbbell lateral raises",
-      "muscleGroup": "Shoulders",
-      "target": "12-15 Reps",
+      "name": "Incline dumbbell curl",
+      "muscleGroup": "Biceps",
+      "target": "10-12 Reps",
       "restSeconds": 60,
       "dumbbell": true,
-      "mediaUrl": "assets/videos/lateral-raise.mp4",
-      "instructions": "Your favorite song was playin' from the far side of the gym.",
-      "description": "1. Grab a pair of light dumbbells and stand tall.\n2. Bring your shoulders back, engage your abs, and take a breath.\n3. Lift both arms laterally until your elbows and wrists align with your shoulders. Exhale at the top.\n4. Lower the dumbbells to your sides as you breathe in."
-    },
-    {
-      "name": "Rear delt reverse fly machine",
-      "muscleGroup": "Shoulders",
-      "target": "12 Reps",
-      "restSeconds": 60,
-      "mediaUrl": "assets/videos/rear-delt-reverse-fly-machine.mp4",
-      "instructions": "i will wait for you til the sun turns into ashesssss",
-      "description": "1. Sit facing the pad on the reverse fly machine, chest pressed lightly against it.\n2. Grip the handles with a neutral or pronated grip, arms almost fully extended.\n3. Bring your shoulders down and back before you begin.\n4. Take a breath and pull the handles outward and back in a wide arc, squeezing your rear delts and rhomboids at the end range.\n5. Pause briefly at the back, then slowly return to the start. Breathe in on the way back.\n6. Keep your chest on the pad throughout — don't lean back into the movement."
+      "mediaUrl": "assets/videos/seated-incline-dumbbell-curl.mp4",
+      "instructions": "Set the bench to about 45 degrees. Let your arms hang straight down and keep your elbows back.",
+      "description": "1. Set a bench to a 45 degree incline and sit back with a dumbbell in each hand.\n2. Let your arms hang fully extended with palms facing forward.\n3. Take a breath and curl both dumbbells up without moving your elbows forward. Exhale at the top.\n4. Pause briefly and squeeze your biceps.\n5. Slowly lower the dumbbells until your arms are fully extended."
     },
     {
       "name": "Dumbbell skull crushers",
@@ -41,27 +32,26 @@
       "restSeconds": 60,
       "dumbbell": true,
       "mediaUrl": "assets/videos/Skullcrusher.mp4",
-      "instructions": "The songs you added are really good for when putting together a workout. try to keep the elbows steady btw.",
+      "instructions": "Keep your elbows steady and pointed at the ceiling. Lower slowly and stop if your shoulders start to take over.",
       "description": "1. Grab a pair of dumbbells and lie on a flat gym bench.\n2. Straighten your arms and position the dumbbells over your chest with your wrists neutral (hands facing one another).\n3. Bring your shoulders back, engage your abs, and plant your feet flat on the floor.\n4. Take a breath and slowly bend your elbows to bring the dumbbells to the sides of your head.\n5. Hold the position momentarily and extend your arms by squeezing your triceps. Exhale near the top."
     },
     {
-      "name": "Dumbbell tricep extension",
-      "muscleGroup": "Triceps",
-      "target": "10-12 Reps each arm",
+      "name": "Band pull aparts",
+      "muscleGroup": "Shoulders",
+      "target": "15-20 Reps",
       "restSeconds": 60,
-      "dumbbell": true,
-      "mediaUrl": "assets/videos/one-arm-overhead-tricep-extension.mp4",
-      "instructions": "Keep your elbow pointing at the ceiling and feel the stretch in the diamonds",
-      "description": "1. Grab a dumbbell and sit on a flat gym bench or chair.\n2. Lift the weight overhead and straighten your arm.\n3. Bring your shoulders back, engage your midsection, and inhale.\n4. Lower the dumbbell behind your head while keeping your elbow steady.\n5. Bend your arm until you feel a stretch in your tricep, and extend your elbow as you exhale.\n6. Once finished, grab the weight with your other hand, and do the same number of reps."
+      "mediaUrl": "assets/videos/band-pull-apart.mp4",
+      "instructions": "Keep your arms straight and pull from your upper back, not your arms. Don't shrug or flare your ribs.",
+      "description": "1. Stand tall holding a resistance band in front of your chest with both hands, palms facing down and arms straight.\n2. Bring your shoulders back and down, and engage your core.\n3. Take a breath and pull the band apart until your arms are out to your sides in a T. Exhale as you pull.\n4. Squeeze your shoulder blades together briefly at the end.\n5. Slowly return to the start, keeping tension on the band."
     },
     {
-      "name": "Triceps rope pushdown",
-      "muscleGroup": "Triceps",
-      "target": "12-15 Reps",
+      "name": "Kettlebell Around the World",
+      "muscleGroup": "Shoulders",
+      "target": "30-45 Seconds",
       "restSeconds": 60,
-      "mediaUrl": "assets/videos/triceps-rope-pushdown.mp4",
-      "instructions": "Finisher. Keep your back straight and chest high, elbows pinned to your sides. If form is failing, drop the weight. Best for last",
-      "description": "1. Pick the appropriate weight, set the pulley to the highest position, and attach a rope.\n2. Grab the rope with both hands and bring your elbows to your sides.\n3. Take a step back and lean your torso forward slightly.\n4. Take a breath and extend your arms while keeping your elbows in position. Breathe out.\n5. Bend your arms slowly and breathe in. Stop when your wrists end up slightly higher than your elbows."
+      "mediaUrl": "assets/videos/kettlebell-around-the-world.mp4",
+      "instructions": "These are a nice full upper body but u kinda just gotta feel the timing out",
+      "description": "1. Stand tall with feet shoulder-width apart, holding a kettlebell by the handle in both hands in front of your hips.\n2. Brace your core and keep your chest tall.\n3. Pass the kettlebell around your waist, handing it from one hand to the other behind your back and again in front.\n4. Keep your elbows close and the kettlebell tight to your body throughout.\n5. Breathe steadily, and switch directions halfway through the time."
     }
   ]
 }
