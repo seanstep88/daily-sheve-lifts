@@ -1,0 +1,91 @@
+{
+  "title": "Bench and Bell(a)",
+  "date": "2026-11-23",
+  "exercises": [
+    {
+      "name": "Dumbbell bench press",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "20"
+        },
+        {
+          "set": 2,
+          "weight": "20"
+        },
+        {
+          "set": 3,
+          "weight": "20"
+        }
+      ]
+    },
+    {
+      "name": "Incline dumbbell curl",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "12"
+        },
+        {
+          "set": 2,
+          "weight": "12"
+        },
+        {
+          "set": 3,
+          "weight": "12"
+        }
+      ]
+    },
+    {
+      "name": "Dumbbell skull crushers",
+      "sets": [
+        {
+          "set": 1,
+          "weight": "8"
+        },
+        {
+          "set": 2,
+          "weight": "8"
+        },
+        {
+          "set": 3,
+          "weight": "8"
+        }
+      ]
+    },
+    {
+      "name": "Band pull aparts",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    },
+    {
+      "name": "Kettlebell Around the World",
+      "sets": [
+        {
+          "set": 1,
+          "weight": ""
+        },
+        {
+          "set": 2,
+          "weight": ""
+        },
+        {
+          "set": 3,
+          "weight": ""
+        }
+      ]
+    }
+  ]
+}
