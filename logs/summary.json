@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-11-10T23:57:10.772Z",
-  "totalSessions": 12,
+  "lastUpdated": "2026-11-26T16:25:40.206Z",
+  "totalSessions": 13,
   "personalRecords": {
     "Dumbbell bicep curls": {
       "date": "2026-10-05",
@@ -125,6 +125,22 @@
     "Dumbbell tricep extension": {
       "date": "2026-11-10",
       "weight": 10
+    },
+    "Dumbbell bench press": {
+      "date": "2026-11-23",
+      "weight": 20
+    },
+    "Incline dumbbell curl": {
+      "date": "2026-11-23",
+      "weight": 12
+    },
+    "Band pull aparts": {
+      "date": "2026-11-23",
+      "weight": 0
+    },
+    "Kettlebell Around the World": {
+      "date": "2026-11-23",
+      "weight": 0
     }
   },
   "trends": {
@@ -176,6 +192,14 @@
       "change": -0.5,
       "trend": "📉 down"
     },
+    "Dumbbell skull crushers": {
+      "lastDate": "2026-11-23",
+      "prevDate": "2026-09-12",
+      "lastMax": 8,
+      "prevMax": 8,
+      "change": 0,
+      "trend": "➡️ same"
+    },
     "Goblet Squat": {
       "lastDate": "2026-09-18",
       "prevDate": "2026-09-15",
@@ -202,14 +226,104 @@
     }
   },
   "weeklyVolume": {
-    "Dumbbell shoulder press": 45,
-    "Dumbbell lateral raises": 0,
-    "Rear delt reverse fly machine": 0,
-    "Dumbbell skull crushers": 0,
-    "Dumbbell tricep extension": 28,
-    "Triceps rope pushdown": 0
+    "Dumbbell bench press": 60,
+    "Incline dumbbell curl": 36,
+    "Dumbbell skull crushers": 24,
+    "Band pull aparts": 0,
+    "Kettlebell Around the World": 0
   },
   "recentSessions": [
+    {
+      "date": "2026-11-23",
+      "title": "Bench and Bell(a)",
+      "exercises": [
+        {
+          "name": "Dumbbell bench press",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "20"
+            },
+            {
+              "set": 2,
+              "weight": "20"
+            },
+            {
+              "set": 3,
+              "weight": "20"
+            }
+          ]
+        },
+        {
+          "name": "Incline dumbbell curl",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "12"
+            },
+            {
+              "set": 2,
+              "weight": "12"
+            },
+            {
+              "set": 3,
+              "weight": "12"
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell skull crushers",
+          "sets": [
+            {
+              "set": 1,
+              "weight": "8"
+            },
+            {
+              "set": 2,
+              "weight": "8"
+            },
+            {
+              "set": 3,
+              "weight": "8"
+            }
+          ]
+        },
+        {
+          "name": "Band pull aparts",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        },
+        {
+          "name": "Kettlebell Around the World",
+          "sets": [
+            {
+              "set": 1,
+              "weight": ""
+            },
+            {
+              "set": 2,
+              "weight": ""
+            },
+            {
+              "set": 3,
+              "weight": ""
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-11-10",
       "title": "Boulders and Diamonds",
@@ -552,97 +666,6 @@
             {
               "set": 3,
               "weight": "1:00"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-10-04",
-      "title": "Shoulders & Glutes",
-      "exercises": [
-        {
-          "name": "Dumbbell shoulder press",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "15"
-            },
-            {
-              "set": 2,
-              "weight": "15"
-            },
-            {
-              "set": 3,
-              "weight": "15"
-            }
-          ]
-        },
-        {
-          "name": "Single arm cable lateral raise",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "2.5"
-            },
-            {
-              "set": 2,
-              "weight": "2.5"
-            },
-            {
-              "set": 3,
-              "weight": "2.5"
-            }
-          ]
-        },
-        {
-          "name": "Rear delt reverse fly machine",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Clamshells",
-          "sets": [
-            {
-              "set": 1,
-              "weight": ""
-            },
-            {
-              "set": 2,
-              "weight": ""
-            },
-            {
-              "set": 3,
-              "weight": ""
-            }
-          ]
-        },
-        {
-          "name": "Hip abduction machine",
-          "sets": [
-            {
-              "set": 1,
-              "weight": "50"
-            },
-            {
-              "set": 2,
-              "weight": "50"
-            },
-            {
-              "set": 3,
-              "weight": "55"
             }
           ]
         }
